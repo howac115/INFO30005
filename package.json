@@ -1,0 +1,14 @@
+{
+  "name": "incubeta",
+  "version": "1.0.0",
+  "description": "Library App for workshops in INFO30005",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Haoqi Chen",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
