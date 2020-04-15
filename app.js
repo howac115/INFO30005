@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 var MongoClient = require('mongodb').MongoClient;
 // set up default mongoose connection
-const mongoDB = 'mongodb+srv://backSt:info30005@info30005-9ex9v.mongodb.net/test?authSource=admin&replicaSet=INFO30005-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true';
+const mongoDB = 'mongodb+srv://haoqic:8717192@incubeta-wowel.mongodb.net/test?retryWrites=true&w=majority';
 //mongoose.connect(mongoDB);
 MongoClient.connect(mongoDB, { useNewUrlParser: true }, function(err, db) {
   if (err) throw err;
