@@ -1,0 +1,25 @@
+.row.mt-5
+  .col-md-6.m-auto
+    .card.card-body
+      h1.text-center.mb-3
+        i.fas.fa-user-plus
+        |  Register
+      |       <% include ./partials/messages %>
+      form(action='/users/register', method='POST')
+        .form-group
+          label(for='name') Name
+          input#name.form-control(type='name', name='name', placeholder='Enter Name', value="<%= typeof name != 'undefined' ? name : '' %>")
+        .form-group
+          label(for='email') Email
+          input#email.form-control(type='email', name='email', placeholder='Enter Email', value="<%= typeof email != 'undefined' ? email : '' %>")
+        .form-group
+          label(for='password') Password
+          input#password.form-control(type='password', name='password', placeholder='Create Password', value="<%= typeof password != 'undefined' ? password : '' %>")
+        .form-group
+          label(for='password2') Confirm Password
+          input#password2.form-control(type='password', name='password2', placeholder='Confirm Password', value="<%= typeof password2 != 'undefined' ? password2 : '' %>")
+        button.btn.btn-primary.btn-block(type='submit')
+          | Register
+      p.lead.mt-4
+        | Have An Account? 
+        a(href='/users/login') Login
