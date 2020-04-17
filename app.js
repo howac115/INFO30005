@@ -3,11 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var passport = require('passport');
+var flash = require('connect-flash');
+var session = require('express-session');
 
+// Connects to routes
 var indexRouter = require('./routes/index');
 var homeRouter = require('./routes/home');
-var loginRouter = require('./routes/login');
-var dashboardRouter = require('./routes/dashboard');
 
 var app = express();
 
@@ -16,7 +18,11 @@ var app = express();
 var mongoose = require('mongoose');
 var dev_db_url = 'mongodb+srv://haoqic:1234@incubeta-wowel.mongodb.net/INFO30005?retryWrites=true&w=majority'
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.connect(mongoDB, { 
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true 
+});
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -32,10 +38,36 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport')(passport); 
+
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+)
+
+// Connect flash
+app.use(flash());
+
+// Global variables
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
+
 app.use('/', indexRouter);
 app.use('/home', homeRouter);
-app.use('/login', loginRouter);
-app.use('/dashboard', dashboarddRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
