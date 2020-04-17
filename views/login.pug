@@ -1,13 +1,23 @@
+extends layout
+
 block content
   h1=title
+  .col-md-6.m-auto
+    h1
+      i
+      | Login
+    form(action='/home/login', method='POST')
+      .form-group
+        label(for='email') Email
+        input#email.form-control(type='email', name='email', placeholder='Enter Email')
+      .form-group
+        label(for='password') Password
+        input#password.form-control(type='password', name='password', placeholder='Enter Password')
+      button.btn.btn-primary(type='submit') Login
+      p
+      | No Account? 
+      a(href='/home/register') Register
 
-  form(method='POST' action='')
-    div.form-group
-      label(for='username') Username:
-      input#username.form-control(type='text', placeholder='Username (haoqic)' name='username' required='true' value=(undefined===user ? '' : user.username) )
-      label(for='password') Password:
-      input#password.form-control(type='text', placeholder='Password (1234)' name='password' required='true' value=(undefined===user ? '' : user.password))
-    button.btn.btn-primary(type='submit') Submit
 
   if errors 
     ul
