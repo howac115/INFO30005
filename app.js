@@ -13,6 +13,8 @@ var homeRouter = require('./routes/home');
 
 var app = express();
 
+// DB and passport config
+require('./config/passport')(passport); 
 
 // Set up mongoose connection
 var mongoose = require('mongoose');
@@ -38,13 +40,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-require('./config/passport')(passport); 
-
 // Express session
 app.use(
   session({
@@ -53,6 +48,10 @@ app.use(
     saveUninitialized: true
   })
 )
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Connect flash
 app.use(flash());
