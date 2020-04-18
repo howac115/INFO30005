@@ -15,10 +15,10 @@ router.get('/', function(req, res, next) {
 
 
 /* Login page */
-router.get('/login', (req, res) => res.render('Login'));
+router.get('/login', (req, res) => res.render('login'));
 
 /* Register page */
-router.get('/register', (req, res) => res.render('Register'));
+router.get('/register', (req, res) => res.render('register'));
 
 /* Register handle */
 router.post('/register', (req, res) => {
