@@ -1,0 +1,22 @@
+extends header
+
+block content
+  title #{user.name}
+
+  center
+    h1 User: #{user.name}
+  
+    div(style='margin-left:20px;margin-top:20px')
+    h4 E-mail Address
+    dd #{user.email}
+    h4 Jobs
+    dl
+    each job in user_jobs
+      dt 
+        a(href=job.url) #{job.title}
+      dd #{job.description}
+
+    else
+      p This user has no jobs.
+      
+    hr
