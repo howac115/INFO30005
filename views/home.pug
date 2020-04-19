@@ -1,7 +1,11 @@
-extends layout
+extends header
 
 block content
   title Home
-  .col-md-6.m-auto
-    a.btn.btn-primary.btn-block.mb-2(href='/home/register') Register
-    a.btn.btn-primary.btn-block(href='/home/login') Login
+  center
+    if (user)
+      h1 Hello
+    else
+      h1 Hello
+      a.btn.btn-lg.btn-default(href='/home/register') Register
+      a.btn.btn-lg.btn-default(href='/home/login') Login
