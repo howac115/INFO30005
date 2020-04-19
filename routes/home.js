@@ -9,10 +9,10 @@ var { forwardAuthenticated } = require('../config/auth');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('home', { title: 'InCuBeTa' });
+    res.render('home', { 
+        title: 'InCuBeTa',
+    })
 });
-
-
 
 /* Login page */
 router.get('/login', (req, res) => res.render('login'));
@@ -22,10 +22,10 @@ router.get('/register', (req, res) => res.render('register'));
 
 /* Register handle */
 router.post('/register', (req, res) => {
-  const { name, email, password, password2 } = req.body;
+  const { first_name, family_name, email, password, password2 } = req.body;
   let errors = [];
 
-  if (!name || !email || !password || !password2) {
+  if ( !first_name || !family_name || !email || !password || !password2 ) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -36,7 +36,8 @@ router.post('/register', (req, res) => {
   if (errors.length > 0) {
     res.render('register', {
       errors,
-      name,
+      first_name,
+      family_name,
       email,
       password,
       password2
@@ -47,14 +48,16 @@ router.post('/register', (req, res) => {
         errors.push({ msg: 'Email already exists' });
         res.render('register', {
           errors,
-          name,
+          first_name,
+          family_name,
           email,
           password,
           password2
         });
       } else {
         const newUser = new User({
-          name,
+          first_name,
+          family_name,
           email,
           password
         });
@@ -70,7 +73,7 @@ router.post('/register', (req, res) => {
               })
               .catch(err => console.log(err));
           });
-        });
+        }); 
       }
     });
   }
@@ -82,7 +85,6 @@ router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/dashboard',
     failureRedirect: '/home/login',
-    failureFlash: true
   })(req, res, next);
 });
 
