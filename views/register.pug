@@ -1,15 +1,18 @@
-extends layout
+extends header
 
 block content
-  h1=title
-  .col-md-6.m-auto
+  title Register
+  center
     h1
       i
       | Register
     form(action='/home/register', method='POST')
       .form-group
-        label(for='name') Name
-        input#name.form-control(type='name', name='name', placeholder='Enter Name')
+        label(for='first_name') First Name
+        input#first_name.form-control(type='name', name='first_name', placeholder='Enter First Name')
+      .form-group
+        label(for='family_name') Family Name
+        input#family_name.form-control(type='name', name='family_name', placeholder='Enter Family Name')
       .form-group
         label(for='email') Email
         input#email.form-control(type='email', name='email', placeholder='Enter Email')
