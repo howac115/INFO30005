@@ -3,7 +3,7 @@ extends header
 block content
     title Dashboard
     center
-        p.lead.mb-3 Welcome #{user.first_name}
+        p.lead.mb-3 Welcome #{current_user.first_name}
         .sidebar-nav
             li 
                 a(href='/dashboard/jobs') All jobs
