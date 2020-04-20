@@ -20,9 +20,20 @@ router.get('/', ensureAuthenticated, function(req, res) {
 // GET request to view Job Create page.
 router.get('/job/create', job_controller.job_create_get);
 
-
 // POST request to create new Job
 router.post('/job/create', job_controller.job_create_post);
+
+// GET request to delete Job.
+router.get('/job/:id/delete', job_controller.job_delete_get);
+
+// POST request to delete Job.
+router.post('/job/:id/delete', job_controller.job_delete_post);
+
+// GET request to update Job
+router.get('/job/:id/update', job_controller.job_update_get);
+
+// POST request to update Job
+router.post('/job/:id/update', job_controller.job_update_post);
 
 // GET request for one Job
 router.get('/job/:id', job_controller.job_detail);
@@ -35,6 +46,9 @@ router.get('/jobs', job_controller.job_list);
 
 // GET request to update user profile
 router.get('/user/:id/update', user_controller.user_update_get);
+
+// POST request to update user profile
+router.post('/user/:id/update', user_controller.user_update_post);
 
 // GET request for one user
 router.get('/user/:id', user_controller.user_detail);
