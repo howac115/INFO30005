@@ -10,7 +10,7 @@ var user_controller = require('../controllers/userController');
 // GET request to Dashboard page. Protected from when logged out.
 router.get('/', ensureAuthenticated, function(req, res) {
     res.render('dashboard', {
-        user: req.user
+        current_user: req.user
     })
 });
 
@@ -32,6 +32,9 @@ router.get('/jobs', job_controller.job_list);
 
 
 /// USER ROUTES ///
+
+// GET request to update user profile
+router.get('/user/:id/update', user_controller.user_update_get);
 
 // GET request for one user
 router.get('/user/:id', user_controller.user_detail);
