@@ -4,11 +4,22 @@ block content
   title #{user.name}
 
   center
-    h1 User: #{user.name}
+    if (user.profile_img)
+      d1 #{user.profile_img}
+      img.img-responsive(src='#{user.profile_img}')
+      img.img-responsive(src='https://m1.aboluowang.com/uploadfile/2019/1224/20191224094238792.gif')
+    else
+      dd no img
+    h1 #{user.name}
   
     div(style='margin-left:20px;margin-top:20px')
     h4 E-mail Address
     dd #{user.email}
+    h4 Phone Number
+    if (user.phone_num)
+      dd #{user.phone_num}
+    else
+      dd This user has not updated his phone number  
     h4 Jobs
     dl
     each job in user_jobs
@@ -20,3 +31,6 @@ block content
       p This user has no jobs.
       
     hr
+    if (current_user.url == user.url)
+      p
+        a(href=user.url+'/update') Update Profile
