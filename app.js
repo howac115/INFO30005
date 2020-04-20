@@ -3,33 +3,35 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var passport = require('passport');
+var flash = require('connect-flash');
+var session = require('express-session');
 
+// Connects to routes
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var jobsRouter = require('./routes/jobs');
+var homeRouter = require('./routes/home');
+var dashboardRouter = require('./routes/dashboard');
+
+var compression = require('compression');
+var helmet = require('helmet');
 
 var app = express();
 
-/**** DATABASE ****/
-// 导入 mongoose 模块
-const mongoose = require('mongoose');
-var MongoClient = require('mongodb').MongoClient;
-// 设置默认 mongoose 连接
-const mongoDB = 'mongodb+srv://backSt:info30005@info30005-9ex9v.mongodb.net/test?authSource=admin&replicaSet=INFO30005-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true';
-//mongoose.connect(mongoDB);
-MongoClient.connect(mongoDB, { useNewUrlParser: true }, function(err, db) {
-  if (err) throw err;
-  console.log("DataBase Created");
-  db.close();
-});
+// DB and passport config
+require('./config/passport')(passport); 
 
-// 让 mongoose 使用全局 Promise 库
+// Set up mongoose connection
+var mongoose = require('mongoose');
+var dev_db_url = 'mongodb+srv://haoqic:1234@incubeta-wowel.mongodb.net/INFO30005?retryWrites=true&w=majority'
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongoDB, { 
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true 
+});
 mongoose.Promise = global.Promise;
-// 取得默认连接
-const db = mongoose.connection;
-// 将连接与错误事件绑定（以获得连接错误的提示）
-db.on('error', console.error.bind(console, 'ERROR: Connect MangoDB Failed'));
-/**** DATABASE ****/
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 // view engine setup
@@ -40,11 +42,38 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(helmet());
+app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+)
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect flash
+app.use(flash());
+
+// Global variables
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/jobs', jobsRouter);
+app.use('/home', homeRouter);
+app.use('/dashboard', dashboardRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

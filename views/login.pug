@@ -1,0 +1,26 @@
+extends header
+
+block content
+  
+  title Login
+  center
+    h1
+      i
+      | Login
+    form(action='/home/login', method='POST')
+      .form-group
+        label(for='email') Email
+        input#email.form-control(type='email', name='email', placeholder='Enter Email')
+      .form-group
+        label(for='password') Password
+        input#password.form-control(type='password', name='password', placeholder='Enter Password')
+      button.btn.btn-primary(type='submit') Login
+      p
+      | No Account? 
+      a(href='/home/register') Register
+
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

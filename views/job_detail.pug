@@ -1,0 +1,15 @@
+extends header
+
+block content
+  title #{job.title}
+  center
+    h1 #{title}: #{job.title}
+  
+    p #[strong User:] 
+        a(href=job.user.url) #{job.user.name}
+    p #[strong Description:] #{job.description}
+    p #[strong Tag:] 
+        each val in job.tag
+            a(href=val.url) #{val.name}
+            |,       
+    hr
