@@ -24,11 +24,13 @@ nav.navbar.navbar-default
         img(src='/images/incubeta-1.png')
     #navbar.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        if(user)
+        if(current_user)
           li 
             a(href='/dashboard') Dashboard
           li
-            a(href='#') Signed In As #{user.first_name}
+            a(href='#') Signed In As #{current_user.first_name}
+          li
+            a(href=current_user.url) Profile
           li
             a(href='/home/logout') Logout
         else
