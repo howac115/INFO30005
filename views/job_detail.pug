@@ -13,3 +13,8 @@ block content
             a(href=val.url) #{val.name}
             |,       
     hr
+    if (current_user.url == job.user.url)
+      p
+        a(href=job.url+'/update') Update Job
+      p
+        a(href=job.url+'/delete') Delete Job
