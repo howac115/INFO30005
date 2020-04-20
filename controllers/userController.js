@@ -22,7 +22,23 @@ exports.user_detail = function (req, res, next) {
             return next(err);
         }
         // Successful, so render.
-        res.render('user_detail', { title: 'User Detail', user: results.user, user_jobs: results.user_jobs });
+        res.render('user_detail', { title: 'User Detail', current_user: req.user, user: results.user, user_jobs: results.user_jobs });
     });
 
+};
+
+// Display User update form on GET.
+exports.user_update_get = function (req, res, next) {
+
+    User.findById(req.params.id, function (err, user) {
+        if (err) { return next(err); }
+        if (user == null) { // No results.
+            var err = new Error('User not found');
+            err.status = 404;
+            return next(err);
+        }
+        // Success.
+        res.render('user_update', { title: 'Update User', current_user: req.user, user: user });
+
+    });
 };
