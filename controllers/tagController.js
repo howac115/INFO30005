@@ -69,7 +69,7 @@ exports.tag_create_post = function(req, res, next) {
                 });
                 newTag.save().then(tag => {
                       res.redirect(tag.url);
-                  })
+                })
             }
         })
     }
@@ -164,10 +164,10 @@ exports.tag_update_post = function(req, res, next) {
         return;
     } else {
         // Data from form is valid. Update the record.
-        Tag.findByIdAndUpdate(req.params.id, tag, {}, function(err, thetag) {
+        Tag.findByIdAndUpdate(req.params.id, tag, {}, function(err, theTag) {
             if (err) { return next(err); }
             // Successful - redirect to the tag detail page.
-            res.redirect(thetag.url);
+            res.redirect(theTag.url);
         })
     }
 }
