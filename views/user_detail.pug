@@ -2,17 +2,17 @@ extends header
 
 block content
   title #{user.name}
-
   center
     if (user.profile_img)
-      d1 #{user.profile_img}
-      img.img-responsive(src='#{user.profile_img}')
-      img.img-responsive(src='https://m1.aboluowang.com/uploadfile/2019/1224/20191224094238792.gif')
-    else
-      dd no img
+      img.img-responsive(src=''+ user.profile_img )
     h1 #{user.name}
   
     div(style='margin-left:20px;margin-top:20px')
+    h4 Summary
+    if (user.summary)
+      dd #{user.summary}
+    else
+      dd This user has not updated his summary
     h4 E-mail Address
     dd #{user.email}
     h4 Phone Number
