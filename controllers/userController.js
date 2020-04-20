@@ -42,3 +42,25 @@ exports.user_update_get = function (req, res, next) {
 
     });
 };
+
+// Handle User update on POST.
+exports.user_update_post = function(req, res, next) {
+
+    var user = new User({
+
+        email: req.body.email,
+        phone_num: req.body.phone_num,
+        profile_img: req.body.profile_img,
+        summary: req.body.summary,
+        _id: req.params.id
+
+    });
+
+    // Data from form is valid. Update the record.
+    User.findByIdAndUpdate(req.params.id, user, {}, function(err, theUser) {
+        if (err) { return next(err); }
+        // Successful - redirect to the user detail page.
+        res.redirect(theUser.url);
+    })
+    
+}
