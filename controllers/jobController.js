@@ -11,7 +11,7 @@ exports.job_list = function(req, res, next) {
         if (err) {return next(err)} 
         else {
               // Successful, so render
-              res.render('job_list', { title: 'Job List', user: req.user, job_list:  list_jobs});
+              res.render('job_list', { title: 'Job List', current_user: req.user, job_list:  list_jobs});
           }
       });
   
@@ -37,7 +37,7 @@ exports.job_detail = function(req, res, next) {
             return next(err);
         }
         // Successful, so render.
-        res.render('job_detail', { title: 'Title', user: req.user, job:  results.job } );
+        res.render('job_detail', { title: 'Title', current_user: req.user, job:  results.job } );
     });
 
 };
@@ -52,7 +52,7 @@ exports.job_create_get = function(req, res, next) {
         },
     }, function(err, results) {
         if (err) { return next(err); }
-        res.render('job_create', { title: 'Post Job', user: req.user, tags: results.tags });
+        res.render('job_create', { title: 'Post Job', current_user: req.user, tags: results.tags });
     })
 }
 
