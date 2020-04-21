@@ -1,0 +1,14 @@
+extends header
+
+block content
+  title Tag List
+  center
+    h1= title
+    
+    ul
+    each val in list_tags
+        li 
+        a(href=val.url) #{val.name}
+
+    else
+        li There are no tag.

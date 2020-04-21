@@ -1,0 +1,14 @@
+extends header
+
+block content
+  
+  center
+    h1 #{title}: #{job.title}
+
+    p Do you really want to delete this Book?
+
+    form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='hidden',name='id', required='true', value=job._id )
+    
+      button.btn.btn-primary(type='submit') Delete

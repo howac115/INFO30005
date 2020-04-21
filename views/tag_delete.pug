@@ -1,0 +1,28 @@
+extends header
+
+block content
+
+  h1 Delete Tag: #{tag.name}
+  
+  if tag_jobs.length
+  
+    p #[strong Delete the following jobs before attempting to delete this tag.]
+  
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 Jobs
+    
+      dl
+      each job in tag_jobs
+        dt 
+          a(href=job.url) #{job.title}
+        dd #{job.summary}
+
+  else
+    p Do you really want to delete this Tag?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='hidden',name='id', required='true', value=tag._id )
+
+      button.btn.btn-primary(type='submit') Delete
