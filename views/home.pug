@@ -1,0 +1,11 @@
+extends header
+
+block content
+  title Home
+  center
+    if (user)
+      h1 Hello
+    else
+      h1 Hello
+      a.btn.btn-lg.btn-default(href='/home/register') Register
+      a.btn.btn-lg.btn-default(href='/home/login') Login
