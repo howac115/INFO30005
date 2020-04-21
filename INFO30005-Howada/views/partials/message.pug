@@ -1,0 +1,7 @@
+div.col-10.ml-sm-auto.px-4
+    if successes
+      for success in successes
+        div.alert.alert-success #{ success }
+    if errors
+      for error, i in errors
+        div.alert.alert-danger #{ error }

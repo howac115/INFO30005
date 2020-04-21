@@ -1,0 +1,27 @@
+extends header
+
+block content
+  title Post Job
+  center
+    h1 Post Job
+    form(method='POST' action='')
+        div.form-group
+            label(for='title') Title:
+            input#title.form-control(type='text', placeholder='Title of the job' name='title' required='true' value=(undefined===job ? '' : job.title) )
+        div.form-group
+            label(for='description') Summary:
+            input#summary.form-control(type='textarea', placeholder='Brief description' name='description' value=(undefined===job ? '' : job.description) required='true')
+        div.form-group
+            label Tag:
+            div
+              for tag in tags
+                div(style='display: inline; padding-right:10px;')
+                  input.checkbox-input(type='checkbox', name='tag', id=tag._id, value=tag._id, checked=tag.checked )
+                  label(for=tag._id) #{tag.name}
+        div.form-group
+        button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg
