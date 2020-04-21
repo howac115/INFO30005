@@ -22,11 +22,26 @@ router.get('/register', (req, res) => res.render('register'));
 
 /* Register handle */
 router.post('/register', (req, res) => {
-  const { first_name, family_name, email, password, password2 } = req.body;
+  const { first_name, family_name, email, phone_num, password, password2 } = req.body;
   let errors = [];
 
-  if ( !first_name || !family_name || !email || !password || !password2 ) {
-    errors.push({ msg: 'Please enter all fields' });
+  if ( !first_name ) {
+    errors.push({ msg: 'Please Enter Your First Name' });
+  }
+  if ( !family_name ) {
+    errors.push({ msg: 'Please Enter Your Family Name' });
+  }
+  if ( !email ) {
+    errors.push({ msg: 'Please Enter Your Email' });
+  }
+  if ( !phone_num ) {
+    errors.push({ msg: 'Please Enter Your Phone Number' });
+  }
+  if ( !password ) {
+    errors.push({ msg: 'Please Choose Your Password' });
+  }
+  if ( !password2 ) {
+    errors.push({ msg: 'Please Re-enter Your Password' });
   }
 
   if (password != password2) {
@@ -39,6 +54,7 @@ router.post('/register', (req, res) => {
       first_name,
       family_name,
       email,
+      phone_num,
       password,
       password2
     });
@@ -51,6 +67,7 @@ router.post('/register', (req, res) => {
           first_name,
           family_name,
           email,
+          phone_num,
           password,
           password2
         });
@@ -59,6 +76,7 @@ router.post('/register', (req, res) => {
           first_name,
           family_name,
           email,
+          phone_num,
           password
         });
 
