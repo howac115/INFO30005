@@ -1,0 +1,22 @@
+extends header
+
+block content
+  title ##{tag.name}
+
+  center
+    h1 Tag: #{tag.name}
+  
+    div(style='margin-left:20px;margin-top:20px')
+        h4 Jobs
+        dl
+        each job in tag_jobs
+            dt 
+                a(href=job.url) #{job.title}
+            dd #{job.description}
+        else
+            p This tag has no jobs.
+    hr
+    p
+        a(href=tag.url+'/delete') Delete tag
+    p
+        a(href=tag.url+'/update') Update tag
