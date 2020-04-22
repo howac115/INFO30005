@@ -3,6 +3,11 @@ var Job = require('../models/job');
 var Tag = require('../models/tag');
 var async = require('async')
 
+// Display the dashboard page for all jobs and tags.
+exports.index = function(req, res) {
+    res.render('dashboard', { current_user: req.user } )
+};
+
 // Display list of all jobs.
 exports.job_list = function(req, res, next) {
 
