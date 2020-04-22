@@ -149,12 +149,18 @@ exports.job_update_get = function(req, res, next) {
 
     // Get all tags for jobs
     async.parallel({
+        job: function(callback) {
+            Job.findById(req.params.id).exec(callback);
+        },
         tags: function(callback) {
             Tag.find(callback);
         },
     }, function(err, results) {
         if (err) { return next(err); }
-        res.render('job_update', { title: 'Update Job', current_user: req.user, tags: results.tags });
+        if (results.job==null) { // No results.
+            res.redirect('/dashboard/jobs');
+        }
+        res.render('job_update', { title: 'Update Job', current_user: req.user, job: results.job, tags: results.tags });
     })
 }
 
