@@ -7,109 +7,25 @@ var passport = require('passport');
 var User = require('../models/user');
 var { forwardAuthenticated } = require('../config/auth');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('home', { 
-        title: 'InCuBeTa',
-    })
-});
+/* AuthenticationControllers that handles register and login */
+var auth_controller = require('../controllers/authController');
 
-/* Login page */
-router.get('/login', (req, res) => res.render('login'));
+/* Display home page on GET. */
+router.get('/', auth_controller.index);
 
-/* Register page */
-router.get('/register', (req, res) => res.render('register'));
+/* Display Login page on GET */
+router.get('/login', auth_controller.login_get);
 
-/* Register handle */
-router.post('/register', (req, res) => {
-  const { first_name, family_name, email, phone_num, password, password2 } = req.body;
-  let errors = [];
+/* Login handle on POST */
+router.post('/login', auth_controller.login_post);
 
-  if ( !first_name ) {
-    errors.push({ msg: 'Please Enter Your First Name' });
-  }
-  if ( !family_name ) {
-    errors.push({ msg: 'Please Enter Your Family Name' });
-  }
-  if ( !email ) {
-    errors.push({ msg: 'Please Enter Your Email' });
-  }
-  if ( !phone_num ) {
-    errors.push({ msg: 'Please Enter Your Phone Number' });
-  }
-  if ( !password ) {
-    errors.push({ msg: 'Please Choose Your Password' });
-  }
-  if ( !password2 ) {
-    errors.push({ msg: 'Please Re-enter Your Password' });
-  }
+/* Register page on GET */
+router.get('/register', auth_controller.register_get);
 
-  if (password != password2) {
-    errors.push({ msg: 'Passwords do not match' });
-  }
+/* Register handle on POST */
+router.post('/register', auth_controller.register_post);
 
-  if (errors.length > 0) {
-    res.render('register', {
-      errors,
-      first_name,
-      family_name,
-      email,
-      phone_num,
-      password,
-      password2
-    });
-  } else {
-    User.findOne({ email: email }).then(user => {
-      if (user) {
-        errors.push({ msg: 'Email already exists' });
-        res.render('register', {
-          errors,
-          first_name,
-          family_name,
-          email,
-          phone_num,
-          password,
-          password2
-        });
-      } else {
-        const newUser = new User({
-          first_name,
-          family_name,
-          email,
-          phone_num,
-          password
-        });
-
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
-            if (err) throw err;
-            newUser.password = hash;
-            newUser
-              .save()
-              .then(user => {
-                res.redirect('/home/login');
-              })
-              .catch(err => console.log(err));
-          });
-        }); 
-      }
-    });
-  }
-});
-
-
-/* Login handle */
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/dashboard',
-    failureRedirect: '/home/login',
-  })(req, res, next);
-});
-
-/* Logout handle */
-router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/home/login');
-});
+/* Logout handle on GET */
+router.get('/logout', auth_controller.logout_get);
 
 module.exports = router;
