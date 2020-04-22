@@ -33,8 +33,7 @@ exports.tag_detail = function(req, res, next) {
             return next(err);
         }
         // Successful, render page:
-        res.render('tag_detail', { title: 'Tag Detail', current_user: req.user,
-            tag: results.tag, tag_jobs: results.tag_jobs })
+        res.render('tag_detail', { title: 'Tag Detail', current_user: req.user, tag: results.tag, tag_jobs: results.tag_jobs })
     })
 }
 
@@ -92,8 +91,7 @@ exports.tag_delete_get = function(req, res, next) {
             res.redirect('/dashboard/tags');
         }
         // Successful - render delete form
-        res.render('tag_delete', { title: 'Delete Tag', current_user:req.user,
-            tag: results.tag, tag_jobs: results.tag_jobs });
+        res.render('tag_delete', { title: 'Delete Tag', current_user:req.user, tag: results.tag, tag_jobs: results.tag_jobs });
     })
 }
 
@@ -112,8 +110,7 @@ exports.tag_delete_post = function(req, res, next) {
         // Success
         if (results.tag_jobs.length > 0) {
             // Tag has jobs. Render in same way as for GET route.
-            res.render('tag_delete', { title: 'Delete Tag', current_user: req.user,
-                tag: results.tag, tag_jobs: results.tag_jobs });
+            res.render('tag_delete', { title: 'Delete Tag', current_user: req.user, tag: results.tag, tag_jobs: results.tag_jobs });
             return;
         } else {
             // Tag has no jobs. Delete object and redirect to the list of tags.
@@ -137,7 +134,7 @@ exports.tag_update_get = function(req, res, next) {
             return next(err);
         }
         // Success.
-        res.render('tag_create', { title: 'Update Tag', current_user: req.user, tag: tag });
+        res.render('tag_update', { title: 'Update Tag', current_user: req.user, tag: tag });
     });
 
 };
@@ -158,7 +155,7 @@ exports.tag_update_post = function(req, res, next) {
     });
 
     if (errors.length > 0) {
-        res.render('tag_create', {
+        res.render('tag_update', {
             title: 'Update Tag',
             user: req.user,
             errors,
