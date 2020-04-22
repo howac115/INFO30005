@@ -8,11 +8,7 @@ var tag_controller = require('../controllers/tagController');
 var user_controller = require('../controllers/userController');
 
 // GET request to Dashboard page. Protected from when logged out.
-router.get('/', ensureAuthenticated, function(req, res) {
-    res.render('dashboard', {
-        current_user: req.user
-    })
-});
+router.get('/', ensureAuthenticated, job_controller.index);
 
 
 /// JOB ROUTES ///
@@ -53,6 +49,7 @@ router.post('/user/:id/update', user_controller.user_update_post);
 // GET request for one user
 router.get('/user/:id', user_controller.user_detail);
 
+
 /// TAG ROUTES ///
 
 // GET request to view Tag Create page.
@@ -69,7 +66,7 @@ router.post('/tag/:id/delete', tag_controller.tag_delete_post);
 
 // GET request to update Genre.
 router.get('/tag/:id/update', tag_controller.tag_update_get);
-
+    
 // POST request to update Genre.
 router.post('/tag/:id/update', tag_controller.tag_update_post);
 
