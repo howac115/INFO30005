@@ -17,6 +17,12 @@ block content
         div.form-group
             label(for='profile_img') Profile Image URL
             input#email.form-control(type='text', name='profile_img', value = ''+user.profile_img, placeholder='Enter Profile Image URL')  
+        div.form-group
+            label(for='date_of_birth') Date of birth:
+            if (user.date_of_birth)
+                input#date_of_birth.form-control(type='date', name='date_of_birth', value=user.date_of_birth.getFullYear()+'-'+(user.date_of_birth.getMonth()+1)+'-'+user.date_of_birth.getDate())
+            else
+                input#date_of_birth.form-control(type='date', name='date_of_birth')
         button.btn.btn-primary(type='submit') Submit
 
   if errors 
