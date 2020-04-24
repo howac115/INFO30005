@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var moment = require('moment'); // for date handling
 
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
@@ -29,9 +30,8 @@ var UserSchema = new Schema({
     type: String,
     required: true
   },
-  date: {
-    type: Date,
-    default: Date.now
+  date_of_birth: {
+    type: Date
   }
 });
 
@@ -49,9 +49,15 @@ UserSchema.virtual('name').get(function() {
   return fullname;
 });
 
-// Virtual for user instance URL.
+// virtual for user instance URL.
 UserSchema.virtual('url').get(function() {
   return '/dashboard/user/'+this._id;
+});
+
+// virtual for user's age
+UserSchema.virtual('age').get(function() {
+  var age_dt = new Date( Date.now());
+  return Math.abs(age_dt.getUTCFullYear()-this.date_of_birth.getUTCFullYear());
 });
 
 module.exports = mongoose.model('User', UserSchema);
