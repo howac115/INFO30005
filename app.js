@@ -14,7 +14,6 @@ var dashboardRouter = require('./routes/dashboard');
 
 var compression = require('compression');
 var helmet = require('helmet');
-
 var app = express();
 
 // DB and passport config
