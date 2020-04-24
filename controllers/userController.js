@@ -52,6 +52,7 @@ exports.user_update_post = function(req, res, next) {
         phone_num: req.body.phone_num,
         profile_img: req.body.profile_img,
         summary: req.body.summary,
+        date_of_birth: req.body.date_of_birth,
         _id: req.params.id
 
     });
