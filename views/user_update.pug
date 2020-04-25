@@ -1,0 +1,25 @@
+extends header
+
+block content
+  title Update Profile
+  center
+    h1=title
+    form(method='POST' action='')
+        div.form-group
+            label(for='summary') Personal Summary
+            input#email.form-control(type='text', name='summary', value = ''+user.summary, placeholder='Briefly Tell Us About Yourself')  
+        div.form-group
+            label(for='email') Email
+            input#email.form-control(type='email', name='email', value = ''+user.email, placeholder='Enter Email')
+        div.form-group
+            label(for='phone_num') Phone Number
+            input#email.form-control(type='number', name='phone_num', value = ''+user.phone_num, placeholder='Enter Phone Number')
+        div.form-group
+            label(for='profile_img') Profile Image URL
+            input#email.form-control(type='text', name='profile_img', value = ''+user.profile_img, placeholder='Enter Profile Image URL')  
+        button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

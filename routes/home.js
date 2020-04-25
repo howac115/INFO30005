@@ -22,30 +22,30 @@ router.get('/register', (req, res) => res.render('register'));
 
 /* Register handle */
 router.post('/register', (req, res) => {
-  const { first_name, family_name, email, contact_number, password, password2 } = req.body;
+  const { first_name, family_name, email, phone_num, password, password2 } = req.body;
   let errors = [];
 
   if ( !first_name ) {
-    errors.push({ msg: 'Please Enter First Name' });
+    errors.push({ msg: 'Please Enter Your First Name' });
   }
   if ( !family_name ) {
-    errors.push({ msg: 'Please Enter Family Name' });
+    errors.push({ msg: 'Please Enter Your Family Name' });
   }
   if ( !email ) {
-    errors.push({ msg: 'Please Enter Email' });
+    errors.push({ msg: 'Please Enter Your Email' });
   }
-  if ( !contact_number ) {
-    errors.push({ msg: 'Please Enter Contact Number' });
+  if ( !phone_num ) {
+    errors.push({ msg: 'Please Enter Your Phone Number' });
   }
   if ( !password ) {
-    errors.push({ msg: 'Please Enter Password' });
+    errors.push({ msg: 'Please Choose Your Password' });
   }
   if ( !password2 ) {
-    errors.push({ msg: 'Please Re-enter Password' });
+    errors.push({ msg: 'Please Re-enter Your Password' });
   }
 
   if (password != password2) {
-    errors.push({msg: 'Passwords do not match'});
+    errors.push({ msg: 'Passwords do not match' });
   }
 
   if (errors.length > 0) {
@@ -54,20 +54,20 @@ router.post('/register', (req, res) => {
       first_name,
       family_name,
       email,
-      contact_number,
+      phone_num,
       password,
       password2
     });
   } else {
     User.findOne({ email: email }).then(user => {
       if (user) {
-        errors.push({ msg: 'Email already exists, please try another one' });
+        errors.push({ msg: 'Email already exists' });
         res.render('register', {
           errors,
           first_name,
           family_name,
           email,
-          contact_number,
+          phone_num,
           password,
           password2
         });
@@ -76,7 +76,7 @@ router.post('/register', (req, res) => {
           first_name,
           family_name,
           email,
-          contact_number,
+          phone_num,
           password
         });
 
