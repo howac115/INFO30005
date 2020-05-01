@@ -32,6 +32,9 @@ var UserSchema = new Schema({
   },
   date_of_birth: {
     type: Date
+  },
+  isAdmin: {
+    type: Boolean
   }
 });
 
