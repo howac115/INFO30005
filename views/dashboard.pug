@@ -13,5 +13,6 @@ block content
                 hr
             li 
                 a(href='/dashboard/job/create') Post new job
-            li 
-                a(href='/dashboard/tag/create') Create new tag
+            if (current_user.isAdmin == true)
+                li 
+                    a(href='/dashboard/tag/create') Create new tag
