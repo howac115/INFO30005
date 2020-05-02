@@ -5,11 +5,11 @@ InCuBeta is focused on 3 main functions of job listing, user profile creation, a
 
 **Authentication (authController) ../config/auth.js**
 
-The authentication function of InCubeta is established through the login and registration, done through ../config/passport.js (passport), ../routes/home.js and ../controllers/userController.js (user controller). This data for each user is stored under the user data structure, with specific properties that will be shown below. After a user’s registration, InCuBeta will enable their own personal dashboard that is protected via authentication verification in ../routes/dashboard.js (dashboard) through ../config/auth.js, and thereby isn’t accessible through typing the associated URL in the browser. The user’s login status is also altered via passport, where the server keeps track of the user’s login status during their session visiting InCuBeta.
+The authentication function of InCubeta is established through the login and registration, done through ../config/passport.js (passport), ../routes/home.js (home) and ../controllers/userController.js (user controller). The router home will display and select handles that correspond to the user’s actions. When the user chose the corresponding handle, desired fill-in areas and prompted error messages will guide them throughout the whole process. If the “register” handle is activated, then a new validated user details will be generated and stored in the database.This data for each user is stored under the user data structure, with specific properties that will be shown below. After a user’s registration, InCuBeta will enable their own personal dashboard that is protected via authentication verification in ../routes/dashboard.js (dashboard) through ../config/auth.js, and thereby isn’t accessible through typing the associated URL in the browser. The user’s login status is also altered via passport, where the server keeps track of the user’s login status during their session visiting InCuBeta. 
 
 **User, profile (userController) ../controllers/userController.js**
 
-After registering at the website, each user will generate a profile including all the information stored at ../models/user.js in the MongoDB. Once a user is logged onto the website, he can potentially update his profile information through the user controller. Published jobs are also tied to users through the job controller, which enables users to track each other’s job-listing histories. Note that it is prohibited to modify other people’s profiles while viewing their posted jobs.
+After registering at the website, each user will generate a profile including all the information stored at ../models/user.js in the MongoDB. Once a user is logged onto the website, he can potentially update his profile information through the user controller. Published jobs are also tied to users through the job controller, which enables users to track each other’s job-listing histories. Note that it is prohibited to modify other people’s profiles while viewing their posted jobs. 
 
 ***User Object Properties***
 | **Property** | **Description** |
@@ -17,19 +17,18 @@ After registering at the website, each user will generate a profile including al
 | first_name | String type, created through user controller, first name of user |
 | last_name | String type, created through user controller, last name of user|
 | password| String type, created through user controller, password of user account|
-| email | Show file differences that haven't been staged |
+| email | String type, created through user controller, email address of user|
 | summary | String type (an optional self-bio to introduce personal interests and specialised learning areas used for personal networking), created through user controller |
 | profile_img|String type, updated through user controller, url address of the image|
 | phone_num| String type, updated through user controller, phone number of user|
-| d.o.b. (date of birth)| Date type ( first recorded when registered ), updated through user controller, can be updated as user’s birthday |
+
 
 
 **![](https://lh4.googleusercontent.com/24cw4KHCcWd20halX1vuBIHN_Ll4Tt03NKGBMlCJ23rIAIV2MgnIkCdUEWsEB5WRpNl4AO9gVoZ2cnlMD8YSzDt0mHzIvkCob9BpHmgFzfVqcxDRK6mBEmkhapmF1aF1KwC4G6yW)**
 
 **Job listing (../controllers/jobController.js)**
 
-With the job listing function, users are able to create, update, and delete jobs, enabled by ../controllers/jobController.js (job controller). The job object is firstly able to be created through the ../models/job.js that will have properties of a title, description, the user who created it and the associated date and time of creation, and will receive a system generated unique ID through mongoose. Associated pre-determined tags will also be added, which is associated with the tagging function and is linked to the job’s object ID. With the ID of the user who created the job stored, this enables restrictions to only allow the original poster to update or delete the job listing.
-
+With the job listing function, users are able to create, update, and delete jobs, enabled by ../controllers/jobController.js (job controller). The job object is firstly able to be created through the ../models/job.js that will have properties of a title, description, the user who created it and the associated date and time of creation, and will receive a system generated unique ID through mongoose. Associated pre-determined tags will also be added, which is associated with the tagging function and is linked to the job’s object ID. With the ID of the user who created the job stored, this enables restrictions to only allow the original poster to update or delete the job listing. 
 
 
 ***Job Object Properties***
@@ -47,5 +46,10 @@ With the job listing function, users are able to create, update, and delete jobs
 
 The features of tags are enabled via dashboard which draws upon ../controllers/tagController.js (tag controller). Currently tags are user-created through tag controller, which is then stored as separate objects with their individual IDs. The full list of tags are able to be requested, and is seen done so in job controller and dashboard. Although the function is now established, it is planned in the future to alter it so that tags will fall under user suggestion, and having ‘near term’ searches to reduce issues in terms of creating tags of incorrect spelling or similar typing nuances.
 
+Note that constraints are applied on create/update/delete tags where only admin users are allowed to do so. The rest users can only choose relevant tagging from the provided tag-list. 
+
 **![](https://lh5.googleusercontent.com/V5hwahgGgfysthNTFgA8KA_zBj4cmQgaEPTdAWEbIZSXsBpazFb-vqWQ2_NG1fBrCE_M6AABUB5oAUxTfwjlVoO7b6B0vCnhQUUGDoiHlbHCxGHYVqetoMVE5KUt2_TQrV47apo3)**
 
+**Dashboard**
+
+Overlooking all the controllers is the dashboard, where rendered after the user’s successful login, provides routing to the three controllers (jobController, userController, tagController) of the main functions of InCuBeta. Shown above, for both the job route and tag route via the two controllers, functions of viewing/ posting/ updating/ deleting are supported. Where as mentioned before, routing to the userController, users can also review peer profiles or to make changes of their own details. 
