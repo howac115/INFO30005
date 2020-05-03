@@ -139,5 +139,5 @@ Under the tag routes, users(only admins) can get/post requests to create/update/
 
 ## Index
 
-Index page acts welcome page
+Index page acts as welcome page
 
