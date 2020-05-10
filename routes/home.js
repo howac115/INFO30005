@@ -10,6 +10,7 @@ var { forwardAuthenticated } = require('../config/auth');
 /* AuthenticationControllers that handles register and login */
 var auth_controller = require('../controllers/authController');
 
+
 /* Display home page on GET. */
 router.get('/', auth_controller.index);
 
