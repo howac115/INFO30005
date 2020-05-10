@@ -3,12 +3,13 @@ var router = express.Router();
 var { ensureAuthenticated } = require('../config/auth');
 
 // Controllers.
+var search_controller = require('../controllers/searchController');
 var job_controller = require('../controllers/jobController');
 var tag_controller = require('../controllers/tagController');
 var user_controller = require('../controllers/userController');
 
 // GET request to Dashboard page. Protected from when logged out.
-router.get('/', ensureAuthenticated, job_controller.index);
+router.get('/', ensureAuthenticated, search_controller.index);
 
 
 /// JOB ROUTES ///
@@ -47,7 +48,7 @@ router.get('/user/:id/update', user_controller.user_update_get);
 router.post('/user/:id/update', user_controller.user_update_post);
 
 // GET request for one user
-router.get('/user/:id', user_controller.user_detail);
+router.get('/user/:id', user_controller.user_detail_get);
 
 
 /// TAG ROUTES ///
