@@ -1,25 +1,69 @@
 var mongoose = require('mongoose');
+var moment = require('moment'); // for date handling
 
 var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 
-var TagSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        min: 1, 
-        max: 100
-    },
-    popularity: {
-      type: Number
-    }
+var UserSchema = new Schema({
+  first_name: {
+    type: String,
+    required: true
+  },
+  family_name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  phone_num: {
+    type: String
+  },
+  profile_img: {
+    type: String
+  },
+  summary: {
+    type: String
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  date_of_birth: {
+    type: Date
+  },
+  popolarity: {
+    type: Number
+  },
+  isAdmin: {
+    type: Boolean
+  }
 });
 
-// Virtual for this genre instance URL.
-TagSchema
-.virtual('url')
-.get(function () {
-  return '/dashboard/tag/'+this._id;
+// Virtual for user "full" name.
+UserSchema.virtual('name').get(function() {
+  var fullname = '';
+
+  if (this.first_name && this.family_name) {
+    fullname = this.family_name + ', ' + this.first_name;
+  }
+
+  if (!this.first_name && !this.family_name) {
+    fullname = '';
+  }
+  return fullname;
 });
 
-// Export model.
-module.exports = mongoose.model('Tag', TagSchema);
+// virtual for user instance URL.
+UserSchema.virtual('url').get(function() {
+  return '/dashboard/user/'+this._id;
+});
+
+// virtual for user's age
+UserSchema.virtual('age').get(function() {
+  var age_dt = new Date( Date.now());
+  return Math.abs(age_dt.getUTCFullYear()-this.date_of_birth.getUTCFullYear());
+});
+
+module.exports = mongoose.model('User', UserSchema);
