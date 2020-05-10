@@ -4,6 +4,10 @@ block content
     title Dashboard
     center
         p.lead.mb-3 Welcome #{current_user.first_name}
+        form(method='GET' action='/dashboard')
+            div.form-inline
+                input.form-control(type='text', name='search')
+                button.btn.btn-primary(type='submit') Search
         .sidebar-nav
             li 
                 a(href='/dashboard/jobs') All jobs
@@ -16,3 +20,11 @@ block content
             if (current_user.isAdmin == true)
                 li 
                     a(href='/dashboard/tag/create') Create new tag
+            if (jobs)
+                li
+                    hr
+                each job in jobs
+                    dt
+                        a(href=job.url) #{job.title}
+                    dd #{job.description}
+                h4 #{noMatch}
