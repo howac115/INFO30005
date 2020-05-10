@@ -3,7 +3,7 @@ var async = require('async')
 var Job = require('../models/job')
 
 // Display detail page for a specific user.
-exports.user_detail = function (req, res, next) {
+exports.user_detail_get = function (req, res, next) {
 
     async.parallel({
         user: function (callback) {
