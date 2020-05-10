@@ -21,7 +21,7 @@ require('./config/passport')(passport);
 
 // Set up mongoose connection
 var mongoose = require('mongoose');
-var dev_db_url = 'mongodb+srv://haoqic:1234@incubeta-wowel.mongodb.net/INFO30005?retryWrites=true&w=majority'
+var dev_db_url = 'mongodb+srv://incubeta:1234@incubeta-wowel.mongodb.net/INFO30005?retryWrites=true&w=majority'
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { 
     useUnifiedTopology: true,
