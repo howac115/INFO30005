@@ -134,7 +134,7 @@ exports.tag_update_get = function(req, res, next) {
             return next(err);
         }
         // Success.
-        res.render('tag_create', { title: 'Update Tag', current_user: req.user, tag: tag });
+        res.render('tag_update', { title: 'Update Tag', current_user: req.user, tag: tag });
     });
 
 };
@@ -155,7 +155,7 @@ exports.tag_update_post = function(req, res, next) {
     });
 
     if (errors.length > 0) {
-        res.render('tag_create', {
+        res.render('tag_update', {
             title: 'Update Tag',
             user: req.user,
             errors,

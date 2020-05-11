@@ -6,8 +6,16 @@ block content
     if (user.profile_img)
       img.img-responsive(src=''+ user.profile_img )
     h1 #{user.name}
+
+    if (user.popularity)
+      h1 Popularity #{user.popularity}
+    else
+      h1 no popu
   
     div(style='margin-left:20px;margin-top:20px')
+    if (user.date_of_birth) 
+      h4 Age
+      dd #{user.age}    
     h4 Summary
     if (user.summary)
       dd #{user.summary}

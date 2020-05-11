@@ -15,8 +15,9 @@ block content
             dd #{job.description}
         else
             p This tag has no jobs.
-    hr
-    p
-        a(href=tag.url+'/delete') Delete tag
-    p
-        a(href=tag.url+'/update') Update tag
+    hr       
+    if (current_user.isAdmin == true)
+        p
+            a(href=tag.url+'/delete') Delete tag
+        p
+            a(href=tag.url+'/update') Update tag

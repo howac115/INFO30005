@@ -7,6 +7,10 @@
     width: 400px;
     padding: 10px;
   }
+
+  .form-inline {
+    align-items: center;
+  }
   
   h1 {
     font-size: 4em;
