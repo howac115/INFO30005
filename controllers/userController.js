@@ -7,7 +7,7 @@ exports.user_detail_get = function (req, res, next) {
 
     async.parallel({
         user: function (callback) {
-            User.findById(req.params.id)
+            User.findByIdAndUpdate(req.params.id, {$inc:{popularity:1}})
                 .exec(callback)
         },
         user_jobs: function (callback) {

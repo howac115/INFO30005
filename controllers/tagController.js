@@ -15,11 +15,11 @@ exports.tag_list = function(req, res, next) {
 };
 
 // Display detail page for specific Tag.
-exports.tag_detail = function(req, res, next) {
+exports.tag_detail_get = function(req, res, next) {
 
     async.parallel({
         tag: function(callback) {
-            Tag.findById(req.params.id).exec(callback);
+            Tag.findByIdAndUpdate(req.params.id, {$inc:{popularity:1}}).exec(callback);
         },
 
         tag_jobs: function(callback) {

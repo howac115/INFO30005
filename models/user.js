@@ -33,8 +33,9 @@ var UserSchema = new Schema({
   date_of_birth: {
     type: Date
   },
-  popolarity: {
-    type: Number
+  popularity: {
+    type: Number,
+    required: true
   },
   isAdmin: {
     type: Boolean

@@ -23,6 +23,10 @@ block content
             if (jobs)
                 li
                     hr
+                if (noMatch)
+                    h4 Search Results
+                else
+                    h4 Popular Jobs
                 each job in jobs
                     dt
                         a(href=job.url) #{job.title}
