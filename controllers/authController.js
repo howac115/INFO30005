@@ -8,7 +8,7 @@ var { forwardAuthenticated } = require('../config/auth');
 
 // GET request to display home page
 exports.index = function(req, res) {
-    res.render('home', { title: 'InCuBeta' })
+    res.render('login', { title: 'InCuBeta' })
 };
 
 // GET request to display login page
