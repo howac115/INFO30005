@@ -29,6 +29,6 @@ block content
                     h4 Featured Jobs
                 each job in jobs
                     dt
-                        a(href=job.url) #{job.title}
+                        a(href="/dashboard/job/"+job._id) #{job.title}
                     dd #{job.description}
                 h4 #{noMatch}
