@@ -41,18 +41,24 @@ block content
                         a(href=val.url) #{val.name}
                         |,
 
-    #carouselIndicators.carousel.slide.text-center(data-ride='carousel')
-        ol.carousel-indicators
-            li.active(data-target='#carouselIndicators', data-slide-to='0')
-            li(data-target='#carouselIndicators', data-slide-to='1')
-            li(data-target='#carouselIndicators', data-slide-to='2')
+    .d-flex.justify-content-center
+        #carouselIndicators.carousel.slide(data-ride='carousel')
+            ul.carousel-indicators
+                li.active(data-target='#carouselIndicators', data-slide-to='0')
+                li(data-target='#carouselIndicators', data-slide-to='1')
+                li(data-target='#carouselIndicators', data-slide-to='2')
 
-        .carousel-inner
-            .carousel-item.active
-                img.d-block.img-fluid(src='https://source.unsplash.com/random/1000x700')
-            .carousel-item
-                img.d-block.img-fluid(src='https://source.unsplash.com/random/1000x700')
-            .carousel-item
-                img.d-block.img-fluid(src='https://source.unsplash.com/random/1000x700')
-
+            .carousel-inner
+                .carousel-item.active
+                    img.d-block.w-20(src='https://source.unsplash.com/random?sig=123/500x500')
+                .carousel-item
+                    img.d-block.w-20(src='https://source.unsplash.com/random?sig=121/500x500')
+                .carousel-item
+                    img.d-block.w-20(src='https://source.unsplash.com/random?sig=122/500x500')
+            a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+                span.carousel-control-prev-icon(aria-hidden='true')
+                span.sr-only Previous
+            a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+                span.carousel-control-next-icon(aria-hidden='true')
+                span.sr-only Next
 
