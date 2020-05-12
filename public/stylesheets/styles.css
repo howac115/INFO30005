@@ -1,113 +1,134 @@
-  body {
-    background-color: #000;
-  }
+@import url(https://fonts.google.com/specimen/Source+Sans+Pro?category=Serif,Sans+Serif,Monospace&sort=popularity);
 
-  center {
-    margin: auto;
-    width: 400px;
-    padding: 10px;
-  }
-  
-  .form-inline {
-    align-items: center;
-  }
-  
-  h1 {
-    font-size: 4em;
-  }
-  
-  input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 3px solid #ccc;
-    transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-  }
+/* Color Theme Swatches in Hex */
+.green1 { color: #D5F2EA; }
+.green2 { color: #B4D9CE; }
+.green3 { color: #76A694; }
+.green4 { color: #40735B; }
+.orange { color: #ECB086; }
+.blue1 { color: #E3FFF6; }
+.blue2 { color: #A1C2CC; }
+.blue3 { color: #4B8699; }
+.pink1 { color: #FDD1CE; }
+.pink2 { color: #CFB2B9; }
 
-  #landing-header {
-    z-index: 1;
-    position: relative;
-    text-align: center;
-    padding-top: 40vh;
-  }
-  
-  #landing-header h1 {
-    color: #fff;
-  }
-  
-  .sidebar-nav {
-    margin-left: 20px;
-    padding: 0;
-    list-style: none;
-  }
+body {
+  background-color: #D5F2EA;
+}
 
-  .slideshow { 
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .slideshow li { 
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+center {
+  margin: auto;
+  width: 400px;
+  padding: 10px;
+}
+
+.form-inline {
+  align-items: center;
+}
+
+h1 {
+  font-size: 4em;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  padding-top: 40vh;
+}
+
+#landing-header h1 {
+  color: #fff;
+}
+
+.sidebar-nav {
+  margin-left: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.slideshow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  animation: imageAnimation 50s linear infinite;
+}
+
+.slideshow li:nth-child(1) {
+  background-image: url(/images/workplace1.jpg)
+}
+.slideshow li:nth-child(2) {
+  background-image: url(/images/workplace2.jpg);
+  animation-delay: 10s;
+}
+.slideshow li:nth-child(3) {
+  background-image: url(/images/workplace3.jpg);
+  animation-delay: 20s;
+}
+.slideshow li:nth-child(4) {
+  background-image: url(/images/workplace4.jpg);
+  animation-delay: 30s;
+}
+.slideshow li:nth-child(5) {
+  background-image: url(/images/workplace5.jpg);
+  animation-delay: 40s;
+}
+
+@keyframes imageAnimation {
+  0% {
     opacity: 0;
-    z-index: 0;
-    animation: imageAnimation 50s linear infinite; 
+    animation-timing-function: ease-in;
   }
-  
-  .slideshow li:nth-child(1) { 
-    background-image: url(/images/workplace1.jpg) 
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
   }
-  .slideshow li:nth-child(2) { 
-    background-image: url(/images/workplace2.jpg);
-    animation-delay: 10s; 
+  20% {
+    opacity: 1
   }
-  .slideshow li:nth-child(3) { 
-    background-image: url(/images/workplace3.jpg);
-    animation-delay: 20s; 
+  30% {
+    opacity: 0
   }
-  .slideshow li:nth-child(4) { 
-    background-image: url(/images/workplace4.jpg);
-    animation-delay: 30s; 
-  }
-  .slideshow li:nth-child(5) { 
-    background-image: url(/images/workplace5.jpg);
-    animation-delay: 40s; 
-  }
-  
-  @keyframes imageAnimation { 
-    0% { 
-      opacity: 0; 
-      animation-timing-function: ease-in;
-    }
-    10% {
-      opacity: 1;
-      animation-timing-function: ease-out;
-    }
-    20% {
-      opacity: 1
-    }
-    30% {
-      opacity: 0
-    }
-  }
-  
-  /* Older browser support - .no-cssanimations class added by modernizr */
-  .no-cssanimations .slideshow li {
-      opacity: 1;
-  }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+  opacity: 1;
+}
+
