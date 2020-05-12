@@ -1,4 +1,5 @@
 var Job = require('../models/job')
+var User = require('../models/user')
 var async = require('async')
 
 // Display the dashboard page for all jobs and tags.
@@ -21,12 +22,17 @@ exports.index = function(req, res) {
         });
     } else {
         async.parallel({
-            popular_jobs: function (callback) {
+            featured_jobs: function (callback) {
                 Job.aggregate([{$sample: {size: 5}}]).exec(callback)
+            },
+            current_user: function (callback) {
+                User.findById(req.user.id)
+                .populate('followed_tag')
+                .exec(callback)
             }
         }, function(err, results) {
             if (err) { return next(err); }
-            res.render('dashboard', { current_user: req.user, jobs: results.popular_jobs} )
+            res.render('dashboard', { current_user: results.current_user, jobs: results.featured_jobs } )
         })
         
     }
