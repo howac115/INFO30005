@@ -8,7 +8,7 @@ exports.user_detail_get = function (req, res, next) {
 
     async.parallel({
         user: function (callback) {
-            User.findByIdAndUpdate(req.params.id, {$inc:{popularity:1}})
+            User.findByIdAndUpdate(req.params.id, {$inc:{"popularity":1}})
                 .populate('tag')
                 .exec(callback)
         },
