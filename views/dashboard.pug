@@ -9,6 +9,7 @@ block content
                 input.form-control(type='text', name='search')
                 button.btn.btn-primary(type='submit') Search
         .sidebar-nav
+            p
             li 
                 a(href='/dashboard/jobs') All jobs
             li 
@@ -32,3 +33,9 @@ block content
                         a(href="/dashboard/job/"+job._id) #{job.title}
                     dd #{job.description}
                 h4 #{noMatch}
+            hr
+            if (current_user.followed_tag.length>0)
+                p #[strong Followed Tag:] 
+                    each val in current_user.followed_tag
+                        a(href=val.url) #{val.name}
+                        |,  
