@@ -33,9 +33,12 @@ block content
                         a(href="/dashboard/job/"+job._id) #{job.title}
                     dd #{job.description}
                 h4 #{noMatch}
+<<<<<<< HEAD
             hr
             if (current_user.followed_tag.length>0)
                 p #[strong Followed Tag:] 
                     each val in current_user.followed_tag
                         a(href=val.url) #{val.name}
                         |,  
+=======
+>>>>>>> cfe5e1c63f201bb61eae56c4df1e891b6a177db6
