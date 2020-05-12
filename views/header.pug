@@ -37,14 +37,21 @@ nav.container-fluid
   //          a(href='/home/logout') Logout
   #sideNav.sidenav
     a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
-    a(href='#') Signed In As #{current_user.first_name}
-    a(href=current_user.url) Profile
-    hr
-    a(href='/dashboard') Dashboard
-    a(href='/dashboard/jobs') All jobs
-    a(href='/dashboard/tags') All tags
-    hr
-    a(href='/home/logout') Logout
+    if(current_user)
+      li
+        a(href='#') Signed In As #{current_user.first_name}
+      li
+        a(href=current_user.url) Profile
+        hr
+      li
+        a(href='/dashboard') Dashboard
+      li
+        a(href='/dashboard/jobs') All jobs
+      li
+        a(href='/dashboard/tags') All tags
+        hr
+      li
+        a(href='/home/logout') Logout
   span(style='font-size:30px;cursor:pointer' onclick='openNav()')
     img(src='/images/logo/user_icon.svg' width= "30px")
   script.
