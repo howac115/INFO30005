@@ -1,12 +1,12 @@
 import { bubble as Menu } from 'react-burger-menu'
 
 class sideNav extends React.Component {
-    showSettings (event) {
-        event.preventDefault();
-    .
-    .
-    .
-    }
+    // showSettings (event) {
+    //     event.preventDefault();
+    // .
+    // .
+    // .
+    // }
 
     render () {
         return (
@@ -19,3 +19,5 @@ class sideNav extends React.Component {
         );
     }
 }
+
+export default Menu;

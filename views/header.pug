@@ -37,11 +37,16 @@ nav.container-fluid
   //          a(href='/home/logout') Logout
   #sideNav.sidenav
     a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
-    a(href='#') About
-    a(href='#') Services
-    a(href='#') Clients
-    a(href='#') Contact
-  span(style='font-size:30px;cursor:pointer' onclick='openNav()') &#x2630; open
+    a(href='#') Signed In As #{current_user.first_name}
+    a(href=current_user.url) Profile
+    hr
+    a(href='/dashboard') Dashboard
+    a(href='/dashboard/jobs') All jobs
+    a(href='/dashboard/tags') All tags
+    hr
+    a(href='/home/logout') Logout
+  span(style='font-size:30px;cursor:pointer' onclick='openNav()')
+    img(src='/images/logo/user_icon.svg' width= "30px")
   script.
     function openNav() {
       document.getElementById("sideNav").style.width = "250px";
@@ -49,8 +54,8 @@ nav.container-fluid
     function closeNav() {
       document.getElementById("sideNav").style.width = "0";
     }
-  a.p-1(href='/')
-    img.d-block.center-block(src='/images/logo/icb_logo_f_w.svg')
+  a.d-block.center-block(href='/')
+    img(src='/images/logo/icb_logo_f_w.svg')
 
 body
   block content

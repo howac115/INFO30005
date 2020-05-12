@@ -28,18 +28,17 @@
     background-color: #40735B;
 }
 
-/*.d-block{*/
-/*    height: auto;*/
-/*    width: auto\9;*/
-/*    max-width: 400px;*/
-/*    background-color: #4B8699;*/
-/*}*/
+.gradient-buttons .btn {
+    background-image: linear-gradient(to bottom, #A1C2CC, #4B8699, #CFB2B9, #FDD1CE);
+    background-repeat: repeat-x;
+}
 
 /* ----------dynamic log image------------- */
 .d-block {
     width: 150px;
     height: auto;
     padding-bottom: 20px;
+    display: inline-block;
 }
 
 @media (min-width: 768px) {
@@ -66,13 +65,13 @@
     background-color: #B4D9CE;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 100px;
 }
 
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: #40735B;
     display: block;
     transition: 0.3s;
