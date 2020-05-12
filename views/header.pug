@@ -9,10 +9,12 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='/stylesheets/styles.css')
     link(rel='stylesheet', href='/stylesheets/navigation.css')
-    link(rel="stylesheet", href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel="stylesheet", href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
     link(rel='icon', href='/images/logo/incubeta.png')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+
 nav.container-fluid
   //.navbar.navbar-default
   //.container-fluid
@@ -61,7 +63,7 @@ nav.container-fluid
     function closeNav() {
       document.getElementById("sideNav").style.width = "0";
     }
-  a.d-block.center-block(href='/')
+  a.d-block.mx-auto(href='/')
     img(src='/images/logo/icb_logo_f_w.svg')
 
 body

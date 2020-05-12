@@ -33,6 +33,7 @@ center {
 h1 {
   font-size: 4em;
   font-family: 'Source Sans Pro', sans-serif;
+  color: #40735B;
 }
 
 input[type=text] {

@@ -41,3 +41,18 @@ block content
                         a(href=val.url) #{val.name}
                         |,
 
+    #carouselIndicators.carousel.slide.text-center(data-ride='carousel')
+        ol.carousel-indicators
+            li.active(data-target='#carouselIndicators', data-slide-to='0')
+            li(data-target='#carouselIndicators', data-slide-to='1')
+            li(data-target='#carouselIndicators', data-slide-to='2')
+
+        .carousel-inner
+            .carousel-item.active
+                img.d-block.img-fluid(src='https://source.unsplash.com/random/1000x700')
+            .carousel-item
+                img.d-block.img-fluid(src='https://source.unsplash.com/random/1000x700')
+            .carousel-item
+                img.d-block.img-fluid(src='https://source.unsplash.com/random/1000x700')
+
+
