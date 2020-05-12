@@ -15,9 +15,24 @@ block content
             dd #{job.description}
         else
             p This tag has no jobs.
-    hr       
+        li
+            hr
+        h4 Users
+        dl
+        each user in tag_users
+            dt 
+                a(href=user.url) #{user.name}
+        else
+            p This tag has no users.
+    hr
+    p
+        if(followed == false)
+            a(href=tag.url+'/follow') Follow Tag
+        else
+            a(href=tag.url+'/unfollow') Unfollow Tag
     if (current_user.isAdmin == true)
         p
             a(href=tag.url+'/delete') Delete tag
         p
             a(href=tag.url+'/update') Update tag
+        h4 #{test_tag}

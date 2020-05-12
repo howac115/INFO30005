@@ -176,7 +176,7 @@ exports.job_update_post = function(req, res, next) {
         next();
     }
 
-    const { title, description, user, date } = req.body;
+    const { title, description, user } = req.body;
     let errors = [];
 
     if ( !title || !description ) { 

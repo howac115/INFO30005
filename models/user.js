@@ -26,6 +26,14 @@ var UserSchema = new Schema({
   summary: {
     type: String
   },
+  tag: [{
+    type: ObjectId,
+    ref: 'Tag'
+  }],
+  followed_tag: [{
+    type: ObjectId,
+    ref: 'Tag'
+  }],
   password: {
     type: String,
     required: true
