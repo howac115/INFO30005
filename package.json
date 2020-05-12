@@ -30,7 +30,9 @@
     "passport-local": "^1.0.0",
     "popper.js": "^1.16.0",
     "pug": "^2.0.4",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "react-burger-menu": "^2.6.13",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
