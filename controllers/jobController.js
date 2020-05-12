@@ -17,12 +17,11 @@ exports.job_list = function(req, res, next) {
 };
 
 // Display detail page for a specific job
-exports.job_detail = function(req, res, next) {
+exports.job_detail_get = function(req, res, next) {
 
     async.parallel({
         job: function(callback) {
-
-            Job.findById(req.params.id)
+            Job.findByIdAndUpdate(req.params.id, {$inc:{popularity:1}})
               .populate('user')
               .populate('tag')
               .exec(callback);
@@ -177,7 +176,7 @@ exports.job_update_post = function(req, res, next) {
         next();
     }
 
-    const { title, description, user, date } = req.body;
+    const { title, description, user } = req.body;
     let errors = [];
 
     if ( !title || !description ) { 

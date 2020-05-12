@@ -26,6 +26,14 @@ var UserSchema = new Schema({
   summary: {
     type: String
   },
+  tag: [{
+    type: ObjectId,
+    ref: 'Tag'
+  }],
+  followed_tag: [{
+    type: ObjectId,
+    ref: 'Tag'
+  }],
   password: {
     type: String,
     required: true
@@ -33,8 +41,9 @@ var UserSchema = new Schema({
   date_of_birth: {
     type: Date
   },
-  popolarity: {
-    type: Number
+  popularity: {
+    type: Number,
+    required: true
   },
   isAdmin: {
     type: Boolean
