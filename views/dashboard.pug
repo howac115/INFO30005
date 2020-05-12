@@ -10,16 +10,16 @@ block content
                 button.btn.btn-primary(type='submit') Search
         .sidebar-nav
             p
-            li
+            li 
                 a(href='/dashboard/jobs') All jobs
-            li
+            li 
                 a(href='/dashboard/tags') All tags
             li
                 hr
-            li
+            li 
                 a(href='/dashboard/job/create') Post new job
             if (current_user.isAdmin == true)
-                li
+                li 
                     a(href='/dashboard/tag/create') Create new tag
             if (jobs)
                 li
@@ -33,9 +33,10 @@ block content
                         a(href="/dashboard/job/"+job._id) #{job.title}
                     dd #{job.description}
                 h4 #{noMatch}
-            hr
-            if (current_user.followed_tag.length>0)
-                p #[strong Followed Tag:]
+            if (!noMatch)
+                hr
+                if (current_user.followed_tag.length>0)
+                    h4 Followed Tag 
                     each val in current_user.followed_tag
                         a(href=val.url) #{val.name}
-                        |,
+                        |,  
