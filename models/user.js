@@ -43,7 +43,6 @@ var UserSchema = new Schema({
   },
   popularity: {
     type: Number,
-    required: true
   },
   isAdmin: {
     type: Boolean
