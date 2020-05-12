@@ -16,15 +16,17 @@ exports.tag_list = function(req, res, next) {
 
 // Display detail page for specific Tag.
 exports.tag_detail_get = function(req, res, next) {
-
+    var followed = null;
     async.parallel({
         tag: function(callback) {
             Tag.findByIdAndUpdate(req.params.id, {$inc:{popularity:1}}).exec(callback);
         },
-
         tag_jobs: function(callback) {
             Job.find({'tag':req.params.id}).exec(callback);
         },
+        tag_users: function(callback) {
+            User.find({'tag':req.params.id}).exec(callback);
+        }
     }, function(err, results) {
         if (err) { return next(err); }
         if (results.tag==null) { // No results relating to tag
@@ -32,8 +34,52 @@ exports.tag_detail_get = function(req, res, next) {
             err.status = 404;
             return next(err);
         }
+        followed = req.user.followed_tag.includes(req.params.id)
         // Successful, render page:
-        res.render('tag_detail', { title: 'Tag Detail', current_user: req.user, tag: results.tag, tag_jobs: results.tag_jobs })
+        res.render('tag_detail', { title: 'Tag Detail', current_user: req.user, tag: results.tag, tag_jobs: results.tag_jobs, tag_users: results.tag_users, followed:followed })
+    })
+}
+
+// Redirect to Tag detail page when follow
+exports.tag_follow_get = function(req, res, next) {
+    var followed = req.user.followed_tag.includes(req.params.id)
+    async.parallel({
+        current_user: function(callback) {
+            if (followed == false) {
+                User.findByIdAndUpdate(req.user.id, {$push:{"followed_tag":req.params.id}})
+                .populate('followed_tag')
+                .exec(callback);
+            } else {
+                User.findById(req.user.id)
+                .populate('followed_tag')
+                .exec(callback)
+            }
+        },
+        featured_jobs: function (callback) {
+            Job.aggregate([{$sample: {size: 5}}]).exec(callback)
+        },
+    }, function(err, results) {
+        if (err) { return next(err); }
+        // Successful, render page:
+        res.render('dashboard', { current_user: results.current_user, jobs: results.featured_jobs, followed_tags:req.user.followed_tag} )
+    })
+}
+
+// Redirect to Tag detail page when unfollow
+exports.tag_unfollow_get = function(req, res, next) {
+    async.parallel({
+        current_user: function(callback) {
+            User.findByIdAndUpdate(req.user.id, {$pull:{"followed_tag":req.params.id}})
+            .populate('followed_tag')
+            .exec(callback);
+        },
+        featured_jobs: function (callback) {
+            Job.aggregate([{$sample: {size: 5}}]).exec(callback)
+        },
+    }, function(err, results) {
+        if (err) { return next(err); }
+        // Successful, render page:
+        res.render('dashboard', { current_user: results.current_user, jobs: results.featured_jobs, followed_tags:req.user.followed_tag} )
     })
 }
 
