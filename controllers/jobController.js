@@ -141,7 +141,8 @@ exports.job_create_post = function (req, res, next) {
                 results.allUsers[i].followed_tag.includes(
                   results.createdJob.tag[j].id
                 ) &&
-                results.allUsers[i].emailConsent == true
+                results.allUsers[i].emailConsent == true &&
+                results.allUsers[i].id != req.user.id
               ) {
                 console.log(results.allUsers[i].email);
                 email_controller.data.sendEmail(
