@@ -21,44 +21,86 @@ block content
             if (current_user.isAdmin == true)
                 li 
                     a(href='/dashboard/tag/create') Create new tag
-            if (jobs)
-                li
-                    hr
-                if (noMatch)
-                    h4 Search Results
-                else
-                    h4 Featured Jobs
-                each job in jobs
-                    dt
-                        a(href="/dashboard/job/"+job._id) #{job.title}
-                    dd #{job.description}
-                h4 #{noMatch}
-            if (!noMatch)
-                hr
-                if (current_user.followed_tag.length>0)
-                    h4 Followed Tag 
-                    each val in current_user.followed_tag
-                        a(href=val.url) #{val.name}
-                        |,
+
+                //original featured job lists
+            //if (jobs)
+            //    li
+            //        hr
+            //    if (noMatch)
+            //        h4 Search Results
+            //    else
+            //        h4 Featured Jobs
+            //    each job in jobs
+            //        dt
+            //            a(href="/dashboard/job/"+job._id) #{job.title}
+            //        dd #{job.description}
+            //    h4 #{noMatch}
+            //if (!noMatch)
+            //    hr
+            //    if (current_user.followed_tag.length>0)
+            //        h4 Followed Tag
+            //        each val in current_user.followed_tag
+            //            a(href=val.url) #{val.name}
+            //            |,
+
 
     .d-flex.justify-content-center
-        #carouselIndicators.carousel.slide(data-ride='carousel')
-            ul.carousel-indicators
-                li.active(data-target='#carouselIndicators', data-slide-to='0')
-                li(data-target='#carouselIndicators', data-slide-to='1')
-                li(data-target='#carouselIndicators', data-slide-to='2')
 
+        #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+            ol.carousel-indicators
+                li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
+                li(data-target='#carouselExampleIndicators', data-slide-to='1')
+                li(data-target='#carouselExampleIndicators', data-slide-to='2')
+                li(data-target='#carouselExampleIndicators', data-slide-to='3')
+                li(data-target='#carouselExampleIndicators', data-slide-to='4')
             .carousel-inner
-                .carousel-item.active
-                    img.d-block.w-20(src='https://source.unsplash.com/random?sig=123/500x500')
-                .carousel-item
-                    img.d-block.w-20(src='https://source.unsplash.com/random?sig=121/500x500')
-                .carousel-item
-                    img.d-block.w-20(src='https://source.unsplash.com/random?sig=122/500x500')
-            a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
-                span.carousel-control-prev-icon(aria-hidden='true')
-                span.sr-only Previous
-            a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
-                span.carousel-control-next-icon(aria-hidden='true')
-                span.sr-only Next
+                if (jobs)
+                    li
+                        hr
+                    if (noMatch)
+                        h4 Search Results
+                    else
+                        h4 Featured Jobs
+                    each job,i in jobs
+                        if i == 0
+                            .carousel-item.active
+                                a(href="/dashboard/job/" + job._id)
+                                    img.d-block.w-100(src='https://source.unsplash.com/random?sig=123/500x500', alt='First slide')
+                                    .carousel-caption #{job.title}
+                                         p #{job.description}
+                            break
+
+                        else
+                            .carousel-item
+                                a(href="/dashboard/job/" + job._id)
+                                    img.d-block.w-100(src='https://source.unsplash.com/random?sig=random/500x500', alt = 'Third Slide')
+                                    .carousel-caption #{job.title}
+                                        p #{job.description}
+                if (!noMatch)
+                    hr
+                    if (current_user.followed_tag.length > 0)
+                        h4 Followed Tag
+                        each val in current_user.followed_tag
+                            a(href=val.url) #{val.name}
+                            | ,
+
+                        //original no looping carousel
+                //.carousel-item
+                //    img.d-block.w-100(src='https://source.unsplash.com/random?sig=120/500x500', alt = 'Third Slide')
+                //    .carousel-caption job.titl343
+
+                //.carousel-item
+                //    img.d-block.w-100(src='https://source.unsplash.com/random?sig=122/500x500', alt='Second slide')
+                //    .carousel-caption job.2
+                //.carousel-item
+                //    img.d-block.w-100(src='https://source.unsplash.com/random?sig=124/500x500', alt = 'Third Slide')
+                //    .carousel-caption job.titl343
+
+                a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+                    span.carousel-control-prev-icon(aria-hidden='true')
+                    span.sr-only Previous
+                a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+                    span.carousel-control-next-icon(aria-hidden='true')
+                    span.sr-only Next
+
 
