@@ -2,7 +2,11 @@
     width: 300px;
     height: 300px;
     object-fit: cover;
-    mask-type: alpha;
-    mask-image: image(url(/public/images/logo/icb_user_mask.png));
-    mask-position: center;
+    clip-path: ellipse(42% 50% at 50% 50%);
+    /*---------------- we will try egg next time ---------------*/
+    /*mask-type: luminance;*/
+    /*mask-image: url(/images/logo/icb_user_mask.png);*/
+    /*mask-repeat: no-repeat;*/
+    /*mask-size: 100%;*/
+    /*mask-position: center;*/
 }

@@ -1,6 +1,7 @@
 extends header
 
 block content
+
     title Dashboard
     center
         p.lead.mb-3 Welcome #{current_user.first_name}
@@ -73,7 +74,7 @@ block content
                         else
                             .carousel-item
                                 a(href="/dashboard/job/" + job._id)
-                                    img.d-block.w-100(src='https://source.unsplash.com/random?sig=random/500x500', alt = 'Third Slide')
+                                    img.d-block.w-100(src='https://source.unsplash.com/random?sig=random?sig=12/500x500', alt = 'Third Slide')
                                     .carousel-caption #{job.title}
                                         p #{job.description}
                 if (!noMatch)
@@ -102,5 +103,31 @@ block content
                 a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
                     span.carousel-control-next-icon(aria-hidden='true')
                     span.sr-only Next
+
+    //from https://bootsnipp.com/snippets/dlaKM
+    .container.text-center.my-3
+        h1 Bootstrap 4 Multiple Item Carousel
+        #recipeCarousel.carousel.slide.img-fluid(data-ride='carousel')
+            .carousel-inner.img-fluid(role='listbox')
+                .carousel-item.row.no-gutters.active
+                    .col-4.float-left
+                        img.img-fluid(src='http://placehold.it/350x280/222/fff?text=1')
+                    .col-4.float-left
+                        img.img-fluid(src='http://placehold.it/350x280/444?text=2')
+                    .col-4.float-left
+                        img.img-fluid(src='http://placehold.it/350x280/888?text=3')
+                .carousel-item.row.no-gutters
+                    .col-4.float-left
+                        img.img-fluid(src='http://placehold.it/350x280?text=5')
+                    .col-4.float-left
+                        img.img-fluid(src='http://placehold.it/350x280/555?text=6')
+                    .col-4.float-left
+                        img.img-fluid(src='http://placehold.it/350x280/333/fff?text=7')
+            a.carousel-control-prev(href='#recipeCarousel' role='button' data-slide='prev')
+                span.carousel-control-prev-icon(aria-hidden='true')
+                span.sr-only Previous
+            a.carousel-control-next(href='#recipeCarousel' role='button' data-slide='next')
+                span.carousel-control-next-icon(aria-hidden='true')
+                span.sr-only Next
 
 
