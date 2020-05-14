@@ -28,7 +28,7 @@ exports.index = function (req, res) {
     async.parallel(
       {
         featured_jobs: function (callback) {
-          Job.aggregate([{ $sample: { size: 5 } }]).exec(callback);
+          Job.aggregate([{ $sample: { size: 6 } }]).exec(callback);
         },
         current_user: function (callback) {
           User.findById(req.user.id).populate("followed_tag").exec(callback);

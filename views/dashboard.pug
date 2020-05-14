@@ -36,13 +36,13 @@ block content
             //            a(href="/dashboard/job/"+job._id) #{job.title}
             //        dd #{job.description}
             //    h4 #{noMatch}
-            //if (!noMatch)
-            //    hr
-            //    if (current_user.followed_tag.length>0)
-            //        h4 Followed Tag
-            //        each val in current_user.followed_tag
-            //            a(href=val.url) #{val.name}
-            //            |,
+            if (!noMatch)
+                hr
+                if (current_user.followed_tag.length>0)
+                    h4 Followed Tag
+                    each val in current_user.followed_tag
+                        a(href=val.url) #{val.name}
+                        |,
 
 
     .d-flex.justify-content-center
@@ -77,13 +77,13 @@ block content
                                     img.d-block.w-100(src='https://source.unsplash.com/random?sig=random?sig=12/500x500', alt = 'Third Slide')
                                     .carousel-caption #{job.title}
                                         p #{job.description}
-                if (!noMatch)
-                    hr
-                    if (current_user.followed_tag.length > 0)
-                        h4 Followed Tag
-                        each val in current_user.followed_tag
-                            a(href=val.url) #{val.name}
-                            | ,
+                //if (!noMatch)
+                //    hr
+                //    if (current_user.followed_tag.length > 0)
+                //        h4 Followed Tag
+                //        each val in current_user.followed_tag
+                //            a(href=val.url) #{val.name}
+                //            | ,
 
                         //original no looping carousel
                 //.carousel-item
@@ -109,6 +109,7 @@ block content
         h1 Bootstrap 4 Multiple Item Carousel
         #recipeCarousel.carousel.slide.img-fluid(data-ride='carousel')
             .carousel-inner.img-fluid(role='listbox')
+                //preset version //
                 .carousel-item.row.no-gutters.active
                     .col-4.float-left
                         img.img-fluid(src='http://placehold.it/350x280/222/fff?text=1')
@@ -123,6 +124,35 @@ block content
                         img.img-fluid(src='http://placehold.it/350x280/555?text=6')
                     .col-4.float-left
                         img.img-fluid(src='http://placehold.it/350x280/333/fff?text=7')
+
+            //--------------YIRANNNNNNN---------------//
+            //if (jobs)
+            //    li
+            //        hr
+            //    if (noMatch)
+            //        h4 Search Results
+            //    else
+            //        h4 Featured Jobs
+            //    each job,i in jobs
+            //        if i < 3
+            //            .carousel-item.active
+            //                a(href="/dashboard/job/" + job._id)
+            //                    img.d-block.w-100(src='https://source.unsplash.com/random?sig=123/500x500', alt='First slide')
+            //                    .carousel-caption #{job.title}
+            //                        p #{job.description}
+            //                .col-4.float-left
+            //                        img.img-fluid(src='http://placehold.it/350x280/222/fff?text=1')
+            //            break
+            //
+            //        else
+            //            .carousel-item
+            //                a(href="/dashboard/job/" + job._id)
+            //                    img.d-block.w-100(src='https://source.unsplash.com/random?sig=random?sig=12/500x500', alt = 'Third Slide')
+            //                    .carousel-caption #{job.title}
+            //                        p #{job.description}
+
+
+
             a.carousel-control-prev(href='#recipeCarousel' role='button' data-slide='prev')
                 span.carousel-control-prev-icon(aria-hidden='true')
                 span.sr-only Previous
