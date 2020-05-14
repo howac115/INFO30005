@@ -1,14 +1,15 @@
-import { bubble as Menu } from 'react-burger-menu'
+import { slide as Menu } from 'react-burger-menu'
 
-class sideNav extends React.Component {
-    // showSettings (event) {
-    //     event.preventDefault();
-    // .
-    // .
-    // .
-    // }
+class Example extends React.Component {
+    showSettings (event) {
+        event.preventDefault();
+    .
+    .
+    .
+    }
 
     render () {
+        // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
         return (
             <Menu>
                 <a id="home" className="menu-item" href="/">Home</a>
@@ -19,5 +20,3 @@ class sideNav extends React.Component {
         );
     }
 }
-
-export default Menu;

@@ -33,8 +33,9 @@
     background-repeat: repeat-x;
 }
 
+
 /* ----------dynamic log image------------- */
-.d-block {
+.d-block.logo {
     width: 150px;
     height: auto;
     padding-bottom: 20px;
@@ -42,13 +43,13 @@
 }
 
 @media (min-width: 768px) {
-    .d-block {
+    .d-block.logo{
         width: 200px;
     }
 }
 
 @media (min-width: 1500px) {
-    .d-block {
+    .d-block.logo{
         width: 15%;
     }
 }

@@ -1,0 +1,8 @@
+.eggmask{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    mask-type: alpha;
+    mask-image: image(url(/public/images/logo/icb_user_mask.png));
+    mask-position: center;
+}
