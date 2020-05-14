@@ -28,7 +28,7 @@ block content
       a(href='/home/login') Login
 
 
-  if errors 
-    ul
-      for error in errors
-        li!= error.msg
+    if errors 
+      ul
+        for error in errors
+          li!= error.msg
