@@ -33,6 +33,7 @@ h4 {
 
 body {
   background-color: #B4D9CE !important;
+  height: 100% !important;
 }
 
 * {
@@ -41,6 +42,9 @@ body {
 }
 
 /*----------------------------------------------------------------------------*/
+html {
+  height: 100%;
+}
 
 center {
   margin: auto;
@@ -55,6 +59,7 @@ left-box-align{
   margin-left: 5%;
   margin-right: 5%;
   background-color: #ffffff;
+  min-height: 100%;
 }
 @media (min-width: 576px) {
   left-box-align{

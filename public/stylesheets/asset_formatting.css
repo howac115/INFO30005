@@ -1,3 +1,4 @@
+/*---------------------------user profile image dynamic crop and mask--------------------------------*/
 .eggmask{
     width: 130px;
     height: 150px;
@@ -17,6 +18,8 @@
         height: 103px;
     }
 }
+
+
 .tab{
     tab-stops: left 50% ;
 }
