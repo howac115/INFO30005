@@ -1,8 +1,50 @@
-.carousel-inner{
-    width:80%;
-    max-height: 500px !important;
+/*.carousel-inner{*/
+/*    width:80%;*/
+/*    max-height: 500px !important;*/
+/*}*/
+
+.textOverImage{
+    position:relative;
+    width:300px;
+    height:300px;
+    float:left;
+    margin:4px;
+    background-size:100%;
+    background-position:center;
+    transition:0.5s;
 }
 
+.textOverImage:hover{
+    background-size:110%;
+}
+
+.textOverImage:after{
+    position:absolute;
+    top:100%;
+    bottom:0;
+    left:0;
+    right:0;
+    white-space:pre-wrap;
+    overflow:hidden;
+    background-color:rgba(0,0,0,0.6);
+    color:#fff;
+    padding:0 8px;
+    opacity:0;
+    content:attr(data-text);
+    transition:0.5s;
+}
+
+.textOverImage:hover:after{
+    opacity:1;
+    top:0;
+    padding:8px;
+}
+
+/*.textOverImage:first-line{*/
+/*    color:#fff;*/
+/*    font-weight:bold;*/
+/*    font-size:1.5em;*/
+/*}*/
 .item-size{
 
 }
