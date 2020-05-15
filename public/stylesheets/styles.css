@@ -16,19 +16,44 @@
 .pink2 { color: #CFB2B9; }
 
 /* --------------------------font styling--------------------------------------------*/
-/* overwriting bootstrap presets */
+/* overwriting bootstrap presets, and is also dynamic */
 h1 {
-  font-size: 2em !important;
-  font-family: 'Acumin V', sans-serif !important;
+  font-size: 2vmax !important;
+  font-family: 'Acumin V',sans-serif !important;
   font-weight: bolder !important;
   color: #40735B !important;
 }
 
+@media (max-width: 992px) {
+  h1{
+    font-size: 3vmax !important;
+  }
+}
+
 h4 {
-  font-size: 1.5em !important;
-  font-family: 'Acumin V', sans-serif !important;
+  font-size: 1.5vmax !important;
+  font-family: 'Acumin V',sans-serif !important;
   font-weight: 700  !important;
   color: #40735B !important;
+}
+
+@media (max-width: 992px) {
+  h4{
+    font-size: 2.25vmax !important;
+  }
+}
+
+h3 {
+  font-size: 2vmax !important;
+  font-family: 'Biryani',sans-serif !important;
+  font-weight: 500  !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 992px) {
+  h3{
+    font-size: 3vmax !important;
+  }
 }
 
 body {
@@ -39,6 +64,13 @@ body {
 * {
   font-family: 'Basic', sans-serif;
   color: #373a47;
+  font-size: 1.2vmax;
+}
+
+@media (max-width: 992px) {
+  *{
+    font-size: 1.8vmax !important;
+  }
 }
 
 /*----------------------------------------------------------------------------*/
