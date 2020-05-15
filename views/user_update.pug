@@ -31,6 +31,13 @@ block content
                   input.checkbox-input(type='checkbox', name='tag', id=tag._id, value=tag._id, checked=tag.checked )
                   label(for=tag._id) #{tag.name}
         div.form-group
+          label Do you wish to hide sensitive information when people click into your page?
+          div
+            input(type='radio', name='infoDisplayConsent', value=1)
+            |  Yes
+            input(type='radio', name='infoDisplayConsent', value=0)
+            |  No
+        div.form-group
           label Do you consent to receive email for notifications in followed tags?
           div
             input(type='radio', name='emailConsent', value=1)

@@ -48,6 +48,9 @@ var UserSchema = new Schema({
   popularity: {
     type: Number,
   },
+  infoDisplayConsent: {
+    type: Boolean,
+  },
   emailConsent: {
     type: Boolean,
   },

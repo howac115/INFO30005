@@ -1,30 +1,30 @@
-.navbar-default{
-    background-color: #E3FFF6;
-}
+/*.navbar-default{*/
+/*    background-color: #E3FFF6;*/
+/*}*/
 
-.navbar-toggle{
-    background-color: #E3FFF6;
-}
+/*.navbar-toggle{*/
+/*    background-color: #E3FFF6;*/
+/*}*/
 
-.navbar-brand {
-    position: relative;
-    text-align:center;
-    margin-left:auto;
-    margin-right:auto;
-    float:none;
-    width: 100%;
-    padding: 10px;
-}
+/*.navbar-brand {*/
+/*    position: relative;*/
+/*    text-align:center;*/
+/*    margin-left:auto;*/
+/*    margin-right:auto;*/
+/*    float:none;*/
+/*    width: 100%;*/
+/*    padding: 10px;*/
+/*}*/
 
-.navbar-header{
-    background-color: #4B8699;
-    position: relative;
-    text-align:center;
-}
+/*.navbar-header{*/
+/*    background-color: #4B8699;*/
+/*    position: relative;*/
+/*    text-align:center;*/
+/*}*/
 
-.container-fluid {
+.container-fluid.nav-head {
     padding-top: 0.5%;
-    margin-left: 1%;
+    /*margin-left: 1%;*/
     background-color: #40735B;
     box-shadow: 0px -7px 18px 10px #373a47;
 }
@@ -37,21 +37,25 @@
 
 
 /* ----------dynamic log image------------- */
-.d-block.logo {
+.d-inline-block.logo {
     width: 150px;
     height: auto;
-    padding-bottom: 20px;
+    margin: 20px;
     display: inline-block;
+    position: relative;
+    /* need to properly centre this */
+    left: 46.58%;
+    transform: translateX(-53.42%);
 }
 
 @media (min-width: 768px) {
-    .d-block.logo{
+    .d-inline-block.logo{
         width: 200px;
     }
 }
 
 @media (min-width: 1500px) {
-    .d-block.logo{
+    .d-inline-block.logo{
         width: 15%;
     }
 }
@@ -65,23 +69,25 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #B4D9CE;
+    background-color: #A1C2CC;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 100px;
+    float: none;
 }
 
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 20px;
-    color: #40735B;
+    color: #373a47;
     display: block;
     transition: 0.3s;
+    float: none;
 }
 
 .sidenav a:hover {
-    color: #ECB086;
+    color: #40735B;
 }
 
 .sidenav .closebtn {

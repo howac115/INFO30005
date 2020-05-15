@@ -3,6 +3,8 @@ var async = require("async");
 var Job = require("../models/job");
 var Tag = require("../models/tag");
 
+var email_controller = require("./emailController.js");
+
 // Display detail page for a specific user.
 exports.user_detail_get = function (req, res, next) {
   async.parallel(
@@ -36,6 +38,43 @@ exports.user_detail_get = function (req, res, next) {
     }
   );
 };
+
+// Send email to user when enquiry
+exports.user_detail_post = function (req, res, next) {
+  async.parallel(
+    {
+      user: function (callback) {
+        User.findByIdAndUpdate(req.params.id, { $inc: { popularity: 1 } })
+          .populate("tag")
+          .exec(callback);
+      },
+      user_jobs: function (callback) {
+        Job.find({ user: req.params.id }, "title description").exec(callback);
+      },
+    },
+    function (err, results) {
+      if (err) {
+        return next(err);
+      } // Error in API usage.
+      if (results.user == null) {
+        // No results.
+        var err = new Error("User not found");
+        err.status = 404;
+        return next(err);
+      }
+      // Successful, so render.
+      req.flash('messageSent', 'Message Sent!');
+      email_controller.data.userNotification(results.user, req.user, req.body.message);
+      res.render("user_detail", {
+        messageSent: req.flash("messageSent"),
+        title: "User Detail",
+        current_user: req.user,
+        user: results.user,
+        user_jobs: results.user_jobs,
+      });
+    }
+  );
+}
 
 // Display User update form on GET.
 exports.user_update_get = function (req, res, next) {
@@ -95,6 +134,7 @@ exports.user_update_post = function (req, res, next) {
     date_of_birth: req.body.date_of_birth,
     tag: req.body.tag,
     followed_tag: req.user.followed_tag,
+    infoDisplayConsent: req.body.infoDisplayConsent,
     emailConsent: req.body.emailConsent,
     _id: req.params.id,
   });

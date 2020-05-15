@@ -26,7 +26,7 @@ html
     script(src='/dist/react-burger-menu.js')
 
 
-    nav.container-fluid.sticky-top
+    nav.container-fluid.nav-head.sticky-top
       //.navbar.navbar-default
       //.container-fluid
       //  .navbar-header.fluid
@@ -49,7 +49,7 @@ html
       //        li
       //          a(href='/home/logout') Logout
 
-      #sideNav.sidenav
+      #sideNav.sidenav.d-inline
         a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
         if(current_user)
           li
@@ -77,10 +77,10 @@ html
         }
 
       if (current_user)
-        a.d-block.logo.mx-auto(href='/dashboard')
+        a.d-inline-block.logo(href='/dashboard')
           img(src='/images/logo/icb_logo_f_w.svg')
       else
-        a.d-block.logo.mx-auto(href='/')
+        a.d-inline-block.logo(href='/')
           img(src='/images/logo/icb_logo_f_w.svg')
 
       //#side-menu

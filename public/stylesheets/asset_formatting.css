@@ -1,8 +1,11 @@
+/*---------------------------user profile image dynamic crop and mask--------------------------------*/
 .eggmask{
     width: 130px;
     height: 150px;
     object-fit: cover;
     clip-path: ellipse(50% 50% at 50% 50%);
+    float: none;
+    vertical-align: baseline;
     /*---------------- we will try egg next time ---------------*/
     /*mask-type: luminance;*/
     /*mask-image: url(/images/logo/icb_user_mask.png);*/
@@ -17,6 +20,15 @@
         height: 103px;
     }
 }
+
+
 .tab{
     tab-stops: left 50% ;
+}
+
+.container-fluid.page-header{
+    background-color: #A1C2CC;
+    width: 100%;
+    background-clip: padding-box;
+    padding-bottom: 1vmax;
 }
