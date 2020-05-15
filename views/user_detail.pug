@@ -2,15 +2,15 @@ extends header
 
 block content
   title #{user.name}
-  center
+  left-box-align
     if (user.profile_img)
-      img.eggmask.d-block.mx-auto(src=''+ user.profile_img )
-    h1 #{user.name}
+      img.eggmask.d-inline-block(src=''+ user.profile_img )
+    h4.d-inline #{user.name}
 
     div(style='margin-left:20px;margin-top:20px')
-    if (user.date_of_birth) 
-      h4 Age
-      dd #{user.age}    
+    if (user.date_of_birth)
+      h4.d-inline.tab Age &#09;
+      dd.d-inline.tab #{user.age}
     h4 Summary
     if (user.summary)
       dd #{user.summary}

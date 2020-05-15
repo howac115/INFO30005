@@ -1,6 +1,7 @@
 @import url(https://fonts.google.com/specimen/Source+Sans+Pro?category=Serif,Sans+Serif,Monospace&sort=popularity);
 @import url(https://fonts.google.com/specimen/Basic?category=Sans+Serif&preview.text=&preview.text_type=custom);
-@import url(https://fonts.google.com/specimen/Biryani?category=Sans+Serif&preview.text=Jobs+Tags+InCuBeta&preview.text_type=custom)
+@import url(https://fonts.google.com/specimen/Biryani?category=Sans+Serif&preview.text=Jobs+Tags+InCuBeta&preview.text_type=custom);
+@import url(//db.onlinewebfonts.com/c/066ce24dae3730ed6c648b09efaea93a?family=Acumin+Variable+Concept);
 
 /* ------------------------- Color Theme Swatches in Hex --------------------------------*/
 .green1 { color: #D5F2EA; }
@@ -18,20 +19,20 @@
 /* overwriting bootstrap presets */
 h1 {
   font-size: 2em !important;
-  font-family: 'Biryani', sans-serif !important;
-  font-weight: 900 !important;
+  font-family: 'Acumin V', sans-serif !important;
+  font-weight: bolder !important;
   color: #40735B !important;
 }
 
 h4 {
   font-size: 1.5em !important;
-  font-family: 'Biryani', sans-serif !important;
+  font-family: 'Acumin V', sans-serif !important;
   font-weight: 700  !important;
   color: #40735B !important;
 }
 
 body {
-  background-color: #ffffff !important;
+  background-color: #B4D9CE !important;
 }
 
 * {
@@ -45,6 +46,44 @@ center {
   margin: auto;
   width: 400px;
   padding: 10px;
+}
+
+left-box-align{
+  position: absolute;
+  padding: 2em;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #ffffff;
+}
+@media (min-width: 576px) {
+  left-box-align{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+@media (min-width: 768px) {
+  left-box-align{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+@media (min-width: 992px) {
+  left-box-align{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+@media (min-width: 1200px) {
+  left-box-align{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
 }
 
 .form-inline {
