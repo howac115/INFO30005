@@ -17,6 +17,27 @@ block content
         div.form-group
             label(for='profile_img') Profile Image URL
             input#email.form-control(type='text', name='profile_img', value = ''+user.profile_img, placeholder='Enter Profile Image URL')  
+        div.form-group
+            label(for='date_of_birth') Date of birth:
+            if (user.date_of_birth)
+                input#date_of_birth.form-control(type='date', name='date_of_birth', value=user.date_of_birth.getFullYear()+'-'+(user.date_of_birth.getMonth()+1)+'-'+user.date_of_birth.getDate())
+            else
+                input#date_of_birth.form-control(type='date', name='date_of_birth')
+        div.form-group
+            label Tag:
+            div
+              for tag in tags
+                div(style='display: inline; padding-right:10px;')
+                  input.checkbox-input(type='checkbox', name='tag', id=tag._id, value=tag._id, checked=tag.checked )
+                  label(for=tag._id) #{tag.name}
+        div.form-group
+          label Do you consent to receive email for notifications in followed tags?
+          div
+            input(type='radio', name='emailConsent', value=1)
+            |  Yes
+            input(type='radio', name='emailConsent', value=0)
+            |  No
+        div.form-group
         button.btn.btn-primary(type='submit') Submit
 
   if errors 

@@ -1,0 +1,165 @@
+.navbar-default{
+    background-color: #E3FFF6;
+}
+
+.navbar-toggle{
+    background-color: #E3FFF6;
+}
+
+.navbar-brand {
+    position: relative;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    float:none;
+    width: 100%;
+    padding: 10px;
+}
+
+.navbar-header{
+    background-color: #4B8699;
+    position: relative;
+    text-align:center;
+}
+
+.container-fluid {
+    padding-top: 0.5%;
+    margin-left: 1%;
+    background-color: #40735B;
+}
+
+.gradient-buttons .btn {
+    background-image: linear-gradient(to bottom, #A1C2CC, #4B8699, #CFB2B9, #FDD1CE);
+    background-repeat: repeat-x;
+}
+
+
+/* ----------dynamic log image------------- */
+.d-block.logo {
+    width: 150px;
+    height: auto;
+    padding-bottom: 20px;
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+    .d-block.logo{
+        width: 200px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .d-block.logo{
+        width: 15%;
+    }
+}
+
+
+/*--------------side navigation------------------*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #B4D9CE;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 100px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #40735B;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #ECB086;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+/* ----------- burger menu from https://github.com/negomi/react-burger-menu ---------*/
+/* Position and sizing of burger button */
+.bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 36px;
+    top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+    background: #373a47;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+    background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+    height: 24px;
+    width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+    background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+    background: #373a47;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+    fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+    display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+}

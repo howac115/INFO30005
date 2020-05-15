@@ -22,6 +22,9 @@ var JobSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  popularity: {
+    type: Number
   }
 });
 

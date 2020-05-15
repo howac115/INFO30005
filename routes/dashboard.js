@@ -3,16 +3,13 @@ var router = express.Router();
 var { ensureAuthenticated } = require('../config/auth');
 
 // Controllers.
+var search_controller = require('../controllers/searchController');
 var job_controller = require('../controllers/jobController');
 var tag_controller = require('../controllers/tagController');
 var user_controller = require('../controllers/userController');
 
 // GET request to Dashboard page. Protected from when logged out.
-router.get('/', ensureAuthenticated, function(req, res) {
-    res.render('dashboard', {
-        current_user: req.user
-    })
-});
+router.get('/', ensureAuthenticated, search_controller.index);
 
 
 /// JOB ROUTES ///
@@ -36,7 +33,7 @@ router.get('/job/:id/update', job_controller.job_update_get);
 router.post('/job/:id/update', job_controller.job_update_post);
 
 // GET request for one Job
-router.get('/job/:id', job_controller.job_detail);
+router.get('/job/:id', job_controller.job_detail_get);
 
 // GET request for list of all Jobs.
 router.get('/jobs', job_controller.job_list);
@@ -51,7 +48,8 @@ router.get('/user/:id/update', user_controller.user_update_get);
 router.post('/user/:id/update', user_controller.user_update_post);
 
 // GET request for one user
-router.get('/user/:id', user_controller.user_detail);
+router.get('/user/:id', user_controller.user_detail_get);
+
 
 /// TAG ROUTES ///
 
@@ -69,12 +67,18 @@ router.post('/tag/:id/delete', tag_controller.tag_delete_post);
 
 // GET request to update Genre.
 router.get('/tag/:id/update', tag_controller.tag_update_get);
-
+    
 // POST request to update Genre.
 router.post('/tag/:id/update', tag_controller.tag_update_post);
 
 // GET request for one Tag.
-router.get('/tag/:id', tag_controller.tag_detail);
+router.get('/tag/:id', tag_controller.tag_detail_get);
+
+// GET request to redirect to Tag detail page when follow
+router.get('/tag/:id/follow', tag_controller.tag_follow_get);
+
+// GET request to redirect to Tag detail page when unfollow
+router.get('/tag/:id/unfollow', tag_controller.tag_unfollow_get);
 
 // GET request for list of all tags
 router.get('/tags', tag_controller.tag_list);

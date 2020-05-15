@@ -8,6 +8,9 @@ var TagSchema = new Schema({
         required: true,
         min: 1, 
         max: 100
+    },
+    popularity: {
+      type: Number
     }
 });
 

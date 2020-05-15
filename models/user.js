@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
+var moment = require("moment"); // for date handling
 
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
@@ -6,52 +7,80 @@ var ObjectId = Schema.ObjectId;
 var UserSchema = new Schema({
   first_name: {
     type: String,
-    required: true
+    required: true,
   },
   family_name: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
-    required: true
+    required: true,
   },
   phone_num: {
-    type: String
+    type: String,
   },
   profile_img: {
-    type: String
+    type: String,
   },
   summary: {
-    type: String
+    type: String,
   },
+  tag: [
+    {
+      type: ObjectId,
+      ref: "Tag",
+    },
+  ],
+  followed_tag: [
+    {
+      type: ObjectId,
+      ref: "Tag",
+    },
+  ],
   password: {
     type: String,
-    required: true
+    required: true,
   },
-  date: {
+  date_of_birth: {
     type: Date,
-    default: Date.now
-  }
+  },
+  popularity: {
+    type: Number,
+  },
+  emailConsent: {
+    type: Boolean,
+  },
+  isAdmin: {
+    type: Boolean,
+  },
 });
 
 // Virtual for user "full" name.
-UserSchema.virtual('name').get(function() {
-  var fullname = '';
+UserSchema.virtual("name").get(function () {
+  var fullname = "";
 
   if (this.first_name && this.family_name) {
-    fullname = this.family_name + ', ' + this.first_name;
+    fullname = this.family_name + ", " + this.first_name;
   }
 
   if (!this.first_name && !this.family_name) {
-    fullname = '';
+    fullname = "";
   }
   return fullname;
 });
 
-// Virtual for user instance URL.
-UserSchema.virtual('url').get(function() {
-  return '/dashboard/user/'+this._id;
+// virtual for user instance URL.
+UserSchema.virtual("url").get(function () {
+  return "/dashboard/user/" + this._id;
 });
 
-module.exports = mongoose.model('User', UserSchema);
+// virtual for user's age
+UserSchema.virtual("age").get(function () {
+  var age_dt = new Date(Date.now());
+  return Math.abs(
+    age_dt.getUTCFullYear() - this.date_of_birth.getUTCFullYear()
+  );
+});
+
+module.exports = mongoose.model("User", UserSchema);

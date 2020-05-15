@@ -4,10 +4,13 @@ block content
   title #{user.name}
   center
     if (user.profile_img)
-      img.img-responsive(src=''+ user.profile_img )
+      img.eggmask.d-block.mx-auto(src=''+ user.profile_img )
     h1 #{user.name}
-  
+
     div(style='margin-left:20px;margin-top:20px')
+    if (user.date_of_birth) 
+      h4 Age
+      dd #{user.age}    
     h4 Summary
     if (user.summary)
       dd #{user.summary}
@@ -26,10 +29,14 @@ block content
       dt 
         a(href=job.url) #{job.title}
       dd #{job.description}
-
+    
     else
       p This user has no jobs.
-      
+    if (user.tag.length>0)
+      p #[strong Tag:] 
+          each val in user.tag
+              a(href=val.url) #{val.name}
+              |,  
     hr
     if (current_user.url == user.url)
       p

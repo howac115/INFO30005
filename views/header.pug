@@ -4,39 +4,80 @@ html
     style.
       h1 {color:red;}
       li {list-style-type:none;}
-    
+
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='/stylesheets/styles.css')
-    link(rel="stylesheet", href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-    link(rel='icon', href='/images/incubeta.png')
+    link(rel='stylesheet', href='/stylesheets/asset_formatting.css')
+    link(rel='stylesheet', href='/stylesheets/navigation.css')
+    link(rel='stylesheet', href='/stylesheets/carousel.css')
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' inte='' <= '' body='')
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+    link(rel='icon', href='/images/logo/incubeta.png')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-nav.navbar.navbar-default
-  .container
-    .navbar-header
-      button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a(href='/')
-        img(src='/images/incubeta-1.png')
-    #navbar.collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right
-        if(current_user)
-          li 
-            a(href='/dashboard') Dashboard
-          li
-            a(href='#') Signed In As #{current_user.first_name}
-          li
-            a(href=current_user.url) Profile
-          li
-            a(href='/home/logout') Logout
-        else
-          li
-            a(href='/home/login') Login
-          li
-            a(href='/home/register') Sign Up
-body   
-   block content
+
+    script(src='https://unpkg.com/react@16/umd/react.development.js' crossorigin='')
+    script(src='https://unpkg.com/react-dom@16/umd/react-dom.development.js' crossorigin='')
+    script(src='sideNav.js')
+
+  nav.container-fluid
+    //.navbar.navbar-default
+    //.container-fluid
+    //  .navbar-header.fluid
+    //    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+    //      span.sr-only Toggle navigation
+    //      span.icon-bar
+    //      span.icon-bar
+    //      span.icon-bar
+    //    a.text-center.center-block.p-1(href='/')
+    //      img(src='/images/icb_logo_f.svg', width= '50%')
+    //  #navbar.collapse.navbar-collapse
+    //    ul.nav.navbar-nav.navbar-right
+    //      if(current_user)
+    //        li
+    //          a(href='/dashboard') Dashboard
+    //        li
+    //          a(href='#') Signed In As #{current_user.first_name}
+    //        li
+    //          a(href=current_user.url) Profile
+    //        li
+    //          a(href='/home/logout') Logout
+
+    #side-menu
+
+    //#sideNav.sidenav
+    //  a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
+    //  if(current_user)
+    //    li
+    //      a(href='#') Signed In As #{current_user.first_name}
+    //    li
+    //      a(href=current_user.url) Profile
+    //      hr
+    //    li
+    //      a(href='/dashboard') Dashboard
+    //    li
+    //      a(href='/dashboard/jobs') All jobs
+    //    li
+    //      a(href='/dashboard/tags') All tags
+    //      hr
+    //    li
+    //      a(href='/home/logout') Logout
+    //span(style='font-size:30px;cursor:pointer' onclick='openNav()')
+    //  img(src='/images/logo/user_icon.svg' width= "30px")
+    //script.
+    //  function openNav() {
+    //    document.getElementById("sideNav").style.width = "250px";
+    //  }
+    //  function closeNav() {
+    //    document.getElementById("sideNav").style.width = "0";
+    //  }
+    a.d-block.logo.mx-auto(href='/')
+      img(src='/images/logo/icb_logo_f_w.svg')
+
+
+
+
+body
+  block content
