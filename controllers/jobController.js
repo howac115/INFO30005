@@ -145,7 +145,7 @@ exports.job_create_post = function (req, res, next) {
                 results.allUsers[i].id != req.user.id
               ) {
                 console.log(results.allUsers[i].email);
-                email_controller.data.sendEmail(
+                email_controller.data.jobNotification(
                   results.allUsers[i],
                   job,
                   tag_string
