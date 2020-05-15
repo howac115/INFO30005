@@ -11,7 +11,6 @@ var user_controller = require('../controllers/userController');
 // GET request to Dashboard page. Protected from when logged out.
 router.get('/', ensureAuthenticated, search_controller.index);
 
-
 /// JOB ROUTES ///
 
 // GET request to view Job Create page.
