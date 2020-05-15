@@ -3,6 +3,8 @@ extends header
 block content
   title #{user.name}
   left-box-align
+    if (messageSent)
+      .alert.alert-success #{messageSent}
     if (user.profile_img)
       img.eggmask.d-inline-block(src=''+ user.profile_img )
     h4.d-inline #{user.name}
@@ -16,13 +18,18 @@ block content
       dd #{user.summary}
     else
       dd This user has not updated his summary
-    h4 E-mail Address
-    dd #{user.email}
-    h4 Phone Number
-    if (user.phone_num)
-      dd #{user.phone_num}
+    if (user.infoDisplayConsent == true || current_user.id == user.id)
+      h4 E-mail Address
+      dd #{user.email}
+      h4 Phone Number
+      if (user.phone_num)
+        dd #{user.phone_num}
+      else
+        dd This user has not updated his phone number  
     else
-      dd This user has not updated his phone number  
+      h4 Contact Details
+      dd Please submit form below to enquire this person.
+    
     h4 Jobs
     dl
     each job in user_jobs
@@ -41,3 +48,10 @@ block content
     if (current_user.url == user.url)
       p
         a(href=user.url+'/update') Update Profile
+    else
+      form(method='POST' action='')
+        label(for='message') Message:
+        div.form-group
+          p.full
+            textarea(name='message', rows='5')
+        button.btn.btn-primary(type='submit') Submit
