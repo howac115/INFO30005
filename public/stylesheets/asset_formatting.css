@@ -28,7 +28,12 @@
 
 .container-fluid.page-header{
     background-color: #A1C2CC;
-    width: 100%;
+    margin-left: -2em;
+    margin-right: -2em;
+    margin-top: -1em;
     background-clip: padding-box;
+    padding-left: 2em;
+    padding-right: 2em;
     padding-bottom: 1vmax;
+    padding-top: 1vmax;
 }

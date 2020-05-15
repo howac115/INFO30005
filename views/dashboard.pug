@@ -44,66 +44,44 @@ block content
                         a(href=val.url) #{val.name}
                         |,
 
-    //exhibit the featured jobs on dashboard in carousel, with job description hovering over image
-    .container.text-center.my-3
-        h1 Bootstrap 4 Multiple Item Carousel
-            #recipeCarousel.carousel.slide.img-fluid(data-ride='carousel')
-                .carousel-inner.img-fluid(role='listbox')
-                    .carousel-item.row.no-gutters.active
-                        .col-4.float-left
-                            a.textOverImage(href="/dashboard/job/"+jobs[0]._id style = "background-image:url(https://source.unsplash.com/random?sig=123/500x500)"
-                                data-title = `${jobs[0].title}` data-text = `${jobs[0].title}`+`${jobs[0].description}`)
-                                .carousel-caption #{jobs[0].title}
-                        .col-4.float-left
-                            a.textOverImage(href="/dashboard/job/" + jobs[1]._id style = 'http://placehold.it/350x280/444?text=2'
-                                data-text = `${jobs[1].description}`)
-                                .carousel-caption #{jobs[1].title}
-                        .col-4.float-left
-                            a.textOverImage(href="/dashboard/job/" + jobs[2]._id style = 'http://placehold.it/350x280/444?text=2'
-                                data-text = `${jobs[2].description}`)
-                               .carousel-caption #{jobs[2].title}
-                    .carousel-item.row.no-gutters
-                        .col-4.float-left
-                            a.textOverImage(href="/dashboard/job/" + jobs[3]._id style = 'http://placehold.it/350x280/444?text=2'
-                                data-text = `${jobs[3].description}`)
-                                .carousel-caption #{jobs[3].title}
-                        .col-4.float-left
-                            a.textOverImage(href="/dashboard/job/" + jobs[4]._id style = 'http://placehold.it/350x280/444?text=2'
-                                data-text =`${jobs[4].description}`)
-                                .carousel-caption #{jobs[4].title}
-                        .col-4.float-left
-                            a.textOverImage(href="/dashboard/job/" + jobs[5]._id style = 'http://placehold.it/350x280/444?text=2'
-                                data-text = `${jobs[5].description}`)
-                                .carousel-caption #{jobs[5].title}
+        //exhibit the featured jobs on dashboard in carousel, with job description hovering over image
+        .carousel-format.text-center.my-3
+            h1 Bootstrap 4 Multiple Item Carousel
+                #recipeCarousel.carousel.slide.img-fluid(data-ride='carousel')
+                    .carousel-inner.img-fluid(role='listbox')
+                        .carousel-item.row.no-gutters.active
+                            .col-4.float-left
+                                a.textOverImage(href="/dashboard/job/"+jobs[0]._id style = "background-image:url(https://source.unsplash.com/random?sig=123/500x500)"
+                                    data-title = `${jobs[0].title}` data-text = `${jobs[0].title}`+`${jobs[0].description}`)
+                                    .carousel-caption #{jobs[0].title}
+                            .col-4.float-left
+                                a.textOverImage(href="/dashboard/job/" + jobs[1]._id style = 'http://placehold.it/350x280/444?text=2'
+                                    data-text = `${jobs[1].description}`)
+                                    .carousel-caption #{jobs[1].title}
+                            .col-4.float-left
+                                a.textOverImage(href="/dashboard/job/" + jobs[2]._id style = 'http://placehold.it/350x280/444?text=2'
+                                    data-text = `${jobs[2].description}`)
+                                   .carousel-caption #{jobs[2].title}
+                        .carousel-item.row.no-gutters
+                            .col-4.float-left
+                                a.textOverImage(href="/dashboard/job/" + jobs[3]._id style = 'http://placehold.it/350x280/444?text=2'
+                                    data-text = `${jobs[3].description}`)
+                                    .carousel-caption #{jobs[3].title}
+                            .col-4.float-left
+                                a.textOverImage(href="/dashboard/job/" + jobs[4]._id style = 'http://placehold.it/350x280/444?text=2'
+                                    data-text =`${jobs[4].description}`)
+                                    .carousel-caption #{jobs[4].title}
+                            .col-4.float-left
+                                a.textOverImage(href="/dashboard/job/" + jobs[5]._id style = 'http://placehold.it/350x280/444?text=2'
+                                    data-text = `${jobs[5].description}`)
+                                    .carousel-caption #{jobs[5].title}
 
-            //--------------YIRANNNNNNN---------------//
-
-            //    each job,i in jobs
-            //        if i < 3
-            //            .carousel-item.active
-            //                a(href="/dashboard/job/" + job._id)
-            //                    img.d-block.w-100(src='https://source.unsplash.com/random?sig=123/500x500', alt='First slide')
-            //                    .carousel-caption #{job.title}
-            //                        p #{job.description}
-            //                .col-4.float-left
-            //                        img.img-fluid(src='http://placehold.it/350x280/222/fff?text=1')
-            //            break
-            //
-            //        else
-            //            .carousel-item
-            //                a(href="/dashboard/job/" + job._id)
-            //                    img.d-block.w-100(src='https://source.unsplash.com/random?sig=random?sig=12/500x500', alt = 'Third Slide')
-            //                    .carousel-caption #{job.title}
-            //                        p #{job.description}
-
-
-
-            a.carousel-control-prev(href='#recipeCarousel' role='button' data-slide='prev')
-                span.carousel-control-prev-icon(aria-hidden='true')
-                span.sr-only Previous
-            a.carousel-control-next(href='#recipeCarousel' role='button' data-slide='next')
-                span.carousel-control-next-icon(aria-hidden='true')
-                span.sr-only Next
+                a.carousel-control-prev(href='#recipeCarousel' role='button' data-slide='prev')
+                    span.carousel-control-prev-icon(aria-hidden='true')
+                    span.sr-only Previous
+                a.carousel-control-next(href='#recipeCarousel' role='button' data-slide='next')
+                    span.carousel-control-next-icon(aria-hidden='true')
+                    span.sr-only Next
 
 
 

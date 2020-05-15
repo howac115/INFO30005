@@ -48,3 +48,51 @@
 .item-size{
 
 }
+
+.carousel-format{
+    background-clip: padding-box;
+    margin-left: -2.1em;
+    margin-right: -2.1em;
+    background-color: #CFB2B9;
+}
+
+
+
+/*left-box-align{*/
+/*    position: absolute;*/
+/*    padding: 2em;*/
+/*    width: 90%;*/
+/*    margin-left: 5%;*/
+/*    margin-right: 5%;*/
+/*    background-color: #ffffff;*/
+/*    min-height: 100%;*/
+/*}*/
+/*@media (min-width: 576px) {*/
+/*    left-box-align{*/
+/*        width: 80%;*/
+/*        margin-left: 10%;*/
+/*        margin-right: 10%;*/
+/*    }*/
+/*}*/
+/*@media (min-width: 768px) {*/
+/*    left-box-align{*/
+/*        width: 70%;*/
+/*        margin-left: 15%;*/
+/*        margin-right: 15%;*/
+/*    }*/
+/*}*/
+/*@media (min-width: 992px) {*/
+/*    left-box-align{*/
+/*        width: 60%;*/
+/*        margin-left: 20%;*/
+/*        margin-right: 20%;*/
+/*    }*/
+/*}*/
+
+/*@media (min-width: 1200px) {*/
+/*    left-box-align{*/
+/*        width: 50%;*/
+/*        margin-left: 25%;*/
+/*        margin-right: 25%;*/
+/*    }*/
+/*}*/
