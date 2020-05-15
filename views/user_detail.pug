@@ -3,11 +3,12 @@ extends header
 block content
   title #{user.name}
   left-box-align
-    if (messageSent)
-      .alert.alert-success #{messageSent}
-    if (user.profile_img)
-      img.eggmask.d-inline-block(src=''+ user.profile_img )
-    h4.d-inline #{user.name}
+    .container-fluid.page-header
+      if (messageSent)
+        .alert.alert-success #{messageSent}
+      if (user.profile_img)
+        img.eggmask.d-inline-block(src=''+ user.profile_img )
+      h3.d-inline.ml-3 &#09; #{user.name}
 
     div(style='margin-left:20px;margin-top:20px')
     if (user.date_of_birth)
@@ -25,11 +26,7 @@ block content
       if (user.phone_num)
         dd #{user.phone_num}
       else
-        dd This user has not updated his phone number  
-    else
-      h4 Contact Details
-      dd Please submit form below to enquire this person.
-    
+        dd This user has not updated his phone number
     h4 Jobs
     dl
     each job in user_jobs
@@ -39,15 +36,15 @@ block content
     
     else
       p This user has no jobs.
-    if (user.tag.length>0)
-      p #[strong Tag:] 
-          each val in user.tag
-              a(href=val.url) #{val.name}
-              |,  
+    if (user.tag.length > 0)
+      p #[strong Tag:]
+        each val in user.tag
+          a(href=val.url) #{val.name}
+          | ,
     hr
     if (current_user.url == user.url)
       p
-        a(href=user.url+'/update') Update Profile
+        a(href=user.url + '/update') Update Profile
     else
       form(method='POST' action='')
         label(for='message') Message:
@@ -55,3 +52,4 @@ block content
           p.full
             textarea(name='message', rows='5')
         button.btn.btn-primary(type='submit') Submit
+
