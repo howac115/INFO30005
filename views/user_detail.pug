@@ -3,9 +3,10 @@ extends header
 block content
   title #{user.name}
   left-box-align
-    if (user.profile_img)
-      img.eggmask.d-inline-block(src=''+ user.profile_img )
-    h4.d-inline #{user.name}
+    .container-fluid.page-header
+      if (user.profile_img)
+        img.eggmask.d-inline-block(src=''+ user.profile_img )
+      h3.d-inline.ml-3 &#09; #{user.name}
 
     div(style='margin-left:20px;margin-top:20px')
     if (user.date_of_birth)
