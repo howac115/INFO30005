@@ -12,7 +12,7 @@ exports.index = function (req, res) {
 
 // GET request to display login page
 exports.login_get = function (req, res, next) {
-  res.render("login");
+  res.render("login", { message: req.flash('error') });
 };
 
 // POST request to handle login
@@ -20,6 +20,7 @@ exports.login_post = function (req, res, next) {
   passport.authenticate("local", {
     successRedirect: "/dashboard",
     failureRedirect: "/home/login",
+    failureFlash: true,
   })(req, res, next);
 };
 
@@ -34,15 +35,15 @@ exports.register_post = function (req, res, next) {
   let errors = [];
 
   if (!first_name || !family_name || !email || !password || !password2) {
-    errors.push({ msg: "Please enter all fields" });
+    req.flash('registerError', 'Please enter all fields');
   }
 
   if (password != password2) {
-    errors.push({ msg: "Passwords do not match" });
+    req.flash('registerError', 'Passwords do not match');
   }
 
   if (password.length < 6) {
-    errors.push({ msg: "Password must be at least 6 characters" });
+    req.flash('registerError', 'Password must be at least 6 characters');
   }
 
   if (errors.length > 0) {
@@ -57,8 +58,9 @@ exports.register_post = function (req, res, next) {
   } else {
     User.findOne({ email: email }).then((user) => {
       if (user) {
-        errors.push({ msg: "Email already exists" });
+        req.flash('registerError', 'Email already exists');
         res.render("register", {
+          errorMessage: req.flash("registerError"),
           errors,
           first_name,
           family_name,
@@ -81,7 +83,8 @@ exports.register_post = function (req, res, next) {
             newUser
               .save()
               .then((user) => {
-                res.redirect("/home/login");
+                req.flash('registerSuccess', 'You are now registered and can log in');
+                res.render("login", { successMessage: req.flash("registerSuccess") });
               })
               .catch((err) => console.log(err));
           });
@@ -94,5 +97,6 @@ exports.register_post = function (req, res, next) {
 // GET request to handle logout redirects to login page
 exports.logout_get = function (req, res, next) {
   req.logout();
-  res.redirect("/home/login");
+  req.flash('logoutSuccess', 'You are logged out');
+  res.render("login", { successMessage: req.flash("logoutSuccess") });
 };
