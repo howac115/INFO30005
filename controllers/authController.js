@@ -7,7 +7,7 @@ var { forwardAuthenticated } = require("../config/auth");
 
 // GET request to display home page
 exports.index = function (req, res) {
-  res.render("login", { title: "InCuBeta" });
+  res.redirect('/dashboard');
 };
 
 // GET request to display login page
@@ -21,6 +21,7 @@ exports.login_post = function (req, res, next) {
     successRedirect: "/dashboard",
     failureRedirect: "/home/login",
     failureFlash: true,
+    successFlash: true,
   })(req, res, next);
 };
 
