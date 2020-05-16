@@ -28,43 +28,27 @@ html
 
 
     nav.container-fluid.nav-head.sticky-top
-      //.navbar.navbar-default
-      //.container-fluid
-      //  .navbar-header.fluid
-      //    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-      //      span.sr-only Toggle navigation
-      //      span.icon-bar
-      //      span.icon-bar
-      //      span.icon-bar
-      //    a.text-center.center-block.p-1(href='/')
-      //      img(src='/images/icb_logo_f.svg', width= '50%')
-      //  #navbar.collapse.navbar-collapse
-      //    ul.nav.navbar-nav.navbar-right
-      //      if(current_user)
-      //        li
-      //          a(href='/dashboard') Dashboard
-      //        li
-      //          a(href='#') Signed In As #{current_user.first_name}
-      //        li
-      //          a(href=current_user.url) Profile
-      //        li
-      //          a(href='/home/logout') Logout
 
       #sideNav.sidenav.d-inline
         a.navi.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
         if(current_user)
           li
-            .side-nav-head Signed In As
-            .side-nav-head.pb-2(style="font-size: xx-large;") #{current_user.first_name}
+            a.navi(href='#') Signed In As #{current_user.first_name}
           li
             a.navi(href=current_user.url) Profile
-            hr
+          hr
+        li
+          a.navi(href='/dashboard') Dashboard
+        li
+          a.navi(href='/dashboard/jobs') All jobs
+        li
+          a.navi(href='/dashboard/tags') All tags
+        li
+          hr
+        li
+          a.navi(href='/home/login') Login
+        if(current_user)
           li
-            a.navi(href='/dashboard') Dashboard
-          li
-            a.navi(href='/dashboard/jobs') All jobs
-          li
-            a.navi(href='/dashboard/tags') All tags
             hr
           li
             button.btn.btn-primary(href='/home/logout', style= 'margin-left: 32px; width: 50%;') Logout

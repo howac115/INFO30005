@@ -22,7 +22,8 @@ exports.tag_list = function (req, res, next) {
 
 // Display detail page for specific Tag.
 exports.tag_detail_get = function (req, res, next) {
-  var followed = req.user.followed_tag.includes(req.params.id);
+  if (req.user)
+    var followed = req.user.followed_tag.includes(req.params.id);
   async.parallel(
     {
       tag: function (callback) {

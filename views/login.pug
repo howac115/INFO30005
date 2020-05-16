@@ -5,7 +5,8 @@ block content
   title Login
   left-box-align
     if (message)
-      div.alert.alert-danger #{error}
+      if (error.length > 0)
+        div.alert.alert-danger #{error}
     if (errorMessage)
       div.alert.alert-danger #{errorMessage}
     if (successMessage)

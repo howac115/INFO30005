@@ -17,11 +17,18 @@ exports.index = function (req, res) {
         } else {
           noMatch = " ";
         }
-        res.render("dashboard", {
-          current_user: req.user,
-          searchJobs: allJobs,
-          noMatch: noMatch,
-        });
+        if (req.user) {
+          res.render("dashboard", {
+            current_user: req.user,
+            searchJobs: allJobs,
+            noMatch: noMatch,
+          })
+        } else {
+          res.render("dashboard", {
+            searchJobs: allJobs,
+            noMatch: noMatch,
+          })
+        }
       }
     });
   } else {
@@ -30,18 +37,33 @@ exports.index = function (req, res) {
         featured_jobs: function (callback) {
           Job.aggregate([{ $sample: { size: 6 } }]).exec(callback);
         },
-        current_user: function (callback) {
-          User.findById(req.user.id).populate("followed_tag").exec(callback);
-        },
       },
       function (err, results) {
         if (err) {
           return next(err);
         }
-        res.render("dashboard", {
-          current_user: results.current_user,
-          jobs: results.featured_jobs,
-        });
+        if (req.user) {
+          async.parallel(
+            {
+              current_user: function (callback) {
+                User.findById(req.user.id).populate("followed_tag").exec(callback);
+              },
+              featured_jobs: function (callback) {
+                Job.aggregate([{ $sample: { size: 6 } }]).exec(callback);
+              },
+            }, function (err, results) {
+              if (err) { return next(err) }
+              res.render("dashboard", {
+                current_user: results.current_user,
+                jobs: results.featured_jobs,
+              });
+            })
+        } else {
+          res.render("dashboard", {
+            jobs: results.featured_jobs,
+          });
+        }
+
       }
     );
   }
