@@ -20,7 +20,9 @@ var UserSchema = new Schema({
   phone_num: {
     type: String,
   },
+
   profile_img: {
+
     type: String,
   },
   summary: {

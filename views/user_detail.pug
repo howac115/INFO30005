@@ -42,8 +42,11 @@ block content
     if (user.tag.length > 0)
       p #[strong Tag:]
         each val in user.tag
-          a(href=val.url) #{val.name}
-          | ,
+          .chip
+            a(href=val.url) #{val.name}
+            //img(src='img_avatar.jpg' alt='Person' width='96' height='96')
+
+            //span.closebtn(onclick="this.parentElement.style.display='none'") &times;
     hr
     if (current_user.url == user.url)
       p
