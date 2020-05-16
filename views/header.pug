@@ -68,7 +68,7 @@ html
           li
             a.navi(href='/home/logout') Logout
       span(style='font-size:30px;cursor:pointer' onclick='openNav()')
-        img(src='/images/logo/user_icon.svg' width= "30px")
+        img.ml-3(src='/images/logo/user_icon.svg' width= "25px")
       script.
         function openNav() {
           document.getElementById("sideNav").style.width = "250px";
@@ -93,7 +93,7 @@ body
     a(name="top")
   .footer
     .fixed-bottom
-      h3
-        a.fixed-bottom-text(href = '#top')  return to top
+      h3(style= "font-size: medium !important;")
+        a.d-inline.footer-block.fixed-bottom-text(href = '#top')  return to top
         |  |
-        a.fixed-bottom-text(href = "/dashboard")   return to dashboard
+        a.d-inline.footer-block.fixed-bottom-text(href = "/dashboard")   return to dashboard

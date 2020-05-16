@@ -40,7 +40,7 @@
 .d-inline-block.logo {
     width: 150px;
     height: auto;
-    margin: 20px;
+    margin: 10px;
     display: inline-block;
     position: relative;
     /* need to properly centre this */
@@ -50,13 +50,13 @@
 
 @media (min-width: 768px) {
     .d-inline-block.logo{
-        width: 200px;
+        width: 150px;
     }
 }
 
 @media (min-width: 1500px) {
     .d-inline-block.logo{
-        width: 15%;
+        width: 7%;
     }
 }
 
@@ -104,70 +104,41 @@
 }
 
 
-/* ----------- burger menu from https://github.com/negomi/react-burger-menu ---------*/
-/* Position and sizing of burger button */
-.bm-burger-button {
-    position: fixed;
-    width: 36px;
-    height: 30px;
-    left: 36px;
-    top: 36px;
+/*------------------footer element------------------------*/
+
+/* fix the footer at the bottom of the page*/
+.footer{
+    position: relative;
 }
 
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-    background: #373a47;
+a.fixed-bottom-text {
+    color: #ffffff!important;
+    font-size: small !important;
+    font-weight: lighter;
 }
 
-/* Color/shape of burger icon bars on hover*/
-.bm-burger-bars-hover {
-    background: #a90000;
+a.fixed-bottom-text:hover,
+a.fixed-bottom-text:focus {
+    color: #ECB086 !important;
+    text-decoration: none !important;
 }
 
-/* Position and sizing of clickable cross button */
-.bm-cross-button {
-    height: 24px;
-    width: 24px;
+.fixed-bottom{
+    height:6vh;
+    background-color: #40735B;
+    position:absolute;
+    text-align: center;
+    width:100%;
+    bottom:0px;
+    left:0px;
+    padding-top: 1.7vh;
+    padding-bottom: 1vh;
+
 }
 
-/* Color/shape of close button cross */
-.bm-cross {
-    background: #bdc3c7;
-}
-
-/*
-Sidebar wrapper styles
-Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-*/
-.bm-menu-wrap {
-    position: fixed;
-    height: 100%;
-}
-
-/* General sidebar styles */
-.bm-menu {
-    background: #373a47;
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
-}
-
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-    fill: #373a47;
-}
-
-/* Wrapper for item list */
-.bm-item-list {
-    color: #b8b7ad;
-    padding: 0.8em;
-}
-
-/* Individual item */
-.bm-item {
-    display: inline-block;
-}
-
-/* Styling of overlay */
-.bm-overlay {
-    background: rgba(0, 0, 0, 0.3);
+.d-inline.footer-block{
+    width: 200px;
+    height: 10px;
+    vertical-align: middle;
+    justify-content: center;
 }

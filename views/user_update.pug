@@ -2,7 +2,7 @@ extends header
 
 block content
   title Update Profile
-  left-box-align
+  left-box-align(style= "padding-bottom: 10%;")
     h1=title
     form(method='POST' action='')
         div.form-group
@@ -29,7 +29,7 @@ block content
               for tag in tags
                 div(style='display: inline; padding-right:10px;')
                   input.checkbox-input(type='checkbox', name='tag', id=tag._id, value=tag._id, checked=tag.checked )
-                  label(for=tag._id) #{tag.name}
+                  label.h5(for=tag._id) #{tag.name}
         div.form-group
           label Do you wish to hide sensitive information when people click into your page?
           div
