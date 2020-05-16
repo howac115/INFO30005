@@ -19,7 +19,7 @@ exports.index = function (req, res) {
         }
         res.render("dashboard", {
           current_user: req.user,
-          jobs: allJobs,
+          searchJobs: allJobs,
           noMatch: noMatch,
         });
       }
