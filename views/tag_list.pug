@@ -7,11 +7,13 @@ block content
 
     //display the tags in chips
     each val in list_tags
-        .chip
-            a(href=val.url) #{val.name}
-            //img(src='img_avatar.jpg' alt='Person' width='96' height='96')
-
-            span.closebtn(onclick="this.parentElement.style.display='none'") &times;
+        li
+        a(href=val.url) #{val.name}
+        //.chip
+        //    a(href=val.url) #{val.name}
+        //    //img(src='img_avatar.jpg' alt='Person' width='96' height='96')
+        //
+        //    span.closebtn(onclick="this.parentElement.style.display='none'") &times;
 
     else
         li There are no tag.
