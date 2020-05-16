@@ -4,6 +4,7 @@
     position: relative;
     margin-left: -16em;
     margin-right: -12em;
+    align-items: center;
     /*display: flex;*/
     /*flex-direction: row;*/
     /*flex-wrap: wrap;*/
@@ -13,7 +14,7 @@
     padding-left: -16em;
     padding-right: -12em;
     background: #A1C2CC;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 @media (min-width: 576px) {
@@ -55,7 +56,7 @@
     background-position:center;
     transition:0.5s;
     font-family: "Source Sans Pro", sans-serif;
-    font-size: small;
+    font-size: 1vw;
     text-align: left;
     padding-left: 5vw;
     padding-top: 5vw;
@@ -91,40 +92,61 @@
 
 
 .carousel-in-image{
-    max-width: 30%;
+    width: 30%;
     height: 20vw;
     vertical-align: bottom;
     display: flex;
-    justify-content: space-between;
+    flex: auto;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+@media (max-width: 992px) {
+    .textOverImage:hover:after,
+    .textOverImage:hover,
+    .textOverImage:after{
+        visibility: hidden;
+    }
 }
 
 @media (min-width: 992px) {
     .carousel-in-image{
-        width: 45%;
-        height: 20vw;
+        width: 32%;
+    }
+    .textOverImage{
+        font-size: small;
     }
 }
 
-/*.carousel-format {*/
-/*    background-clip: padding-box;*/
-/*    !*font-size: 1.5em;*!*/
-/*    margin-left: -6em;*/
-/*    margin-right: -6em;*/
-/*}*/
+@media (min-width: 1200px) {
+    .carousel-in-image{
+        width: 32.5%;
+    }
+    .textOverImage{
+        font-size: 20px;
+    }
+}
 
-/*@media (max-width: 992px) {*/
-/*    .carousel-format{*/
-/*        padding-left: 6.5vw;*/
-/*        padding-right: 6vw;*/
-/*    }*/
-/*}*/
+.carousel-format {
+    background-clip: padding-box;
+    /*font-size: 1.5em;*/
+    margin-left: -6em;
+    margin-right: -6em;
+}
+
+@media (max-width: 992px) {
+    .carousel-format{
+        padding-left: 6.5vw;
+        padding-right: 6vw;
+    }
+}
 
 .carousel-item{
     margin-left: -10em;
     margin-right: -10em;
     display: flex;
-    justify-content: space-between;
-
+    align-items: center;
+    justify-content: flex-end;
 }
 
 /*.carousel-inner{*/
@@ -136,7 +158,9 @@
     color: #ffffff;
     vertical-align: bottom;
     bottom: 0px;
-    justify-content: space-between;
-    vertical-align: bottom;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #40735B;
 }
 
