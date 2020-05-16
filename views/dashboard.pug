@@ -36,60 +36,61 @@ block content
             //            a(href="/dashboard/job/"+job._id) #{job.title}
             //        dd #{job.description}
             //    h4 #{noMatch}
-            if (!noMatch)
-                if (current_user.followed_tag.length>0)
-                    h4 Followed Tag
-                    each val in current_user.followed_tag
-                        a(href=val.url) #{val.name}
-                        |,
+        if (!noMatch)
+            if (current_user.followed_tag.length>0)
+                h4 Followed Tag
+                each val in current_user.followed_tag
+                    a(href=val.url) #{val.name}
+                    |,
 
         //exhibit the featured jobs on dashboard in carousel, with job description hovering over image
-        hr
-        h1 Featured Jobs
-
-        .container.carousel-container.mx-auto
-            .carousel-format.text-center.my-3
-                #recipeCarousel.carousel.slide.img-fluid(data-ride='carousel')
-                    //.col-md-3
-                    //    // Controls
-                    //    .controls.pull-right.hidden-xs
-                    //        a.left.fa.fa-chevron-left.btn.btn-success(href='#carousel-example' data-slide='prev')
-                    //        a.right.fa.fa-chevron-right.btn.btn-success(href='#carousel-example' data-slide='next')
-                    .carousel-inner.img-responsive(role='listbox')
-                        .carousel-item.row.no-gutters.mx-auto.active
-                            //.d-inline-flex.float-left
-                            a.textOverImage.carousel-in-image(href="/dashboard/job/"+jobs[0]._id style = "background-image:url(https://source.unsplash.com/random?sig=123/500x500)"
-                                data-title = `${jobs[0].title}` data-text = `${jobs[0].title}`+`${jobs[0].description}`)
-                                .carousel-caption #{jobs[0].title}
-                            //.d-inline-flex.float-left
-                            a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[1]._id style = "background-image:url(https://source.unsplash.com/random?sig=1/500x500)"
-                                data-text = `${jobs[1].description}`)
-                                .carousel-caption #{jobs[1].title}
-                            //.d-inline-flex.float-left
-                            a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[2]._id style = "background-image:url(https://source.unsplash.com/random?sig=12/500x500)"
-                                data-text = `${jobs[2].description}`)
-                                .carousel-caption #{jobs[2].title}
-                        .carousel-item.row.no-gutters.mx-auto
-                            //.d-inline-flex.float-left
-                            a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[3]._id style = "background-image:url(https://source.unsplash.com/random?sig=3/500x500)"
-                                data-text = `${jobs[3].description}`)
-                                .carousel-caption #{jobs[3].title}
-                            //.d-inline-flex.float-left
-                            a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[4]._id style = "background-image:url(https://source.unsplash.com/random?sig=8/500x500)"
-                                data-text =`${jobs[4].description}`)
-                                .carousel-caption #{jobs[4].title}
-                            //.d-inline-flex.float-left
-                            a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[5]._id style = "background-image:url(https://source.unsplash.com/random?sig=13/500x500)"
-                                data-text = `${jobs[5].description}`)
-                                .carousel-caption #{jobs[5].title}
-
-                    a.carousel-control-prev.float-left(href='#recipeCarousel' role='button' data-slide='prev')
-                        span.carousel-control-prev-icon(aria-hidden='true')
-                        span.sr-only Previous
-                    a.carousel-control-next.float-right(href='#recipeCarousel' role='button' data-slide='next')
-                        span.carousel-control-next-icon(aria-hidden='true')
-                        span.sr-only Next
-
-
+        if (jobs)
+            li
+                hr
+            if (noMatch)
+                h4 Search Results
+            else
+                h1 Featured Jobs
+                .container.carousel-container.mx-auto
+                    .carousel-format.text-center.my-3
+                        #recipeCarousel.carousel.slide.img-fluid(data-ride='carousel')
+                            .carousel-inner.img-responsive(role='listbox')
+                                .carousel-item.row.no-gutters.mx-auto.active
+                                    //.d-inline-flex.float-left
+                                    a.textOverImage.carousel-in-image(href="/dashboard/job/"+jobs[0]._id style = "background-image:url(https://source.unsplash.com/random?sig=123/500x500)"
+                                        data-title = `${jobs[0].title}` data-text = `${jobs[0].title}`+`${jobs[0].description}`)
+                                        .carousel-caption #{jobs[0].title}
+                                    //.d-inline-flex.float-left
+                                    a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[1]._id style = "background-image:url(https://source.unsplash.com/random?sig=1/500x500)"
+                                        data-text = `${jobs[1].description}`)
+                                        .carousel-caption #{jobs[1].title}
+                                    //.d-inline-flex.float-left
+                                    a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[2]._id style = "background-image:url(https://source.unsplash.com/random?sig=12/500x500)"
+                                        data-text = `${jobs[2].description}`)
+                                        .carousel-caption #{jobs[2].title}
+                                .carousel-item.row.no-gutters.mx-auto
+                                    //.d-inline-flex.float-left
+                                    a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[3]._id style = "background-image:url(https://source.unsplash.com/random?sig=3/500x500)"
+                                        data-text = `${jobs[3].description}`)
+                                        .carousel-caption #{jobs[3].title}
+                                    //.d-inline-flex.float-left
+                                    a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[4]._id style = "background-image:url(https://source.unsplash.com/random?sig=8/500x500)"
+                                        data-text =`${jobs[4].description}`)
+                                        .carousel-caption #{jobs[4].title}
+                                    //.d-inline-flex.float-left
+                                    a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[5]._id style = "background-image:url(https://source.unsplash.com/random?sig=13/500x500)"
+                                        data-text = `${jobs[5].description}`)
+                                        .carousel-caption #{jobs[5].title}
+                            a.carousel-control-prev.float-left(href='#recipeCarousel' role='button' data-slide='prev')
+                                span.carousel-control-prev-icon(aria-hidden='true')
+                                span.sr-only Previous
+                            a.carousel-control-next.float-right(href='#recipeCarousel' role='button' data-slide='next')
+                                span.carousel-control-next-icon(aria-hidden='true')
+                                span.sr-only Next
+            each job in jobs
+                    dt
+                        a(href="/dashboard/job/"+job._id) #{job.title}
+                    dd #{job.description}
+            h4 #{noMatch}
 
 
