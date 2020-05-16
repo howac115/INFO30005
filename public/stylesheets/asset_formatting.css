@@ -37,3 +37,79 @@
     padding-bottom: 1vmax;
     padding-top: 1vmax;
 }
+
+
+/*----------------------default button overwriting--------------------------*/
+/*.btn.btn-primary:hover,*/
+/*.btn.btn-primary:focus {*/
+/*    background: #ECB086;*/
+/*    color: #ffffff;*/
+/*}*/
+
+
+/*.btn.btn-primary{*/
+/*    border: none;*/
+/*    font-family: "Patua One", sans-serif;*/
+/*    background: #40735B;*/
+/*    color: #ffffff;*/
+/*}*/
+
+.form-group {
+    margin-bottom: 0px;
+}
+
+label{
+    padding-bottom: 1vh;
+    font-family: "Patua One", sans-serif;
+    color: #40735B;
+    font-size: x-large;
+}
+
+/*--------------------cool hover button from https://codepen.io/davidicus/full/emgQKJ ---------------------------*/
+
+.btn.btn-primary {
+    background: #40735B;
+    font-weight: 100;
+
+svg {
+    height: 45px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+rect {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-dasharray: 422, 0;
+    transition: all 0.35s linear;
+}
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus{
+    background: #ECB086;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+rect {
+    stroke-width: 5;
+    stroke-dasharray: 15, 310;
+    stroke-dashoffset: 48;
+    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+}
+
+/*-------------------------default hyperlink formatting override------------------------------*/
+
+a {
+    color: #40735B !important;
+}
+
+a:hover,
+a:focus {
+    color: #ECB086 !important;
+    text-decoration: none !important;
+}
