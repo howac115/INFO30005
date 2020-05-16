@@ -70,7 +70,8 @@
 
 @media (max-width: 992px) {
     .carousel-format{
-        padding-left: 2.5vw;
+        padding-left: 6.5vw;
+        padding-right: 6vw;
     }
 }
 
