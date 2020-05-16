@@ -11,7 +11,7 @@ var UserSchema = new Schema({
   },
   family_name: {
     type: String,
-    required: false,
+    required: true,
   },
   email: {
     type: String,
@@ -47,6 +47,9 @@ var UserSchema = new Schema({
   },
   popularity: {
     type: Number,
+  },
+  infoDisplayConsent: {
+    type: Boolean,
   },
   emailConsent: {
     type: Boolean,

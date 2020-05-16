@@ -3,7 +3,13 @@ extends header
 block content
   
   title Login
-  center
+  left-box-align
+    if (message)
+      div.alert.alert-danger #{error}
+    if (errorMessage)
+      div.alert.alert-danger #{errorMessage}
+    if (successMessage)
+      div.alert.alert-success #{successMessage}
     h1
       i
       | Login

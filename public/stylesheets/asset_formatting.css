@@ -1,12 +1,39 @@
+/*---------------------------user profile image dynamic crop and mask--------------------------------*/
 .eggmask{
-    width: 300px;
-    height: 300px;
+    width: 130px;
+    height: 150px;
     object-fit: cover;
-    clip-path: ellipse(42% 50% at 50% 50%);
+    clip-path: ellipse(50% 50% at 50% 50%);
+    float: none;
+    vertical-align: baseline;
     /*---------------- we will try egg next time ---------------*/
     /*mask-type: luminance;*/
     /*mask-image: url(/images/logo/icb_user_mask.png);*/
     /*mask-repeat: no-repeat;*/
     /*mask-size: 100%;*/
     /*mask-position: center;*/
+}
+
+@media (max-width: 768px) {
+    .eggmask{
+        width: 80px;
+        height: 103px;
+    }
+}
+
+
+.tab{
+    tab-stops: left 50% ;
+}
+
+.container-fluid.page-header{
+    background-color: #A1C2CC;
+    margin-left: -2em;
+    margin-right: -2em;
+    margin-top: -1em;
+    background-clip: padding-box;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 1vmax;
+    padding-top: 1vmax;
 }

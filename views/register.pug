@@ -2,7 +2,9 @@ extends header
 
 block content
   title Register
-  center
+  left-box-align
+    if (errorMessage)
+          .alert.alert-danger #{errorMessage}
     h1
       i
       | Register
@@ -26,9 +28,3 @@ block content
       p
       | Have An Account? 
       a(href='/home/login') Login
-
-
-    if errors 
-      ul
-        for error in errors
-          li!= error.msg

@@ -11,6 +11,8 @@ html
     link(rel='stylesheet', href='/stylesheets/asset_formatting.css')
     link(rel='stylesheet', href='/stylesheets/navigation.css')
     link(rel='stylesheet', href='/stylesheets/carousel.css')
+    link(rel='stylesheet', href='/stylesheets/tag_list.css')
+
     link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' inte='' <= '' body='')
     script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
@@ -18,64 +20,71 @@ html
     link(rel='icon', href='/images/logo/incubeta.png')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
 
-    script(src='https://unpkg.com/react@16/umd/react.development.js' crossorigin='')
-    script(src='https://unpkg.com/react-dom@16/umd/react-dom.development.js' crossorigin='')
+    script(src='https://unpkg.com/react@16/umd/react.production.min.js' crossorigin='')
+    script(src='https://unpkg.com/react-dom@16/umd/react-dom.production.min.js' crossorigin='')
+    script(src='https://unpkg.com/babel-standalone@6/babel.min.js')
     script(src='sideNav.js')
+    script(src='/dist/react-burger-menu.js')
 
-  nav.container-fluid
-    //.navbar.navbar-default
-    //.container-fluid
-    //  .navbar-header.fluid
-    //    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-    //      span.sr-only Toggle navigation
-    //      span.icon-bar
-    //      span.icon-bar
-    //      span.icon-bar
-    //    a.text-center.center-block.p-1(href='/')
-    //      img(src='/images/icb_logo_f.svg', width= '50%')
-    //  #navbar.collapse.navbar-collapse
-    //    ul.nav.navbar-nav.navbar-right
-    //      if(current_user)
-    //        li
-    //          a(href='/dashboard') Dashboard
-    //        li
-    //          a(href='#') Signed In As #{current_user.first_name}
-    //        li
-    //          a(href=current_user.url) Profile
-    //        li
-    //          a(href='/home/logout') Logout
 
-    #side-menu
+    nav.container-fluid.nav-head.sticky-top
+      //.navbar.navbar-default
+      //.container-fluid
+      //  .navbar-header.fluid
+      //    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+      //      span.sr-only Toggle navigation
+      //      span.icon-bar
+      //      span.icon-bar
+      //      span.icon-bar
+      //    a.text-center.center-block.p-1(href='/')
+      //      img(src='/images/icb_logo_f.svg', width= '50%')
+      //  #navbar.collapse.navbar-collapse
+      //    ul.nav.navbar-nav.navbar-right
+      //      if(current_user)
+      //        li
+      //          a(href='/dashboard') Dashboard
+      //        li
+      //          a(href='#') Signed In As #{current_user.first_name}
+      //        li
+      //          a(href=current_user.url) Profile
+      //        li
+      //          a(href='/home/logout') Logout
 
-    //#sideNav.sidenav
-    //  a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
-    //  if(current_user)
-    //    li
-    //      a(href='#') Signed In As #{current_user.first_name}
-    //    li
-    //      a(href=current_user.url) Profile
-    //      hr
-    //    li
-    //      a(href='/dashboard') Dashboard
-    //    li
-    //      a(href='/dashboard/jobs') All jobs
-    //    li
-    //      a(href='/dashboard/tags') All tags
-    //      hr
-    //    li
-    //      a(href='/home/logout') Logout
-    //span(style='font-size:30px;cursor:pointer' onclick='openNav()')
-    //  img(src='/images/logo/user_icon.svg' width= "30px")
-    //script.
-    //  function openNav() {
-    //    document.getElementById("sideNav").style.width = "250px";
-    //  }
-    //  function closeNav() {
-    //    document.getElementById("sideNav").style.width = "0";
-    //  }
-    a.d-block.logo.mx-auto(href='/')
-      img(src='/images/logo/icb_logo_f_w.svg')
+      #sideNav.sidenav.d-inline
+        a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
+        if(current_user)
+          li
+            a(href='#') Signed In As #{current_user.first_name}
+          li
+            a(href=current_user.url) Profile
+            hr
+          li
+            a(href='/dashboard') Dashboard
+          li
+            a(href='/dashboard/jobs') All jobs
+          li
+            a(href='/dashboard/tags') All tags
+            hr
+          li
+            a(href='/home/logout') Logout
+      span(style='font-size:30px;cursor:pointer' onclick='openNav()')
+        img(src='/images/logo/user_icon.svg' width= "30px")
+      script.
+        function openNav() {
+          document.getElementById("sideNav").style.width = "250px";
+        }
+        function closeNav() {
+          document.getElementById("sideNav").style.width = "0";
+        }
 
+      if (current_user)
+        a.d-inline-block.logo(href='/dashboard')
+          img(src='/images/logo/icb_logo_f_w.svg')
+      else
+        a.d-inline-block.logo(href='/')
+          img(src='/images/logo/icb_logo_f_w.svg')
+
+      //#side-menu
 
 
 

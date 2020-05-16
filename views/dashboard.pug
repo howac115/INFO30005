@@ -3,8 +3,8 @@ extends header
 block content
 
     title Dashboard
-    center
-        p.lead.mb-3 Welcome #{current_user.first_name}
+    left-align
+        h2.lead.mb-3 Welcome #{current_user.first_name}!
         form(method='GET' action='/dashboard')
             div.form-inline
                 input.form-control(type='text', name='search')
@@ -44,106 +44,37 @@ block content
                         a(href=val.url) #{val.name}
                         |,
 
-
-    .d-flex.justify-content-center
-
-        #carouselExampleIndicators.carousel.slide(data-ride='carousel')
-            ol.carousel-indicators
-                li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
-                li(data-target='#carouselExampleIndicators', data-slide-to='1')
-                li(data-target='#carouselExampleIndicators', data-slide-to='2')
-                li(data-target='#carouselExampleIndicators', data-slide-to='3')
-                li(data-target='#carouselExampleIndicators', data-slide-to='4')
-            .carousel-inner
-                if (jobs)
-                    li
-                        hr
-                    if (noMatch)
-                        h4 Search Results
-                    else
-                        h4 Featured Jobs
-                    each job,i in jobs
-                        if i == 0
-                            .carousel-item.active
-                                a(href="/dashboard/job/" + job._id)
-                                    img.d-block.w-100(src='https://source.unsplash.com/random?sig=123/500x500', alt='First slide')
-                                    .carousel-caption #{job.title}
-                                         p #{job.description}
-                            break
-
-                        else
-                            .carousel-item
-                                a(href="/dashboard/job/" + job._id)
-                                    img.d-block.w-100(src='https://source.unsplash.com/random?sig=random?sig=12/500x500', alt = 'Third Slide')
-                                    .carousel-caption #{job.title}
-                                        p #{job.description}
-                //if (!noMatch)
-                //    hr
-                //    if (current_user.followed_tag.length > 0)
-                //        h4 Followed Tag
-                //        each val in current_user.followed_tag
-                //            a(href=val.url) #{val.name}
-                //            | ,
-
-                        //original no looping carousel
-                //.carousel-item
-                //    img.d-block.w-100(src='https://source.unsplash.com/random?sig=120/500x500', alt = 'Third Slide')
-                //    .carousel-caption job.titl343
-
-                //.carousel-item
-                //    img.d-block.w-100(src='https://source.unsplash.com/random?sig=122/500x500', alt='Second slide')
-                //    .carousel-caption job.2
-                //.carousel-item
-                //    img.d-block.w-100(src='https://source.unsplash.com/random?sig=124/500x500', alt = 'Third Slide')
-                //    .carousel-caption job.titl343
-
-                a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
-                    span.carousel-control-prev-icon(aria-hidden='true')
-                    span.sr-only Previous
-                a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
-                    span.carousel-control-next-icon(aria-hidden='true')
-                    span.sr-only Next
-
-
-
-
-
-
-    //from https://bootsnipp.com/snippets/dlaKM
-    .container.text-center.my-3
-        h1 Bootstrap 3 Multiple Item Carousel
-        #recipeCarousel.carousel.slide.img-fluid(data-ride='carousel')
-            ol.carousel-indicators
-                li.active(data-target='#blogCarousel' data-slide-to='0')
-                li(data-target='#blogCarousel' data-slide-to='1')
-            .carousel-inner.img-fluid(role='listbox')
-                if (jobs)
-                    li
-                        hr
-                    if (noMatch)
-                        h4 Search Results
-                    else
-                        h4 Featured Jobs
-                    each job,i in jobs
-                        if i < 3
-                            .carousel-item.row.no-gutters.active
-                                h1 now you do this to me #{i}
-                                .col-4.float-left
-                                    a(href="/dashboard/job/" + job._id)
-                                        img.img-fluid(src='http://placehold.it/350x280?text=#{i}',alt = "FirstSlide")
-                                        .carousel-caption #{job.title}
-                                            p #{job.description}
-                            break
-                        else
-                            .carousel-item.row.no-gutters
-                                h1 why not work bivh #{i}
-                                .col-4.float-left
-                                    a(href="/dashboard/job/" + job._id)
-                                        img.img-fluid(src='http://placehold.it/350x280?text=5',alt = "FirstSlide")
-                                        .carousel-caption #{job.title}
-                                            p #{job.description}
-
-
+        //exhibit the featured jobs on dashboard in carousel, with job description hovering over image
+        h1 Featured Jobs
+        .carousel-format.text-center.my-3
+            #recipeCarousel.carousel.slide.img-fluid(data-ride='carousel')
+                .carousel-inner.img-fluid(role='listbox')
+                    .carousel-item.row.no-gutters.mx-auto.active
+                        .d-inline-flex.float-left
+                            a.textOverImage.carousel-in-image(href="/dashboard/job/"+jobs[0]._id style = "background-image:url(https://source.unsplash.com/random?sig=123/500x500)"
+                                data-title = `${jobs[0].title}` data-text = `${jobs[0].title}`+`${jobs[0].description}`)
+                                h3.carousel-caption #{jobs[0].title}
+                        .d-inline-flex.float-left
+                            a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[1]._id style = "background-image:url(https://source.unsplash.com/random?sig=1/500x500)"
+                                data-text = `${jobs[1].description}`)
+                                h3.carousel-caption #{jobs[1].title}
+                        .d-inline-flex.float-left
+                            a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[2]._id style = "background-image:url(https://source.unsplash.com/random?sig=12/500x500)"
+                                data-text = `${jobs[2].description}`)
+                                h3.carousel-caption #{jobs[2].title}
+                    .carousel-item.row.no-gutters.mx-auto
+                        .d-inline-flex.float-left
+                            a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[3]._id style = "background-image:url(https://source.unsplash.com/random?sig=3/500x500)"
+                                data-text = `${jobs[3].description}`)
+                                h3.carousel-caption #{jobs[3].title}
+                        .d-inline-flex.float-left
+                            a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[4]._id style = "background-image:url(https://source.unsplash.com/random?sig=8/500x500)"
+                                data-text =`${jobs[4].description}`)
+                                h3.carousel-caption #{jobs[4].title}
+                        .d-inline-flex.float-left
+                            a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[5]._id style = "background-image:url(https://source.unsplash.com/random?sig=13/500x500)"
+                                data-text = `${jobs[5].description}`)
+                                h3.carousel-caption #{jobs[5].title}
 
             a.carousel-control-prev(href='#recipeCarousel' role='button' data-slide='prev')
                 span.carousel-control-prev-icon(aria-hidden='true')
@@ -151,6 +82,7 @@ block content
             a.carousel-control-next(href='#recipeCarousel' role='button' data-slide='next')
                 span.carousel-control-next-icon(aria-hidden='true')
                 span.sr-only Next
+
 
 
 
