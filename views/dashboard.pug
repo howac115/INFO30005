@@ -3,7 +3,7 @@ extends header
 block content
 
     title Dashboard
-    if (successFlash)
+    if (message)
       div.alert.alert-success #{successFlash}
     left-align
         h2.lead.mb-3 Welcome #{current_user.first_name}!
@@ -40,6 +40,7 @@ block content
             //    h4 #{noMatch}
         if (!noMatch)
             if (current_user.followed_tag.length>0)
+                hr
                 h4 Followed Tag
                 each val in current_user.followed_tag
                     a(href=val.url) #{val.name}
