@@ -1,3 +1,4 @@
+/* credit to  href="https://twitter.com/JeremBoo">@jeremboo */
 body,
 html {
     overflow: hidden;
@@ -22,8 +23,8 @@ html {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 .Project:hover .imgMasked {

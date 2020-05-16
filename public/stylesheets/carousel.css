@@ -1,15 +1,49 @@
 /*textOverImage scc stylesheets*/
-.container{
+.container.carousel-container{
     width: 100%;
-    margin: 0px auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top:400px;
-    background:transparent;
+    position: relative;
+    margin-left: -16em;
+    margin-right: -12em;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    background-clip: padding-box;
+    padding-top:1vh;
+    padding-bottom:1vh;
+    padding-left: -16em;
+    padding-right: -12em;
+    background: #A1C2CC;
+    justify-content: space-between;
 }
 
+@media (min-width: 576px) {
+    .container.carousel-container{
+        margin-left: -20em;
+        margin-right: -20em;
+        padding-left: -20em;
+        padding-right: -20em;
+    }
+}
+
+@media (min-width: 992px) {
+    .container.carousel-container{
+        margin-left: -30em;
+        margin-right: -30em;
+        padding-left: -30em;
+        padding-right: -30em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container.carousel-container{
+        margin-left: -24em;
+        margin-right: -24em;
+        padding-left: -24em;
+        padding-right: -24em;
+    }
+}
+
+/*----------------------dynamic carousel----------------------------*/
 
 .textOverImage{
     position:relative;
@@ -17,10 +51,11 @@
     height:300px;
     float:left;
     margin:4px;
-    background-size:100%;
+    object-fit:cover;
     background-position:center;
     transition:0.5s;
     font-family: "Source Sans Pro", sans-serif;
+    font-size: small;
     text-align: left;
     padding-left: 5vw;
     padding-top: 5vw;
@@ -54,32 +89,54 @@
     padding:8px;
 }
 
-font-size:1.5em;
-}
+
 .carousel-in-image{
-    max-width: 100%;
-    height: 15vw;
-    object-fit: cover;
+    max-width: 30%;
+    height: 20vw;
+    vertical-align: bottom;
+    display: flex;
+    justify-content: space-between;
 }
 
-.carousel-format{
-    background-clip: padding-box;
-    margin-left: -6em;
-    margin-right: -6em;
-     padding-top: 2em;
-     padding-bottom: 2em;
-     padding-left: 8vw;
-     padding-right: 8vw;
-     background-color: #D5F2EA;
- }
-
-.carousel-inner{
-    background-clip: padding-box;
-}
-
-@media (max-width: 992px) {
-    .carousel-format{
-        padding-left: 6.5vw;
-        padding-right: 6vw;
+@media (min-width: 992px) {
+    .carousel-in-image{
+        width: 45%;
+        height: 20vw;
     }
 }
+
+/*.carousel-format {*/
+/*    background-clip: padding-box;*/
+/*    !*font-size: 1.5em;*!*/
+/*    margin-left: -6em;*/
+/*    margin-right: -6em;*/
+/*}*/
+
+/*@media (max-width: 992px) {*/
+/*    .carousel-format{*/
+/*        padding-left: 6.5vw;*/
+/*        padding-right: 6vw;*/
+/*    }*/
+/*}*/
+
+.carousel-item{
+    margin-left: -10em;
+    margin-right: -10em;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/*.carousel-inner{*/
+/*    background-clip: padding-box;*/
+/*}*/
+
+.carousel-caption{
+    font-size: large;
+    color: #ffffff;
+    vertical-align: bottom;
+    bottom: 0px;
+    justify-content: space-between;
+    vertical-align: bottom;
+}
+
