@@ -1,7 +1,8 @@
 @import url(https://fonts.google.com/specimen/Source+Sans+Pro?category=Serif,Sans+Serif,Monospace&sort=popularity);
-@import url(https://fonts.google.com/specimen/Basic?category=Sans+Serif&preview.text=&preview.text_type=custom);
-@import url(https://fonts.google.com/specimen/Biryani?category=Sans+Serif&preview.text=Jobs+Tags+InCuBeta&preview.text_type=custom);
+@import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap');
 @import url(//db.onlinewebfonts.com/c/066ce24dae3730ed6c648b09efaea93a?family=Acumin+Variable+Concept);
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 
 /* ------------------------- Color Theme Swatches in Hex --------------------------------*/
 .green1 { color: #D5F2EA; }
@@ -30,6 +31,20 @@ h1 {
   }
 }
 
+h2 {
+  font-size: 4vmax !important;
+  font-family: 'Patua One' !important;
+  /*font-weight: bolder !important;*/
+  color: #40735B !important;
+  text-shadow: 5px 0px 0px #A1C2CC;
+}
+
+/*@media (max-width: 992px) {*/
+/*  h2{*/
+/*    font-size: 3vmax !important;*/
+/*  }*/
+/*}*/
+
 h4 {
   font-size: 1.5vmax !important;
   font-family: 'Acumin V',sans-serif !important;
@@ -46,7 +61,7 @@ h4 {
 h3 {
   font-size: 2vmax !important;
   font-family: 'Biryani',sans-serif !important;
-  font-weight: 500  !important;
+  /*font-weight: 500  !important;*/
   color: #ffffff !important;
 }
 
@@ -83,7 +98,7 @@ center {
   width: 400px;
   padding: 10px;
 }
-
+/*--------------------------------general formatting-------------------------------------------*/
 left-box-align{
   position: absolute;
   padding: 2em;
@@ -122,6 +137,22 @@ left-box-align{
     margin-right: 25%;
   }
 }
+
+/*------------------------------------------------------------------*/
+left-align{
+  position: absolute;
+  padding-top: 2em;
+  padding-left: 6em;
+  padding-right: 6em;
+  width: 100%;
+  /*width: 90%;*/
+  /*margin-left: 5%;*/
+  /*margin-right: 5%;*/
+  background-color: #ffffff;
+  min-height: 100%;
+}
+
+/*------------------------------------------------------------------*/
 
 .form-inline {
   align-items: center;
