@@ -49,6 +49,15 @@ html
       //          a(href=current_user.url) Profile
       //        li
       //          a(href='/home/logout') Logout
+      location.hostname
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href='/home') Home
+        li.breadcrumb-item
+          a(href='/dashboard') Dashboard
+        //li.breadcrumb-item.active(aria-current=window.location.href) Data
+
+
 
       #sideNav.sidenav.d-inline
         a.navi.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
@@ -84,9 +93,23 @@ html
         a.d-inline-block.logo(href='/')
           img(src='/images/logo/icb_logo_f_w.svg')
 
-      //#side-menu
-
 
 
 body
   block content
+
+
+
+
+  a(name="top")
+  .footer
+    .fixed-bottom
+      h3
+        a.fixed-bottom-text(href = '#top')  return to top
+        |  |
+        a.fixed-bottom-text(href = "/dashboard")   return to dashboard
+
+
+
+
+
