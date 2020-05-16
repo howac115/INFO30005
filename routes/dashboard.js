@@ -9,13 +9,13 @@ var tag_controller = require('../controllers/tagController');
 var user_controller = require('../controllers/userController');
 
 // GET request to Dashboard page. Protected from when logged out.
-router.get('/', ensureAuthenticated, search_controller.index);
-
+router.get('/', search_controller.index);
+//router.get('/', ensureAuthenticated, search_controller.index);
 
 /// JOB ROUTES ///
 
 // GET request to view Job Create page.
-router.get('/job/create', job_controller.job_create_get);
+router.get('/job/create', ensureAuthenticated, job_controller.job_create_get);
 
 // POST request to create new Job
 router.post('/job/create', job_controller.job_create_post);
@@ -48,7 +48,7 @@ router.get('/user/:id/update', user_controller.user_update_get);
 router.post('/user/:id/update', user_controller.user_update_post);
 
 // GET request for one user
-router.get('/user/:id', user_controller.user_detail_get);
+router.get('/user/:id', ensureAuthenticated, user_controller.user_detail_get);
 
 // POST request for enquire one user's detail
 router.post('/user/:id', user_controller.user_detail_post);
