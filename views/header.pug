@@ -54,7 +54,8 @@ html
         a.navi.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
         if(current_user)
           li
-            a.navi(href='#') Signed In As #{current_user.first_name}
+            .side-nav-head Signed In As
+            .side-nav-head.pb-2(style="font-size: xx-large;") #{current_user.first_name}
           li
             a.navi(href=current_user.url) Profile
             hr
