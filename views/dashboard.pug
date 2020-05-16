@@ -3,6 +3,8 @@ extends header
 block content
 
     title Dashboard
+    if (successFlash)
+      div.alert.alert-success #{successFlash}
     left-align
         h2.lead.mb-3 Welcome #{current_user.first_name}!
         form(method='GET' action='/dashboard')
@@ -87,7 +89,10 @@ block content
                             a.carousel-control-next.float-right(href='#recipeCarousel' role='button' data-slide='next')
                                 span.carousel-control-next-icon(aria-hidden='true')
                                 span.sr-only Next
-            each job in jobs
+        if (searchJobs)
+            hr
+            h4 Search Results
+            each job in searchJobs
                     dt
                         a(href="/dashboard/job/"+job._id) #{job.title}
                     dd #{job.description}
