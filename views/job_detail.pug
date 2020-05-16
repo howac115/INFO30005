@@ -10,8 +10,11 @@ block content
     p #[strong Description:] #{job.description}
     p #[strong Tag:] 
         each val in job.tag
-            a(href=val.url) #{val.name}
-            |,       
+            .chip
+                a(href=val.url) #{val.name}
+                //img(src='img_avatar.jpg' alt='Person' width='96' height='96')
+
+                //span.closebtn(onclick="this.parentElement.style.display='none'") &times;
     hr
     if(current_user != null)
       if (current_user.url == job.user.url)
