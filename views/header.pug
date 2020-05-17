@@ -34,9 +34,9 @@ html
         if(current_user)
           li
             .side-nav-head(href='#') Signed In As
-            .side-nav-head(style= 'font-size: xx-large; padding-bottom: 20px;') #{current_user.first_name}
-          li
-            a.navi(href=current_user.url) Profile
+            a.side-nav-head(href=current_user.url, style= 'font-size: xx-large; padding-bottom: 20px;') #{current_user.first_name}
+          //li
+          //  a.navi(href=current_user.url) Profile
           hr
         li
           a.navi(href='/dashboard') Dashboard
