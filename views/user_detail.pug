@@ -33,25 +33,23 @@ block content
     h4 Jobs
     dl
     each job in user_jobs
-      dt 
+      dt
         a(href=job.url) #{job.title}
       dd #{job.description}
-    
+
     else
       p This user has no jobs.
     if (user.tag.length > 0)
       p #[strong Skill Tag/Tag of Interest:]
         each val in user.tag
           .chip
-            a(href=val.url) #{val.name}
+            a.chip-text(href=val.url) #{val.name}
             //img(src='img_avatar.jpg' alt='Person' width='96' height='96')
 
             //span.closebtn(onclick="this.parentElement.style.display='none'") &times;
     hr
     if (current_user.url == user.url)
-      a.button.btn.btn-primary(href=user.url + '/update') Update profile
-      p
-        a(href=user.url + '/update') Update Profile
+      a.btn.btn-primary(href=user.url + '/update') Update Profile
     else
       form(method='POST' action='')
         label(for='message') Send them a message:
