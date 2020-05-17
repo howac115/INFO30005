@@ -1,3 +1,4 @@
+
 # INFO30005
 
 ## ***Overview***
@@ -24,7 +25,7 @@ The authentication function of InCubeta is established through the login and reg
 
 ## **User, profile (userController) ../controllers/userController.js**
 
-After registering at the website, each user will generate a profile including all the information stored at ../models/user.js in the MongoDB. Once a user is logged onto the website, he can potentially update his profile information through the user controller. Published jobs are also tied to users through the job controller, which enables users to track each other’s job-listing histories. Note that it is prohibited to modify other people’s profiles while viewing their posted jobs.
+After registering at the website, each user will generate a profile including all the information stored at ../models/user.js in the MongoDB. Once a user is logged onto the website, he can potentially update his profile information through the user controller. The ../controllers/emailController.js) works closely with userController to achieve email notification function while jobs are posted under subscribed tag. Also users can message each other through the message box in the form of email. Published jobs are also tied to users through the job controller, which enables users to track each other’s job-listing histories. Note that it is prohibited to modify other people’s profiles while viewing their posted jobs. User can associate themselves with skillset tags or tags of areas of interest and the associated tags will be displayed on profile.
 
 ***User Object Properties***
 | **Property** | **Description** |
@@ -37,6 +38,12 @@ After registering at the website, each user will generate a profile including al
 | profile_img|String type, updated through user controller, url address of the image|
 | phone_num| String type, updated through user controller, phone number of user|
 |date_of_birth| Date type, updated through user update page, can be updated as user’s birthday, displayed as age|
+|tags| Array type, linked to the skillset tag or tag of interest that user associates themselves with.|
+|followed_tag| Array type, link to users’ subscribed tag, displayed at user’s dashboard. ( will also generate email notification is jobs are posted under subscribed tag.)|
+|popularity| Number type, recording each user’s popularity through the number of times the user-detail page is visited.|
+|infoDisplayConsent |Boolean type, consent of displaying personal contact details on user profile.|
+|emailConsent|Boolean type, consent of receiving emails from Incubeta website.|
+|isAdmin |Boolean type, authority to create and update tags.|
 
 
 
@@ -58,6 +65,9 @@ With the job listing function, users are able to create, update, and delete jobs
 
 Note that admins have the rights to update job listings (admins may update job’s associated tags once there are more newly relevant tags created) or to delete inappropriate jobs while the regular users are prohibited in modifying other people’s job listings.
 
+  
+
+
 ***Job Object Properties***
 | **Property** | **Description** |
 | --- | --- |
@@ -66,6 +76,7 @@ Note that admins have the rights to update job listings (admins may update job�
 | user| User ID obtained, finding current user in job controller|
 | tag | Array of tag object IDs, finding all associated tags in job controller |
 | date | Date type, using function Date.now() |
+|popularity| Number type, recording each job’s popularity through the number of times the job-detail page is visited.|
 
 **![](https://lh3.googleusercontent.com/3conz5A9ylXwnr2ENoCeilOQi16swM55_tU4eFHvPxmNp4rHM_Dwv-gEPnxb9Pw9AdrT9QsSdRE_lk6fw6rRIQz9LH0W-DgGbqZ-CY7j5aRpqi1e48BgbU46fZIA09Cad1uPHpy6)**
 
@@ -89,19 +100,26 @@ Note that admins have the rights to update job listings (admins may update job�
 
 ## **Tagging (../controllers/tagController.js)**
 
+
 The features of tags are enabled via dashboard which draws upon ../controllers/tagController.js (tag controller). Currently tags can only be created by admins through tag controller, which is then stored as separate objects with their individual IDs. The full list of tags are able to be requested, and is seen done so in the job controller and dashboard. Although the function is now established, it is planned in the future to alter it so that tags will fall under user suggestion, and having ‘near term’ searches to reduce issues in terms of creating tags of incorrect spelling or similar typing nuances.
 
   
+
+Users can also follow tags so that each time jobs associated with this tag get posted, they will be notified via email subscriptions. These subscribed tags will be displayed on their dashboard as well.
+
+  
+
 Note that only admins are authorised to create/delete/update tags, while regular users can only select the ags relevant to their job listings.
 
   
+
 Note if there are existing jobs under a particular tag, then deleting this tag without deleting the jobs first is prohibited.
 
 ***Tag Object Properties***
 | **Property** | **Description** |
 | --- | --- |
 | name | String type, created through tag controller, name of the tag |
-
+| Popularity | Number type, recording each job’s popularity through the number of times the job-detail page is visited. |
 
 
 **![](https://lh5.googleusercontent.com/V5hwahgGgfysthNTFgA8KA_zBj4cmQgaEPTdAWEbIZSXsBpazFb-vqWQ2_NG1fBrCE_M6AABUB5oAUxTfwjlVoO7b6B0vCnhQUUGDoiHlbHCxGHYVqetoMVE5KUt2_TQrV47apo3)**
@@ -125,7 +143,26 @@ Note if there are existing jobs under a particular tag, then deleting this tag w
 - Request to update a specific tag
 **`controllers/tagController.js/exports.tag_update`**
 
+
+## **Search (../controllers/searchController.js)**
+
+To allow better user experience, the ../controllers/searchController.js (searchController) enables jobs filtering with key-words search inside job listings. Regex is employed to support both uppercase and lowercase search. Links to relevant jobs will be listed if the search is successful. On other hand if jobs with certain keywords do not exist in the database, reminders will be returned to inform users.
+
+Besides, the searchController can generate featured jobs recommendations for users, displaying on the dashboard. Each time the web page refreshes, the featured jobs will be changed.
+
+***Functions:***
+
+Request to search for job keywords & generate featured jobs in dashboard page
+
+*controllers/searchController.js/exports.index*
+
+## **Email subscription(../controllers/emailController.js)**
+
+The emailController enables the website to inform users about the newest updates via emails. Once new jobs are listed under the subscribed tags (given the user have subscribed to some tags), notification emails will be sent to the users. Besides, if a user decided not to reveal his personal contact details for privacy reasons, other users can also reach out to him via email.
+
+
 ## **Dashboard**
+
 
 Overlooking all the controllers is the dashboard, where rendered after the user’s successful login, provides routing to the three controllers (jobController, userController, tagController) of the main functions of InCuBeta. Shown above, for both the job route and tag route via the two controllers, functions of viewing/ posting/ updating/ deleting are supported. Where as mentioned before, routing to the userController, users can also review peer profiles or to make changes of their own details.
 
@@ -137,7 +174,11 @@ Under the user routes, users can get/post requests to update their own profile a
 
 Under the tag routes, users(only admins) can get/post requests to create/update/delete/view tags.
 
+  
+
+6 featured jobs will be generally each time when the user refreshes the dashboard page and will be present to users in the form of a carousel. The tags subscribed by user will also be shown.
+
 ## Index
 
-Index page acts as welcome page
+Index page acts welcome page. Users can click on the animation of logo to get redirected to the dashboard page.
 
