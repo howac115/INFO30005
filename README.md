@@ -62,7 +62,7 @@ After registering at the website, each user will generate a profile including al
 | profile_img|String type, updated through user controller, url address of the image|
 | phone_num| String type, updated through user controller, phone number of user|
 |date_of_birth| Date type, updated through user update page, can be updated as user’s birthday, displayed as age|
-|tags| Array type, linked to the skillset tag or tag of interest that user associates themselves with.|
+|tag| Array type, linked to the skillset tag or tag of interest that user associates themselves with.|
 |followed_tag| Array type, link to users’ subscribed tag, displayed at user’s dashboard. ( will also generate email notification is jobs are posted under subscribed tag.)|
 |popularity| Number type, recording each user’s popularity through the number of times the user-detail page is visited.|
 |infoDisplayConsent |Boolean type, consent of displaying personal contact details on user profile.|
