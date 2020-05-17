@@ -5,10 +5,6 @@
 
 InCuBeta is focused on 3 main functions of job listing, user profile creation, and a tagging function. With this, an additional authentication function is also enabled to create a personal experience for the interactions and functions available via InCuBeta. Each main function is separated and interacts with the server to create their own subsets of data/object storage, where they are sometimes linked together in providing their functionality.
 
-## Index
-
-Index page acts welcome page. Users can click on the animation of logo to get redirected to the dashboard page.
-
 ## **Authentication (authController) ../config/auth.js**
 
 The authentication function of InCubeta is established through the login and registration, done through ../config/passport.js (passport), ../routes/home.js (home) and ../controllers/userController.js (user controller). The router home will display and select handles that correspond to the user’s actions. When the user chose the corresponding handle, desired fill-in areas and prompted error messages will guide them throughout the whole process. If the “register” handle is activated, then a new validated user details will be generated and stored in the database.This data for each user is stored under the user data structure, with specific properties that will be shown below. After a user’s registration, InCuBeta will enable their own personal dashboard that is protected via authentication verification in ../routes/dashboard.js (dashboard) through ../config/auth.js, and thereby isn’t accessible through typing the associated URL in the browser. The user’s login status is also altered via passport, where the server keeps track of the user’s login status during their session visiting InCuBeta.
@@ -26,28 +22,12 @@ The authentication function of InCubeta is established through the login and reg
 
 - Request to logout current account, redirects to login page:
     **`controllers/authController.js/exports.logout`**
-    
-## **Dashboard**
-
-
-Overlooking all the controllers is the dashboard, where rendered after the user’s successful login, provides routing to the three controllers (jobController, userController, tagController) of the main functions of InCuBeta. Shown above, for both the job route and tag route via the two controllers, functions of viewing/ posting/ updating/ deleting are supported. Where as mentioned before, routing to the userController, users can also review peer profiles or to make changes of their own details.
-
-  
-
-Under the job routes, users can get/post requests to create/update/delete/view jobs.
-
-Under the user routes, users can get/post requests to update their own profile and get requests to browse other people’s files.
-
-Under the tag routes, users(only admins) can get/post requests to create/update/delete/view tags.
-
-  
-
-6 featured jobs will be generally each time when the user refreshes the dashboard page and will be present to users in the form of a carousel. The tags subscribed by user will also be shown.
-
 
 ## **User, profile (userController) ../controllers/userController.js**
 
 After registering at the website, each user will generate a profile including all the information stored at ../models/user.js in the MongoDB. Once a user is logged onto the website, he can potentially update his profile information through the user controller. The ../controllers/emailController.js) works closely with userController to achieve email notification function while jobs are posted under subscribed tag. Also users can message each other through the message box in the form of email. Published jobs are also tied to users through the job controller, which enables users to track each other’s job-listing histories. Note that it is prohibited to modify other people’s profiles while viewing their posted jobs. User can associate themselves with skillset tags or tags of areas of interest and the associated tags will be displayed on profile.
+
+***NOTE THAT** users have to log in to view their own profile and perform user-related actions. Follow the following directions to access the user profile update. After logging in, press the icon on the top left corner, on the user name(directs the user to user profile), then onto the "user update" button located at the buttom of the page*
 
 ***User Object Properties***
 | **Property** | **Description** |
@@ -69,7 +49,7 @@ After registering at the website, each user will generate a profile including al
 
 
 
-**![](https://lh4.googleusercontent.com/24cw4KHCcWd20halX1vuBIHN_Ll4Tt03NKGBMlCJ23rIAIV2MgnIkCdUEWsEB5WRpNl4AO9gVoZ2cnlMD8YSzDt0mHzIvkCob9BpHmgFzfVqcxDRK6mBEmkhapmF1aF1KwC4G6yW)**
+**![](https://media.discordapp.net/attachments/702324760411111449/711467101524590623/unknown.png)**
 
 **User functions:**
 
@@ -100,7 +80,7 @@ Note that admins have the rights to update job listings (admins may update job�
 | date | Date type, using function Date.now() |
 |popularity| Number type, recording each job’s popularity through the number of times the job-detail page is visited.|
 
-**![](https://lh3.googleusercontent.com/3conz5A9ylXwnr2ENoCeilOQi16swM55_tU4eFHvPxmNp4rHM_Dwv-gEPnxb9Pw9AdrT9QsSdRE_lk6fw6rRIQz9LH0W-DgGbqZ-CY7j5aRpqi1e48BgbU46fZIA09Cad1uPHpy6)**
+**![enter image description here](https://media.discordapp.net/attachments/702324760411111449/711467469965099048/unknown.png)**
 
 **Job functions:**
 
@@ -144,7 +124,7 @@ Note if there are existing jobs under a particular tag, then deleting this tag w
 | Popularity | Number type, recording each job’s popularity through the number of times the job-detail page is visited. |
 
 
-**![](https://lh5.googleusercontent.com/V5hwahgGgfysthNTFgA8KA_zBj4cmQgaEPTdAWEbIZSXsBpazFb-vqWQ2_NG1fBrCE_M6AABUB5oAUxTfwjlVoO7b6B0vCnhQUUGDoiHlbHCxGHYVqetoMVE5KUt2_TQrV47apo3)**
+**![enter image description here](https://media.discordapp.net/attachments/702324760411111449/711467211444977714/unknown.png)**
 
 **Tag Functions:**
 
@@ -181,3 +161,29 @@ Request to search for job keywords & generate featured jobs in dashboard page
 ## **Email subscription(../controllers/emailController.js)**
 
 The emailController enables the website to inform users about the newest updates via emails. Once new jobs are listed under the subscribed tags (given the user have subscribed to some tags), notification emails will be sent to the users. Besides, if a user decided not to reveal his personal contact details for privacy reasons, other users can also reach out to him via email.
+
+
+## Index Page
+
+Index page acts welcome page. Users can click on the animation of logo to get redirected to the dashboard page.
+
+## **Dashboard**
+
+
+Overlooking all the controllers is the dashboard, where rendered after the user’s successful login, provides routing to the three controllers (jobController, userController, tagController) of the main functions of InCuBeta. Shown above, for both the job route and tag route via the two controllers, functions of viewing/ posting/ updating/ deleting are supported. Where as mentioned before, routing to the userController, users can also review peer profiles or to make changes of their own details.
+
+  
+
+Under the job routes, users can get/post requests to create/update/delete/view jobs.
+
+Under the user routes, users can get/post requests to update their own profile and get requests to browse other people’s files.
+
+Under the tag routes, users(only admins) can get/post requests to create/update/delete/view tags.
+
+  
+
+6 featured jobs will be generally each time when the user refreshes the dashboard page and will be present to users in the form of a carousel. The tags subscribed by user will also be shown.
+
+
+
+
