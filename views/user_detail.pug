@@ -40,7 +40,7 @@ block content
     else
       p This user has no jobs.
     if (user.tag.length > 0)
-      p #[strong Tag:]
+      p #[strong Skill Tag/Tag of Interest:]
         each val in user.tag
           .chip
             a.chip-text(href=val.url) #{val.name}
