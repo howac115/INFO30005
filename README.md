@@ -9,6 +9,23 @@ InCuBeta is focused on 3 main functions of job listing, user profile creation, a
 
 Index page acts welcome page. Users can click on the animation of logo to get redirected to the dashboard page.
 
+## **Dashboard**
+
+
+Overlooking all the controllers is the dashboard, where rendered after the user’s successful login, provides routing to the three controllers (jobController, userController, tagController) of the main functions of InCuBeta. Shown above, for both the job route and tag route via the two controllers, functions of viewing/ posting/ updating/ deleting are supported. Where as mentioned before, routing to the userController, users can also review peer profiles or to make changes of their own details.
+
+  
+
+Under the job routes, users can get/post requests to create/update/delete/view jobs.
+
+Under the user routes, users can get/post requests to update their own profile and get requests to browse other people’s files.
+
+Under the tag routes, users(only admins) can get/post requests to create/update/delete/view tags.
+
+  
+
+6 featured jobs will be generally each time when the user refreshes the dashboard page and will be present to users in the form of a carousel. The tags subscribed by user will also be shown.
+
 ## **Authentication (authController) ../config/auth.js**
 
 The authentication function of InCubeta is established through the login and registration, done through ../config/passport.js (passport), ../routes/home.js (home) and ../controllers/userController.js (user controller). The router home will display and select handles that correspond to the user’s actions. When the user chose the corresponding handle, desired fill-in areas and prompted error messages will guide them throughout the whole process. If the “register” handle is activated, then a new validated user details will be generated and stored in the database.This data for each user is stored under the user data structure, with specific properties that will be shown below. After a user’s registration, InCuBeta will enable their own personal dashboard that is protected via authentication verification in ../routes/dashboard.js (dashboard) through ../config/auth.js, and thereby isn’t accessible through typing the associated URL in the browser. The user’s login status is also altered via passport, where the server keeps track of the user’s login status during their session visiting InCuBeta.
@@ -27,22 +44,6 @@ The authentication function of InCubeta is established through the login and reg
 - Request to logout current account, redirects to login page:
     **`controllers/authController.js/exports.logout`**
     
-## **Dashboard**
-
-
-Overlooking all the controllers is the dashboard, where rendered after the user’s successful login, provides routing to the three controllers (jobController, userController, tagController) of the main functions of InCuBeta. Shown above, for both the job route and tag route via the two controllers, functions of viewing/ posting/ updating/ deleting are supported. Where as mentioned before, routing to the userController, users can also review peer profiles or to make changes of their own details.
-
-  
-
-Under the job routes, users can get/post requests to create/update/delete/view jobs.
-
-Under the user routes, users can get/post requests to update their own profile and get requests to browse other people’s files.
-
-Under the tag routes, users(only admins) can get/post requests to create/update/delete/view tags.
-
-  
-
-6 featured jobs will be generally each time when the user refreshes the dashboard page and will be present to users in the form of a carousel. The tags subscribed by user will also be shown.
 
 ## **User, profile (userController) ../controllers/userController.js**
 
