@@ -2,7 +2,7 @@ var Job = require("../models/job");
 var User = require("../models/user");
 var async = require("async");
 
-// Display the dashboard page for all jobs and tags.
+// Display the dashboard page for search jon keywords
 exports.index = function (req, res) {
   if (req.query.search) {
     var noMatch = null;
@@ -17,6 +17,7 @@ exports.index = function (req, res) {
         } else {
           noMatch = " ";
         }
+        // No current user if not logged in
         if (req.user) {
           res.render("dashboard", {
             current_user: req.user,
@@ -32,40 +33,34 @@ exports.index = function (req, res) {
       }
     });
   } else {
-    async.parallel(
-      {
+    if (req.user) {
+      async.parallel(
+        {
+          current_user: function (callback) {
+            User.findById(req.user.id).populate("followed_tag").exec(callback);
+          },
+          featured_jobs: function (callback) {
+            Job.aggregate([{ $sample: { size: 6 } }]).exec(callback);
+          },
+        }, function (err, results) {
+          if (err) { return next(err) }
+          res.render("dashboard", {
+            current_user: results.current_user,
+            jobs: results.featured_jobs,
+          });
+        })
+      // No current user if not logged in
+    } else {
+      async.parallel({
         featured_jobs: function (callback) {
           Job.aggregate([{ $sample: { size: 6 } }]).exec(callback);
         },
-      },
-      function (err, results) {
-        if (err) {
-          return next(err);
-        }
-        if (req.user) {
-          async.parallel(
-            {
-              current_user: function (callback) {
-                User.findById(req.user.id).populate("followed_tag").exec(callback);
-              },
-              featured_jobs: function (callback) {
-                Job.aggregate([{ $sample: { size: 6 } }]).exec(callback);
-              },
-            }, function (err, results) {
-              if (err) { return next(err) }
-              res.render("dashboard", {
-                current_user: results.current_user,
-                jobs: results.featured_jobs,
-              });
-            })
-        } else {
-          res.render("dashboard", {
-            jobs: results.featured_jobs,
-          });
-        }
-
-      }
-    );
+      }, function (err, results) {
+        res.render("dashboard", {
+          jobs: results.featured_jobs,
+        });
+      })
+    }
   }
 };
 

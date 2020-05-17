@@ -131,10 +131,12 @@ exports.job_create_post = function (req, res, next) {
             return next(err);
           }
           var tag_string = "";
+          // String of tags related to this job send to followed users
           for (i = 0; i < results.createdJob.tag.length; i++) {
             tag_string = tag_string.concat(results.createdJob.tag[i].name);
             tag_string = tag_string.concat(",");
           }
+          // All users who have followed selected tags
           for (i = 0; i < results.allUsers.length; i++) {
             for (j = 0; j < results.createdJob.tag.length; j++) {
               if (

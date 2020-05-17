@@ -4,7 +4,7 @@ block content
 
     title Dashboard
     if (message)
-      div.alert.alert-success #{successFlash}
+        div.alert.alert-success #{successFlash}
     left-align
         center
             if (current_user)
@@ -101,9 +101,9 @@ block content
             hr
             h4 Search Results
             each job in searchJobs
-                    dt
-                        a(href="/dashboard/job/"+job._id) #{job.title}
-                    dd #{job.description}
+                dt
+                    a(href="/dashboard/job/"+job._id) #{job.title}
+                dd #{job.description}
             h4 #{noMatch}
 
 

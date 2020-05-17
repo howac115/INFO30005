@@ -62,9 +62,10 @@ exports.user_detail_post = function (req, res, next) {
         err.status = 404;
         return next(err);
       }
-      // Successful, so render.
+      // Send email to enquired user
       req.flash('messageSent', 'Message Sent!');
       email_controller.data.userNotification(results.user, req.user, req.body.message);
+      // Successful, so render.
       res.render("user_detail", {
         messageSent: req.flash("messageSent"),
         title: "User Detail",
