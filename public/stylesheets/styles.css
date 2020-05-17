@@ -116,6 +116,22 @@ center {
   padding: 10px;
 }
 
+@media (max-width: 576px) {
+  center  {
+    margin-right: auto;
+    margin-left: -5%;
+  }
+}
+
+@media (max-width: 768px) {
+  center  {
+    margin-right: auto;
+    margin-left: -15%;
+  }
+}
+
+
+
 /*button:hover{*/
 /*  color: #ECB086 !important;*/
 /*}*/
@@ -142,6 +158,7 @@ left-box-align{
     margin-left: 15%;
     margin-right: 15%;
   }
+
 }
 @media (min-width: 992px) {
   left-box-align{

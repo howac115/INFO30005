@@ -8,12 +8,12 @@ block content
     left-align
         center
             if (current_user)
-                h2.lead.mb-3 Welcome #{current_user.first_name}!
+                h2.lead.mt-3.mb-3 Welcome #{current_user.first_name}!
             else
                 h2.lead.mb-3 Welcome!
                 a.btn.log-in(href='/home/login') please log in here
             form(method='GET' action='/dashboard')
-                div.form-inline.pt-3
+                div.form-inline.pt-3.justify-content-center
                     input.form-control(type='text', name='search')
                     button.btn.btn-primary(type='submit') Search
             .sidebar-nav

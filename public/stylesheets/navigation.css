@@ -104,8 +104,7 @@ a.fixed-bottom-text {
     font-weight: lighter;
 }
 
-a.fixed-bottom-text:hover,
-a.fixed-bottom-text:focus {
+a.fixed-bottom-text:hover{
     color: #ECB086 !important;
     text-decoration: none !important;
 }
