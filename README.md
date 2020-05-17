@@ -26,6 +26,24 @@ The authentication function of InCubeta is established through the login and reg
 
 - Request to logout current account, redirects to login page:
     **`controllers/authController.js/exports.logout`**
+    
+## **Dashboard**
+
+
+Overlooking all the controllers is the dashboard, where rendered after the user’s successful login, provides routing to the three controllers (jobController, userController, tagController) of the main functions of InCuBeta. Shown above, for both the job route and tag route via the two controllers, functions of viewing/ posting/ updating/ deleting are supported. Where as mentioned before, routing to the userController, users can also review peer profiles or to make changes of their own details.
+
+  
+
+Under the job routes, users can get/post requests to create/update/delete/view jobs.
+
+Under the user routes, users can get/post requests to update their own profile and get requests to browse other people’s files.
+
+Under the tag routes, users(only admins) can get/post requests to create/update/delete/view tags.
+
+  
+
+6 featured jobs will be generally each time when the user refreshes the dashboard page and will be present to users in the form of a carousel. The tags subscribed by user will also be shown.
+
 
 ## **User, profile (userController) ../controllers/userController.js**
 
@@ -163,22 +181,3 @@ Request to search for job keywords & generate featured jobs in dashboard page
 ## **Email subscription(../controllers/emailController.js)**
 
 The emailController enables the website to inform users about the newest updates via emails. Once new jobs are listed under the subscribed tags (given the user have subscribed to some tags), notification emails will be sent to the users. Besides, if a user decided not to reveal his personal contact details for privacy reasons, other users can also reach out to him via email.
-
-
-## **Dashboard**
-
-
-Overlooking all the controllers is the dashboard, where rendered after the user’s successful login, provides routing to the three controllers (jobController, userController, tagController) of the main functions of InCuBeta. Shown above, for both the job route and tag route via the two controllers, functions of viewing/ posting/ updating/ deleting are supported. Where as mentioned before, routing to the userController, users can also review peer profiles or to make changes of their own details.
-
-  
-
-Under the job routes, users can get/post requests to create/update/delete/view jobs.
-
-Under the user routes, users can get/post requests to update their own profile and get requests to browse other people’s files.
-
-Under the tag routes, users(only admins) can get/post requests to create/update/delete/view tags.
-
-  
-
-6 featured jobs will be generally each time when the user refreshes the dashboard page and will be present to users in the form of a carousel. The tags subscribed by user will also be shown.
-
