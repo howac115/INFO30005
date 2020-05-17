@@ -63,6 +63,10 @@
     float: none;
 }
 
+a.side-nav-head:hover{
+    color: #4B8699 !important;
+}
+
 .sidenav a.navi {
     padding: 8px 8px 8px 32px;
     text-decoration: none;

@@ -86,7 +86,11 @@ h5 {
 
 body {
   background-color: #B4D9CE !important;
+  background-image: url(../images/icb_bg_2.png) !important;
   height: 100% !important;
+  background-clip: border-box !important;
+  background-repeat: no-repeat !important;
+  background-size: auto !important;
 }
 
 * {
@@ -183,11 +187,15 @@ left-align{
   padding-left: 8em;
   padding-right: 6em;
   width: 100%;
+  /*background-image: url(../images/icb_bg_1.png);*/
+  background-color: #ffffff;
+  /*background-clip: border-box;*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: auto;*/
   /*width: 90%;*/
   /*margin-left: 5%;*/
   /*margin-right: 5%;*/
-  background-color: #ffffff;
-  min-height: 115%;
+  min-height: 130%;
 }
 
 @media (min-width: 576px) {
