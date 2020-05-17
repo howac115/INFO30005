@@ -29,27 +29,15 @@ block content
                     li 
                         a(href='/dashboard/tag/create') Create new tag
 
-                //original featured job lists
-            //if (jobs)
-            //    li
-            //        hr
-            //    if (noMatch)
-            //        h4 Search Results
-            //    else
-            //        h4 Featured Jobs
-            //    each job in jobs
-            //        dt
-            //            a(href="/dashboard/job/"+job._id) #{job.title}
-            //        dd #{job.description}
-            //    h4 #{noMatch}
-        if (!noMatch)
-            if (current_user)
-                if (current_user.followed_tag.length>0)
-                    hr
-                    h4 Followed Tag
-                    each val in current_user.followed_tag
-                        a(href=val.url) #{val.name}
-                        |,
+            //display the tags that users subscribed
+            if (!noMatch)
+                if (current_user)
+                    if (current_user.followed_tag.length>0)
+                        hr
+                        h4 Subscribed Tag
+                        each val in current_user.followed_tag
+                            a(href=val.url) #{val.name}
+                            |,
 
         //exhibit the featured jobs on dashboard in carousel, with job description hovering over image
         if (jobs)

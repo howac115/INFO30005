@@ -40,7 +40,7 @@ block content
     else
       p This user has no jobs.
     if (user.tag.length > 0)
-      p #[strong Tag:]
+      p #[strong Skill Tag/Tag of Interest:]
         each val in user.tag
           .chip
             a(href=val.url) #{val.name}
@@ -49,6 +49,7 @@ block content
             //span.closebtn(onclick="this.parentElement.style.display='none'") &times;
     hr
     if (current_user.url == user.url)
+      a.button.btn.btn-primary(href=user.url + '/update') Update profile
       p
         a(href=user.url + '/update') Update Profile
     else

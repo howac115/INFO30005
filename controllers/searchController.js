@@ -2,7 +2,7 @@ var Job = require("../models/job");
 var User = require("../models/user");
 var async = require("async");
 
-// Display the dashboard page for all jobs and tags.
+// Display the dashboard page for search jon keywords
 exports.index = function (req, res) {
   if (req.query.search) {
     var noMatch = null;
