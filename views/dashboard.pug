@@ -6,50 +6,52 @@ block content
     if (message)
       div.alert.alert-success #{successFlash}
     left-align
-        if (current_user)
-            h2.lead.mb-3 Welcome #{current_user.first_name}!
-        else
-            h2.lead.mb-3 Welcome!
-        form(method='GET' action='/dashboard')
-            div.form-inline
-                input.form-control(type='text', name='search')
-                button.btn.btn-primary(type='submit') Search
-        .sidebar-nav
-            p
-            li 
-                a(href='/dashboard/jobs') All jobs
-            li 
-                a(href='/dashboard/tags') All tags
-            li
-                hr
-            li 
-                a(href='/dashboard/job/create') Post new job
+        center
             if (current_user)
-                if (current_user.isAdmin == true)
-                    li 
-                        a(href='/dashboard/tag/create') Create new tag
-
-                //original featured job lists
-            //if (jobs)
-            //    li
-            //        hr
-            //    if (noMatch)
-            //        h4 Search Results
-            //    else
-            //        h4 Featured Jobs
-            //    each job in jobs
-            //        dt
-            //            a(href="/dashboard/job/"+job._id) #{job.title}
-            //        dd #{job.description}
-            //    h4 #{noMatch}
-        if (!noMatch)
-            if (current_user)
-                if (current_user.followed_tag.length>0)
+                h2.lead.mb-3 Welcome #{current_user.first_name}!
+            else
+                h2.lead.mb-3 Welcome!
+                a.btn.log-in(href='/home/login') please log in here
+            form(method='GET' action='/dashboard')
+                div.form-inline.pt-3
+                    input.form-control(type='text', name='search')
+                    button.btn.btn-primary(type='submit') Search
+            .sidebar-nav
+                p
+                li
+                    a(href='/dashboard/jobs') All jobs
+                li
+                    a(href='/dashboard/tags') All tags
+                li
                     hr
-                    h4 Followed Tag
-                    each val in current_user.followed_tag
-                        a(href=val.url) #{val.name}
-                        |,
+                li
+                    a(href='/dashboard/job/create') Post new job
+                if (current_user)
+                    if (current_user.isAdmin == true)
+                        li
+                            a(href='/dashboard/tag/create') Create new tag
+
+                    //original featured job lists
+                //if (jobs)
+                //    li
+                //        hr
+                //    if (noMatch)
+                //        h4 Search Results
+                //    else
+                //        h4 Featured Jobs
+                //    each job in jobs
+                //        dt
+                //            a(href="/dashboard/job/"+job._id) #{job.title}
+                //        dd #{job.description}
+                //    h4 #{noMatch}
+            if (!noMatch)
+                if (current_user)
+                    if (current_user.followed_tag.length>0)
+                        hr
+                        h4 Followed Tag
+                        each val in current_user.followed_tag
+                            a(href=val.url) #{val.name}
+                            |,
 
         //exhibit the featured jobs on dashboard in carousel, with job description hovering over image
         if (jobs)

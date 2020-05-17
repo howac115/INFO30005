@@ -48,11 +48,9 @@ html
           hr
         if(current_user)
           li
-            hr
-          li
             a.button.btn.btn-primary(href='/home/logout', style= 'margin-left: 32px; width: 50%;') Logout
 
-      a.button.btn.btn-default(href='/home/login' , style= 'position: absolute;top: 0; right: 0; background-color = #ffff;') Login
+      //a.button.btn.btn-default(href='/home/login' , style= 'position: absolute;top: 0; right: 0; background-color = #ffff;') Login
       span(style='font-size:30px;cursor:pointer' onclick='openNav()')
         img.ml-3(src='/images/logo/user_icon.svg' width= "25px")
       script.
@@ -63,12 +61,14 @@ html
           document.getElementById("sideNav").style.width = "0";
         }
 
-      if (current_user)
-        a.d-inline-block.logo(href='/dashboard')
-          img(src='/images/logo/icb_logo_f_w.svg')
-      else
-        a.d-inline-block.logo(href='/')
-          img(src='/images/logo/icb_logo_f_w.svg')
+      a.d-inline-block.logo(href='/dashboard')
+        img(src='/images/logo/icb_logo_f_w.svg')
+      //if (current_user)
+      //  a.d-inline-block.logo(href='/dashboard')
+      //    img(src='/images/logo/icb_logo_f_w.svg')
+      //else
+      //  a.d-inline-block.logo(href='/das')
+      //    img(src='/images/logo/icb_logo_f_w.svg')
 
       //#side-menu
 

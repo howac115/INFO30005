@@ -43,14 +43,13 @@ block content
       p #[strong Tag:]
         each val in user.tag
           .chip
-            a(href=val.url) #{val.name}
+            a.chip-text(href=val.url) #{val.name}
             //img(src='img_avatar.jpg' alt='Person' width='96' height='96')
 
             //span.closebtn(onclick="this.parentElement.style.display='none'") &times;
     hr
     if (current_user.url == user.url)
-      p
-        a(href=user.url + '/update') Update Profile
+        a.btn.btn-primary(href=user.url + '/update') Update Profile
     else
       form(method='POST' action='')
         label(for='message') Send them a message:
