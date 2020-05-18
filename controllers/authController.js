@@ -37,18 +37,22 @@ exports.register_post = function (req, res, next) {
 
   if (!first_name || !family_name || !email || !password || !password2) {
     req.flash('registerError', 'Please enter all fields');
+    errors.push({ msg: 'Please enter all fields' });
   }
 
   if (password != password2) {
     req.flash('registerError', 'Passwords do not match');
+    errors.push({ msg: 'Passwords do not match' });
   }
 
   if (password.length < 6) {
     req.flash('registerError', 'Password must be at least 6 characters');
+    errors.push({ msg: 'Password must be at least 6 characters' });
   }
 
   if (errors.length > 0) {
     res.render("register", {
+      errorMessage: req.flash("registerError"),
       errors,
       first_name,
       family_name,
