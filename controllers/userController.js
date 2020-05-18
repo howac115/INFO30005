@@ -124,7 +124,8 @@ exports.user_update_post = function (req, res, next) {
   let errors = [];
 
   if (!email) {
-    errors.push({ msg: "You must enter your email to login" });
+    req.flash('updateError', 'You must enter your email to login')
+    errors.push({ msg: 'You must enter your email to login' })
   }
 
   var user = new User({
@@ -141,19 +142,34 @@ exports.user_update_post = function (req, res, next) {
   });
 
   if (errors.length > 0) {
-    res.render("user_update", {
-      errors,
-      email,
-      phone_num,
-      profile_img,
-    });
 
-    // Mark our selected tags as checked.
-    for (let i = 0; i < results.tags.length; i++) {
-      if (job.tag.indexOf(results.tags[i]._id) > -1) {
-        results.tags[i].checked = "true";
+    async.parallel({
+      user: function (callback) {
+        User.findById(req.params.id).exec(callback)
+      },
+      tags: function (callback) {
+        Tag.find(callback);
+      },
+    }, function (err, results) {
+      if (err) { return next(err) }
+
+      // Mark our selected tags as checked.
+      for (let i = 0; i < results.tags.length; i++) {
+        if (user.tag.indexOf(results.tags[i]._id) > -1) {
+          results.tags[i].checked = "true";
+        }
       }
-    }
+
+      res.render("user_update", {
+        errors,
+        errorMessage: req.flash("updateError"),
+        current_user: req.user,
+        user: results.user,
+        tags: results.tags,
+      });
+
+    })
+
   } else {
     // Data from form is valid. Update the record.
     User.findByIdAndUpdate(req.params.id, user, {}, function (err, theUser) {
