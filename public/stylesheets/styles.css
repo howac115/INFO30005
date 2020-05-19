@@ -86,11 +86,11 @@ h5 {
 
 body {
   background-color: #B4D9CE !important;
-  background-image: url(../images/icb_bg_2.png) !important;
-  height: 100% !important;
-  background-clip: border-box !important;
-  background-repeat: no-repeat !important;
-  background-size: auto !important;
+  /*background-image: url(../images/icb_bg_2.png) !important;*/
+  min-height: 100% !important;
+  /*background-clip: border-box !important;*/
+  /*background-repeat: no-repeat !important;*/
+  /*background-size: 100% !important;*/
 }
 
 * {
@@ -191,7 +191,7 @@ left-align{
   background-color: #ffffff;
   /*background-clip: border-box;*/
   /*background-repeat: no-repeat;*/
-  /*background-size: auto;*/
+  /*background-size: cover;*/
   /*width: 90%;*/
   /*margin-left: 5%;*/
   /*margin-right: 5%;*/
