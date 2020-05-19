@@ -10,7 +10,7 @@ block content
             input#title.form-control(type='text', placeholder='Title of the job' name='title' required='true' value=(undefined===job ? '' : job.title) )
         div.form-group
             label(for='description') Summary:
-            input#summary.form-control(type='textarea', placeholder='Brief description' name='description' value=(undefined===job ? '' : job.description) required='true')
+            textarea.w-75(type='textarea', placeholder='Brief description' name='description' value=(undefined===job ? '' : job.description) required='true')
         div.form-group
             label Tag:
             div
