@@ -3,10 +3,21 @@ const nodemailer = require("nodemailer");
 var methods = {
   jobNotification: function (receiver, job, tag_string) {
     const output = `
-    <h3>${job.title}</h3>
+    <header style="background-color: #40735B; width: 900px; height: 100px; text-align: center; 
+       padding-top: 15px;">
+       <img src="../logo/icb_logo_f_w.svg" style="width: 300px; height: auto;">  
+    </header>
+    
+    <div style="padding-left: 50px; padding-bottom: 50px; padding-top: 20px;">
+    <h4 style="color: #40735B;">New Jobs that have been updated in the tags you follow are shown below!</h4>
+    <h3 style="color: #4B8699;">${job.title}</h3>
     <p>${job.description}</p>
-    <a href="https://incubeta.herokuapp.com${job.url}">Click here to see more detail</a>
+    <a href="https://incubeta.herokuapp.com${job.url}">Click here to see more details</a>
     <h4>${tag_string}</h4>
+    </div>
+    <div style="padding-left: 50px;">
+    <p style="color: #40735B;">To unsubscribe from these updates, please change the settings in your InCuBeta user profile.</p>
+    </div>
   `;
 
     // create reusable transporter object using the default SMTP transport
