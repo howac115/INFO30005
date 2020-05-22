@@ -48,8 +48,18 @@ var methods = {
   },
   userNotification: function (receiver, sender, message) {
     const output = `
-    <h3>User: ${sender.first_name} ${sender.family_name} (${sender.email}) is enquiring for your information:</h3>
-    <h4>${message}</h4>
+    <header style="background-color: #40735B; width: 900px; height: 100px; text-align: center; 
+       padding-top: 15px;">
+       <img src="../logo/icb_logo_f_w.svg" style="width: 300px; height: auto;">  
+    </header>
+    
+    <div style="padding-left: 50px; padding-bottom: 50px; padding-top: 20px;">
+    <h3 style="color: #40735B;">User: ${sender.first_name} ${sender.family_name} is enquiring for your information:</h3>
+    <p>${message}</p>
+    <h4 style="padding-top: 30px; color: #4B8699;">Take this opportunity to connect with User: ${sender.first_name}!</h4>
+    <h4>Reply to them via their email below!</h4>
+    <p style="margin-top: -10px;">User: ${sender.email}</p>
+    </div>
   `;
 
     // create reusable transporter object using the default SMTP transport
