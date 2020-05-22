@@ -24,8 +24,8 @@ var methods = {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "incubeta.notify@gmail.com", // generated ethereal user
-        pass: "incubeta123", // generated ethereal password
+        user: "incubeta.notify@gmail.com",
+        pass: "incubeta123",
       },
     });
 
@@ -66,8 +66,8 @@ var methods = {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "incubeta.notify@gmail.com", // generated ethereal user
-        pass: "incubeta123", // generated ethereal password
+        user: "incubeta.notify@gmail.com", 
+        pass: "incubeta123", 
       },
     });
 
