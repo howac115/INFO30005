@@ -50,7 +50,7 @@ var methods = {
     const output = `
     <header style="background-color: #40735B; width: 900px; height: 100px; text-align: center; 
        padding-top: 15px;">
-       <img src="https://incubeta.herokuapp.com/images/logo/icb_logo_f_w.svg" style="width: 300px; height: auto;">  
+       <img src="/images/logo/icb_logo_f_w.svg" style="width: 300px; height: auto;">  
     </header>
     
     <div style="padding-left: 50px; padding-bottom: 50px; padding-top: 20px;">
