@@ -21,6 +21,28 @@
     }
 }
 
+.eggmask-small{
+    width: 65px;
+    height: 75px;
+    object-fit: cover;
+    clip-path: ellipse(50% 50% at 50% 50%);
+    float: none;
+    vertical-align: baseline;
+    /*---------------- we will try egg next time ---------------*/
+    /*mask-type: luminance;*/
+    /*mask-image: url(/images/logo/icb_user_mask.png);*/
+    /*mask-repeat: no-repeat;*/
+    /*mask-size: 100%;*/
+    /*mask-position: center;*/
+}
+
+/*@media (max-width: 768px) {*/
+/*    .eggmask{*/
+/*        width: 80px;*/
+/*        height: 103px;*/
+/*    }*/
+/*}*/
+
 
 .tab{
     tab-stops: left 50% ;
@@ -72,37 +94,93 @@ label{
     font-weight: 100;
     color: #ffffff !important;
     border: none !important;
-
-    svg {
-        height: 45px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
-
-    rect {
-        fill: none;
-        stroke: #fff;
-        stroke-width: 2;
-        stroke-dasharray: 422, 0;
-        transition: all 0.35s linear;
-    }
 }
-
+.btn.btn-primary svg {
+    height: 45px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.btn.btn-primary rect {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-dasharray: 422, 0;
+    transition: all 0.35s linear;
+}
 .btn.btn-primary:hover,
-.btn.btn-primary:focus{
+.btn.btn-primary:focus {
     background: #ECB086;
     font-weight: 900;
     letter-spacing: 1px;
-
-    rect {
-        stroke-width: 5;
-        stroke-dasharray: 15, 310;
-        stroke-dashoffset: 48;
-        transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
-    }
 }
+.btn.btn-primary:hover rect,
+.btn.btn-primary:focus rect {
+    stroke-width: 5;
+    stroke-dasharray: 15, 310;
+    stroke-dashoffset: 48;
+    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+/*!**SAMPLEEEEEEE*!*/
+/*.btn-1 {*/
+/*    background-color: #007800;*/
+/*    font-weight: 100;*/
+/*    width: 100px;*/
+/*    height: 50px;*/
+/*}*/
+/*.btn-1 svg {*/
+/*    height: 45px !important;*/
+/*    left: 0 !important;*/
+/*    position: absolute !important;*/
+/*    top: 0 !important;*/
+/*    width: 100% !important;*/
+/*}*/
+/*.btn-1 rect {*/
+/*    fill: none !important;*/
+/*    stroke: #40735B !important;*/
+/*    stroke-width: 2 !important;*/
+/*    stroke-dasharray: 422, 0 !important;*/
+/*    transition: all 0.35s linear !important;*/
+/*}*/
+/*.btn-1:hover {*/
+/*    background-color: rgba(0, 128, 0, 0);*/
+/*    font-weight: 900;*/
+/*    letter-spacing: 1px;*/
+/*}*/
+/*.btn-1:hover rect {*/
+/*    stroke-width: 5;*/
+/*    stroke-dasharray: 15, 310;*/
+/*    stroke-dashoffset: 48;*/
+/*    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);*/
+/*}*/
+
+/***********/
+/*default button*/
+/*.btn {*/
+/*  color: #40735B !important;*/
+/*  cursor: pointer!important;*/
+
+/*  font-size:16px!important;*/
+/*  font-weight: 400!important;*/
+/*  line-height: 45px!important;*/
+/*  margin: 0 0 2em!important;*/
+/*  max-width: 160px!important;*/
+/*  position: relative!important;*/
+/*  text-decoration: none!important;*/
+/*  text-transform: uppercase!important;*/
+/*  width: 100%!important;*/
+
+/*    @media(min-width: 600px) {*/
+
+/*        margin: 0 1em 2em !important;;*/
+
+/*    }*/
+/*    &:hover { text-decoration: none !important;; }*/
+/*}*/
+
 
 /*-------------------------default hyperlink formatting override------------------------------*/
 
@@ -121,6 +199,7 @@ a:focus {
 .chip{
     background: rgb(75,134,153)!important;
     background: linear-gradient(121deg, #A1C2CC 0%, #ECB086 55%, #B4D9CE 100%)!important;
+    transform: scale(0.9);
 }
 
 a.chip-text {
