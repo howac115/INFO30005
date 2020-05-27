@@ -119,6 +119,15 @@
     }
 }
 
+.sticky-button{
+    margin-top: 2em;
+    position: sticky;
+    top: 80vh;
+    /*left: 50%;*/
+    /*-ms-transform: translate(-50%, -50%);*/
+    /*transform: translate(-50%, -50%);*/
+}
+
 /*----------------------default button overwriting--------------------------*/
 /*.btn.btn-primary:hover,*/
 /*.btn.btn-primary:focus {*/
