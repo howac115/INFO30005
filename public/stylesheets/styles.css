@@ -5,16 +5,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 
 /* ------------------------- Color Theme Swatches in Hex --------------------------------*/
-.green1 { color: #D5F2EA; }
-.green2 { color: #B4D9CE; }
-.green3 { color: #76A694; }
-.green4 { color: #40735B; }
-.orange { color: #ECB086; }
-.blue1 { color: #E3FFF6; }
-.blue2 { color: #A1C2CC; }
-.blue3 { color: #4B8699; }
-.pink1 { color: #FDD1CE; }
-.pink2 { color: #CFB2B9; }
+.green1 { color: rgba(213, 242, 234, 1); }
+.green2 { color: rgba(180, 217, 206, 1); }
+.green3 { color: rgba(118, 166, 148, 1); }
+.green4 { color: rgba(64, 115, 91, 1); }
+.orange { color: rgba(236, 176, 134, 1); }
+.blue1 { color: rgba(227, 255, 246, 1); }
+.blue2 { color: rgba(161, 194, 204, 1); }
+.blue3 { color: rgba(75, 134, 153, 1); }
+.pink1 { color: rgba(253, 209, 206, 1); }
+.pink2 { color: rgba(207, 178, 185, 1); }
 
 /* --------------------------font styling--------------------------------------------*/
 /* overwriting bootstrap presets, and is also dynamic */
@@ -84,14 +84,66 @@ h5 {
   }
 }
 
+/* colour changing background */
+@keyframes bgcolor {
+  0% {
+    background-color: rgba(161, 194, 204, 0.3) ;
+  }
+
+  30% {
+    background-color: rgba(236, 176, 134, 0.3) ;
+  }
+
+  60% {
+    background-color: rgba(180, 217, 206, 0.3) ;
+  }
+
+  90% {
+    background-color: rgba(253, 209, 206, 0.3) ;
+  }
+
+  100% {
+    background-color: rgba(213, 242, 234, 0.3) ;
+  }
+}
+
+@-webkit-keyframes bgcolor {
+  0% {
+    background-color: #A1C2CC ;
+  }
+
+  30% {
+    background-color: #ECB086 ;
+  }
+
+  60% {
+    background-color: #B4D9CE ;
+  }
+
+  90% {
+    background-color: #D5F2EA ;
+  }
+
+  100% {
+    background-color: #FDD1CE ;
+  }
+}
+
+/*------------------------------*/
+
 body {
-  background-color: #B4D9CE !important;
+  background-color: #B4D9CE;
   /*background-image: url(../images/icb_bg_2.png) !important;*/
-  min-height: 100% !important;
+  min-height: 100%;
   /*background-clip: border-box !important;*/
   /*background-repeat: no-repeat !important;*/
   /*background-size: 100% !important;*/
-  box-sizing: border-box !important;
+  box-sizing: border-box;
+  /* introducing colour changing properties*/
+  -webkit-animation: bgcolor 30s infinite ;
+  animation: bgcolor 30s infinite ;
+  -webkit-animation-direction: alternate ;
+  animation-direction: alternate ;
 }
 
 * {
