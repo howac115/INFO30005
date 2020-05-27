@@ -3,31 +3,64 @@ extends header
 block content
   title #{job.title}
   left-box-align
-    h1(style="margin-top: 0.5em; margin-bottom: 1.5em;") #{job.title}
+      .container.job-container
+          .row
+              .d-inline-block.col-9
+                  h1(style="margin-top: 0.5em; margin-bottom: 1.5em;") #{job.title}
 
-    .container-fluid(style="padding: 0em 1em 3em 0em; background:")
-        p #[strong Posted By: ]
-        if (job.user.profile_img)
-            a(href=job.user.url)
-                img.eggmask-small.d-inline-block(src='' + job.user.profile_img, style=" background: #ECB086;")
-        a(href=job.user.url).d-inline.ml-3 &#09; #{job.user.name}
+                  p #[strong Description:]
+                  p(style= "margin-top: -1em; margin-left: 0.5em; margin-right: 0.5em;") #{job.description}
+                  div(style= "margin-top: 7vh; margin-bottom: 5vh;")
+                      each val in job.tag
+                          .chip
+                              a.chip-text(href=val.url) #{val.name}
 
-    p #[strong Description:]
-    p(style= "margin-top: -1em; margin-left: 0.5em; margin-right: 0.5em;") #{job.description}
-    p #[strong Tag:] 
-        each val in job.tag
-            .chip
-                a.chip-text(href=val.url) #{val.name}
-                //img(src='img_avatar.jpg' alt='Person' width='96' height='96')
+              .d-inline-block.job-profile.col
+                  p(style="color: #ffffff;") Posted By:
+                  if (job.user.profile_img)
+                      a(href=job.user.url)
+                          img.eggmask-small(src='' + job.user.profile_img, style=" background: #ECB086;")
+                  p
+                      a(href=job.user.url) &#09; #{job.user.name}
 
-                //span.closebtn(onclick="this.parentElement.style.display='none'") &times;
-    hr
-    if(current_user != null)
-      if (current_user.url == job.user.url)
-        p
-          a(href=job.url+'/update') Update Job
-        p
-          a(href=job.url+'/delete') Delete Job
-    //btn.btn-1 hi its a test
-    //    svg
-    //        rect(x='0' y='0' fill='none' width='100%' height='100%')
+
+      if(current_user != null)
+          if (current_user.url == job.user.url)
+              hr
+              p
+                  a(href=job.url + '/update') Update Job
+              p
+                  a(href=job.url + '/delete') Delete Job
+
+      //h1(style="margin-top: 0.5em; margin-bottom: 1.5em;") #{job.title}
+      //
+      //.container-fluid(style="padding: 0em 1em 3em 0em; background:")
+      //    p #[strong Posted By: ]
+      //    if (job.user.profile_img)
+      //        a(href=job.user.url)
+      //            img.eggmask-small.d-inline-block(src='' + job.user.profile_img, style=" background: #ECB086;")
+      //    a(href=job.user.url).d-inline.ml-3 &#09; #{job.user.name}
+      //
+      //p #[strong Description:]
+      //p(style= "margin-top: -1em; margin-left: 0.5em; margin-right: 0.5em;") #{job.description}
+      ////p #[strong Tag:]
+      //
+      //            //img(src='img_avatar.jpg' alt='Person' width='96' height='96')
+      //
+      //            //span.closebtn(onclick="this.parentElement.style.display='none'") &times;
+      //div(style= "margin-top: 5vh;")
+      //  each val in job.tag
+      //    .chip
+      //        a.chip-text(href=val.url) #{val.name}
+      //hr
+      //if(current_user != null)
+      //  if (current_user.url == job.user.url)
+      //    p
+      //      a(href=job.url+'/update') Update Job
+      //    p
+      //      a(href=job.url+'/delete') Delete Job
+
+
+      //btn.btn-1 hi its a test
+      //    svg
+      //        rect(x='0' y='0' fill='none' width='100%' height='100%')
