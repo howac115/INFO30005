@@ -54,7 +54,7 @@
     margin:4px;
     object-fit: cover;
     background-position:center;
-    background-size:100%;
+    background-size:110%;
     transition:0.5s;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 1vw;
@@ -65,7 +65,7 @@
 }
 
 .textOverImage:hover{
-    background-size:110%;
+    background-size:120%;
 }
 
 .textOverImage:after{
@@ -155,13 +155,22 @@
 /*}*/
 
 .carousel-caption{
-    font-size: large;
+    margin-bottom: -2vw;
+    line-height: 1.5vw;
+    font-size: 1.6vw;
     color: #ffffff;
     vertical-align: bottom;
-    bottom: 0px;
-    justify-content: flex-end;
-    align-items: center;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px #40735B;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    /*justify-content: flex-end;*/
+    /*align-items: center;*/
+    text-align: center;
+    font-weight: bolder;
+    -webkit-text-stroke: 0.05vw #40735B;
+    text-shadow: 1px 1px 2px #373a47;
 }
 
+.textOverImage:hover .carousel-caption{
+    opacity: 0%;
+}
