@@ -135,7 +135,6 @@ a.side-nav-head:hover{
         float: unset;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 8vw;
 
     }
     .form-control.nav-input{
@@ -146,14 +145,6 @@ a.side-nav-head:hover{
         width: 100% !important;
         margin-top: -1em !important;
         margin-bottom: 1em !important;
-    }
-}
-
-@media (max-width: 968px) {
-    .container.nav-search{
-        margin-top: unset;
-    }
-    .form-control.nav-input{
     }
 }
 
