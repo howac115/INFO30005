@@ -52,8 +52,9 @@
     height:300px;
     float:left;
     margin:4px;
-    object-fit:cover;
+    object-fit: cover;
     background-position:center;
+    background-size:100%;
     transition:0.5s;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 1vw;
