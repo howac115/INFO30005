@@ -64,8 +64,12 @@
     /*padding: 0.5em -1em -3em 0em;*/
     /*margin-right: 1em;*/
     padding-top: 1.2em;
-    background: rgba(161, 194, 204, 1);
+    /*background: rgba(180, 217, 206, 0.11);*/
+    background-image: linear-gradient(rgba(180, 217, 206, 1), rgba(180, 217, 206, 0));
+    /*border-left: 5px solid #40735B;*/
     vertical-align: top;
+    /*margin-left: 0.5em;*/
+    padding-left: 1.5em;
 }
 
 .container.job-container{

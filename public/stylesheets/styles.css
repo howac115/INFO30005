@@ -20,7 +20,7 @@
 /* overwriting bootstrap presets, and is also dynamic */
 h1 {
   font-size: 2vmax ;
-  font-family: 'Acumin V',sans-serif ;
+  font-family: 'Biryani',sans-serif ;
   font-weight: bolder ;
   color: #40735B ;
 }
@@ -32,8 +32,8 @@ h1 {
 }
 
 h2 {
-  font-size: 4vmax ;
-  font-family: 'Patua One' ;
+  font-size: 4vmax !important;
+  font-family: 'Biryani',sans-serif ;
   /*font-weight: bolder !important;*/
   color: #40735B ;
   text-shadow: 5px 0px 0px #A1C2CC;
@@ -47,7 +47,7 @@ h2 {
 
 h4 {
   font-size: 1.5vmax ;
-  font-family: 'Acumin V',sans-serif ;
+  font-family: 'Basic',sans-serif ;
   font-weight: 700  ;
   color: #40735B ;
 }
@@ -147,7 +147,7 @@ body {
 }
 
 * {
-  font-family: 'Basic', sans-serif;
+  font-family: sans-serif;
   color: #373a47;
   font-size: 1.2vmax;
   box-sizing: inherit;
@@ -311,73 +311,73 @@ input[type=text] {
   list-style: none;
 }
 
-.slideshow {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+/*.slideshow {*/
+/*  position: fixed;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  z-index: 0;*/
+/*  list-style: none;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*}*/
 
-.slideshow li {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  opacity: 0;
-  z-index: 0;
-  animation: imageAnimation 50s linear infinite;
-}
+/*.slideshow li {*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  background-size: cover;*/
+/*  background-position: 50% 50%;*/
+/*  background-repeat: no-repeat;*/
+/*  opacity: 0;*/
+/*  z-index: 0;*/
+/*  animation: imageAnimation 50s linear infinite;*/
+/*}*/
 
-.slideshow li:nth-child(1) {
-  background-image: url(/images/workplace1.jpg)
-}
-.slideshow li:nth-child(2) {
-  background-image: url(/images/workplace2.jpg);
-  animation-delay: 10s;
-}
-.slideshow li:nth-child(3) {
-  background-image: url(/images/workplace3.jpg);
-  animation-delay: 20s;
-}
-.slideshow li:nth-child(4) {
-  background-image: url(/images/workplace4.jpg);
-  animation-delay: 30s;
-}
-.slideshow li:nth-child(5) {
-  background-image: url(/images/workplace5.jpg);
-  animation-delay: 40s;
-}
+/*.slideshow li:nth-child(1) {*/
+/*  background-image: url(/images/workplace1.jpg)*/
+/*}*/
+/*.slideshow li:nth-child(2) {*/
+/*  background-image: url(/images/workplace2.jpg);*/
+/*  animation-delay: 10s;*/
+/*}*/
+/*.slideshow li:nth-child(3) {*/
+/*  background-image: url(/images/workplace3.jpg);*/
+/*  animation-delay: 20s;*/
+/*}*/
+/*.slideshow li:nth-child(4) {*/
+/*  background-image: url(/images/workplace4.jpg);*/
+/*  animation-delay: 30s;*/
+/*}*/
+/*.slideshow li:nth-child(5) {*/
+/*  background-image: url(/images/workplace5.jpg);*/
+/*  animation-delay: 40s;*/
+/*}*/
 
-@keyframes imageAnimation {
-  0% {
-    opacity: 0;
-    animation-timing-function: ease-in;
-  }
-  10% {
-    opacity: 1;
-    animation-timing-function: ease-out;
-  }
-  20% {
-    opacity: 1
-  }
-  30% {
-    opacity: 0
-  }
-}
+/*@keyframes imageAnimation {*/
+/*  0% {*/
+/*    opacity: 0;*/
+/*    animation-timing-function: ease-in;*/
+/*  }*/
+/*  10% {*/
+/*    opacity: 1;*/
+/*    animation-timing-function: ease-out;*/
+/*  }*/
+/*  20% {*/
+/*    opacity: 1*/
+/*  }*/
+/*  30% {*/
+/*    opacity: 0*/
+/*  }*/
+/*}*/
 
 /* Older browser support - .no-cssanimations class added by modernizr */
-.no-cssanimations .slideshow li {
-  opacity: 1;
-}
+/*.no-cssanimations .slideshow li {*/
+/*  opacity: 1;*/
+/*}*/
 
 
 /*customerize scrollbar*/

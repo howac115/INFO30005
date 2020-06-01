@@ -71,6 +71,11 @@ html
       //    img(src='/images/logo/icb_logo_f_w.svg')
 
       //#side-menu
+      .container.nav-search
+        form(method='GET' action='/dashboard')
+          div.form-inline
+            input.form-control.nav-input(type='text', name='search')
+            button.btn.btn-primary.nav-button(type='submit') Search Jobs
 
 
 
@@ -79,7 +84,7 @@ body
     a(name="top")
   .footer
     .fixed-bottom
-      h3(style= "font-size: medium !important;")
+      h3(style= "font-size: medium !important; font-weight: bold !important;")
         a.d-inline.footer-block.fixed-bottom-text(href = '#top')  return to top
         |  |
         a.d-inline.footer-block.fixed-bottom-text(href = "/dashboard")   return to dashboard

@@ -3,6 +3,7 @@
     /*margin-left: 1%;*/
     background-color: #40735B;
     box-shadow: 0px -7px 18px 10px #373a47;
+    overflow: auto;
 }
 
 
@@ -17,16 +18,16 @@
     width: 150px;
     height: auto;
     margin: 10px;
-    display: inline-block;
     position: relative;
     /* need to properly centre this */
-    left: 46.58%;
+    left: 44%;
     transform: translateX(-53.42%);
 }
 
 @media (min-width: 768px) {
     .d-inline-block.logo{
         width: 150px;
+        left: 46.58%;
     }
 }
 
@@ -93,6 +94,63 @@ a.side-nav-head:hover{
     .sidenav {padding-top: 15px;}
     .sidenav a.navi {font-size: 18px;}
 }
+
+/*----------- search bar in navigation --------*/
+
+.container.nav-search{
+    height: auto;
+    display: inline-block;
+    position: relative;
+    background-color: #FDD1CE;
+    horiz-align: right;
+    width: auto;
+    float: right;
+    margin-left: unset;
+    margin-right: unset;
+
+}
+
+.form-control.nav-input{
+    border-radius:0;
+    height:2em;
+}
+
+.btn-primary.nav-button{
+    border-radius:0;
+    height:2em;
+}
+
+@media (max-width: 992px) {
+    .container.nav-search{
+        width: 100%;
+        /*float: right;*/
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+    .form-control.nav-input{
+        width: 100% !important;
+    }
+    .btn-primary.nav-button{
+        width: 100% !important;
+        margin-top: -1em !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .container.nav-search{
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .container.nav-search{
+        width: 100%;
+        padding-left: 14%;
+    }
+}
+
+
 
 
 /*------------------footer element------------------------*/
