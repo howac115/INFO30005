@@ -99,9 +99,9 @@ a.side-nav-head:hover{
 
 .container.nav-search{
     height: auto;
-    display: inline-block;
+    display: inline;
     position: relative;
-    background-color: #FDD1CE;
+    /*background-color: #FDD1CE;*/
     horiz-align: right;
     width: auto;
     float: right;
@@ -118,28 +118,50 @@ a.side-nav-head:hover{
 .btn-primary.nav-button{
     border-radius:0;
     height:2em;
+    background-color: #4B8699 !important;
+}
+
+.btn-primary.nav-button:hover{
+    background-color: #A1C2CC !important;
 }
 
 @media (max-width: 992px) {
     .container.nav-search{
         width: 100%;
+        horiz-align: center;
+        text-align: center;
+        display: block;
         /*float: right;*/
+        float: unset;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 8vw;
 
     }
     .form-control.nav-input{
+        height: 2.5em;
         width: 100% !important;
     }
     .btn-primary.nav-button{
         width: 100% !important;
         margin-top: -1em !important;
+        margin-bottom: 1em !important;
+    }
+}
+
+@media (max-width: 968px) {
+    .container.nav-search{
+        margin-top: unset;
+    }
+    .form-control.nav-input{
     }
 }
 
 @media (max-width: 768px) {
     .container.nav-search{
-        width: 100%;
+    }
+    .form-control.nav-input{
+        height: 2.8em;
     }
 }
 
@@ -147,6 +169,9 @@ a.side-nav-head:hover{
     .container.nav-search{
         width: 100%;
         padding-left: 14%;
+    }
+    .form-control.nav-input{
+        height: 3em;
     }
 }
 
@@ -202,6 +227,13 @@ a.btn.log-in{
     text-align: center;
     cursor: pointer;
     border-radius: 5px;
+}
+
+@media (max-width: 576px) {
+    a.btn.log-in{
+        width: 80vmin !important;
+    }
+
 }
 
 a.btn.log-in:focus,
