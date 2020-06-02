@@ -1,5 +1,5 @@
 doctype html
-head
+head(style="max-height: 100% !important; overflow:hidden !important;")
   meta(charset='utf-8')
   meta(http-equiv='X-UA-Compatible', content='IE=edge')
   meta(name='viewport', content='width=device-width, initial-scale=1')
@@ -9,8 +9,6 @@ head
   link(rel='icon', href='/images/logo/incubeta.png')
   link(rel='stylesheet', href='/stylesheets/animation.css')
   //script(src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', type='text/javascript', async='')
-  .d-block.pt-md-4(style= 'margin-top: 8vh; margin-bottom: -7%;')
-    h2.text-center Welcome to InCuBeta
 #landing-header
 
   //a.btn.btn-lg.btn-default(href='/home') Get Started
@@ -25,10 +23,16 @@ head
     //      .Project-hail2
     //      p.Project-name Welcome to Incubeta
   //img(src= '/images/logo/icb_spin.gif')
-
-  .container-fluid.index-bg.mx-auto.my-auto
-    a.incubeta-intro(href='/dashboard')
+  .container-fluid.index-container
+    p.d-block.index-text.pt-md-4 Bridging the transition from graduation to the job market.
+      br
+      br
+      |InCuBeta provides students with opportunities to build their life experiences as well as form meaningful connections with one-another and those related or part of industry.
+    h1.d-block.index-text-h1 click to start
+    .d-block.index-bg
+      a.incubeta-intro(href='/dashboard', style="max-height: 100%;")
       //img(src= '/images/logo/icb_static.gif')
+    h1.d-block.index-text-h1 your incubation
 
 
 //ul.slideshow
