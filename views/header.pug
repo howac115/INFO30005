@@ -87,4 +87,7 @@ body
       h3(style= "font-size: medium !important; font-weight: bold !important;")
         a.d-inline.footer-block.fixed-bottom-text(href = '#top')  return to top
         |  |
-        a.d-inline.footer-block.fixed-bottom-text(href = "/dashboard")   return to dashboard
+        if (!jobs && !searchJobs)
+          a.d-inline.footer-block.fixed-bottom-text(href = "/dashboard")   return to dashboard
+        else
+          a.d-inline.footer-block.fixed-bottom-text(href = "#")   return to dashboard
