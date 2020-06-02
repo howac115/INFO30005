@@ -27,9 +27,9 @@ block content
             label Tag:
             div
               for tag in tags
-                div(style='display: inline; padding-right:10px;')
+                div(style='display: inline; padding-right:10px;').d-inline-block.check_tag
                   input.checkbox-input(type='checkbox', name='tag', id=tag._id, value=tag._id, checked=tag.checked )
-                  label.h5(for=tag._id) #{tag.name}
+                  label.h4.check_tag_font(for=tag._id) &nbsp;#{tag.name}&nbsp;
         div.form-group
           label Do you wish to hide sensitive information when people click into your page?
           div

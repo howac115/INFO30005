@@ -28,13 +28,13 @@ block content
         hr
         p
             if(followed == false)
-                a(href=tag.url+'/follow') Follow Tag
+                a.btn.btn-primary.blue(href=tag.url+'/follow', style="width: 40%;") Follow Tag
             else
-                a(href=tag.url+'/unfollow') Unfollow Tag
+                a.btn.btn-primary.blue(href=tag.url+'/unfollow', style="width: 40%;") Unfollow Tag
         if (current_user.isAdmin == true)
             p
-                a(href=tag.url+'/delete') Delete Tag
+                a.btn.btn-primary(href=tag.url+'/delete', style="width: 40%; margin-top: -0.5em;") Delete Tag
             p
-                a(href=tag.url+'/update') Update Tag
+                a.btn.btn-primary(href=tag.url+'/update', style="width: 40%; margin-top: -0.5em;") Update Tag
 
     a.btn.btn-primary.sticky-button(href='/dashboard/jobs', style="width: 40%;") return to all tags

@@ -103,6 +103,20 @@
     justify-content: flex-end;
 }
 
+@media (max-width: 340px){
+    .carousel-in-image{
+        width: 25%;
+    }
+}
+
+.carousel-in-image.blue{
+    background-image: url(../images/carousel_blue.png) !important;
+}
+
+.carousel-in-image.green{
+    background-image: url(../images/carousel_green.png) !important;
+}
+
 @media (max-width: 992px) {
     .textOverImage:hover:after,
     .textOverImage:after{
@@ -173,4 +187,15 @@
 
 .textOverImage:hover .carousel-caption{
     opacity: 0%;
+}
+
+.carousel-control-prev.float-left{
+    margin-left: -1em !important;
+    margin-right: 1em !important;
+    transform: translate();
+}
+
+.carousel-control-next.float-right{
+    margin-right: -1em !important;
+    margin-left: 1em !important;
 }

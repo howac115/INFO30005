@@ -28,13 +28,13 @@ block content
           if (current_user.url == job.user.url)
               hr
               p
-                  a(href=job.url + '/update') Update Job
+                  a.btn.btn-primary(href=job.url + '/update', style="width: 40%;") Update Job
               p
-                  a(href=job.url + '/delete') Delete Job
+                  a.btn.btn-primary(href=job.url + '/delete', style="width: 40%; margin-top: -0.5em;") Delete Job
               hr
 
 
-      a.btn.btn-primary.sticky-button(href='/dashboard/jobs', style="width: 40%;") return to all jobs
+      a.btn.btn-primary.sticky-button(href='/dashboard/jobs', style="width: 40%; top: 60vh !important;") return to all jobs
 
       //h1(style="margin-top: 0.5em; margin-bottom: 1.5em;") #{job.title}
       //

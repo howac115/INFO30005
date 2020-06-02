@@ -125,7 +125,8 @@
 
 .sticky-button{
     margin-top: 2em;
-    position: sticky;
+    position: sticky !important;
+    position: -webkit-sticky;
     top: 80vh;
     /*left: 50%;*/
     /*-ms-transform: translate(-50%, -50%);*/
@@ -162,7 +163,7 @@ label{
 
 .btn.btn-primary {
     background: #40735B;
-    font-weight: 100;
+    /*font-weight: 100;*/
     color: #ffffff !important;
     border: none !important;
 }
@@ -183,8 +184,8 @@ label{
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
     background: #ECB086;
-    font-weight: 900;
-    letter-spacing: 1px;
+    /*font-weight: 900;*/
+    /*letter-spacing: 1px;*/
 }
 .btn.btn-primary:hover rect,
 .btn.btn-primary:focus rect {
@@ -194,6 +195,15 @@ label{
     transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+.btn.btn-primary.blue{
+    background-color: #4B8699;
+}
+.btn.btn-primary.blue:hover,
+.btn.btn-primary.blue:focus {
+    background: #A1C2CC;
+    /*font-weight: 900;*/
+    /*letter-spacing: 1px;*/
+}
 
 /*!**SAMPLEEEEEEE*!*/
 /*.btn-1 {*/
@@ -281,4 +291,38 @@ a.chip-text:hover,
 a.chip-text:focus {
     color: #40735B !important;
     text-decoration: none !important;
+}
+
+/*---------- check box for tags styling ------------*/
+.d-inline-block.check_tag{
+    /*background-color: #4B8699;*/
+    background: linear-gradient(121deg, #A1C2CC 0%, #ECB086 55%, #B4D9CE 100%)!important;
+    color: #ffffff;
+    margin: 0.2em;
+    text-align: center;
+    vertical-align: center;
+    padding-left: 0.5em;
+    padding-top: 0.7vmin;
+    border-radius: 0.5em;
+}
+
+.h4.check_tag_font{
+    font-size:medium;
+    text-align: center;
+    margin: auto;
+}
+
+/*------------formatting specifically for links in dashboard-----------*/
+.btn.dashboard-links{
+    font-weight: 900;
+    letter-spacing: 1px;
+    width: 100%;
+    /*background-color: #D5F2EA;*/
+    margin-bottom: 0.5em;
+}
+
+.btn.dashboard-links:hover{
+    background-color: #A1C2CC;
+    letter-spacing: 3px;
+    color: #ffffff !important;
 }

@@ -39,7 +39,10 @@ html
           //  a.navi(href=current_user.url) Profile
           hr
         li
-          a.navi(href='/dashboard') Dashboard
+          if (!jobs && !searchJobs)
+            a.navi(href='/dashboard') Dashboard
+          else
+            a.navi(href='#') Dashboard
         li
           a.navi(href='/dashboard/jobs') All jobs
         li
@@ -61,8 +64,12 @@ html
           document.getElementById("sideNav").style.width = "0";
         }
 
-      a.d-inline-block.logo(href='/dashboard')
-        img(src='/images/logo/icb_logo_f_w.svg')
+      if (!jobs && !searchJobs)
+        a.d-inline-block.logo(href='/dashboard')
+          img(src='/images/logo/icb_logo_f_w.svg')
+      else
+        a.d-inline-block.logo(href='#')
+          img(src='/images/logo/icb_logo_f_w.svg')
       //if (current_user)
       //  a.d-inline-block.logo(href='/dashboard')
       //    img(src='/images/logo/icb_logo_f_w.svg')

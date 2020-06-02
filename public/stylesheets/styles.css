@@ -154,7 +154,6 @@ body {
   transition-property: all;
   transition-duration: .6s;
   transition-timing-function: ease;
-
 }
 
 @media (max-width: 992px) {
@@ -219,6 +218,7 @@ left-box-align{
   margin-right: -45vw;
   background-color: #ffffff;
   min-height: 115%;
+  overflow: hidden !important;
 }
 @media (min-width: 576px) {
   left-box-align{
@@ -267,6 +267,8 @@ left-align{
   /*margin-left: 5%;*/
   /*margin-right: 5%;*/
   min-height: 130%;
+  max-width: 100% !important;
+  overflow: hidden !important;
 }
 
 @media (min-width: 576px){

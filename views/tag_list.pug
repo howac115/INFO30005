@@ -3,12 +3,14 @@ extends header
 block content
   title Tag List
   left-box-align
-    h1= title
+    .d-block(style="padding-bottom: 1em;")
+        h1= title
 
     //display the tags in chips
     each val in list_tags
-        li
-        a(href=val.url) #{val.name}
+        //li
+        .chip
+            a.chip-text(href=val.url) #{val.name}
         //.chip
         //    a(href=val.url) #{val.name}
         //    //img(src='img_avatar.jpg' alt='Person' width='96' height='96')

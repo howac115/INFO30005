@@ -16,17 +16,17 @@ block content
             .sidebar-nav
                 p
                 li
-                    a(href='/dashboard/jobs') All jobs
+                    a.btn.dashboard-links(href='/dashboard/jobs') All jobs
                 li
-                    a(href='/dashboard/tags') All tags
+                    a.btn.dashboard-links(href='/dashboard/tags') All tags
                 li
                     hr
                 li
-                    a(href='/dashboard/job/create') Post new job
+                    a.btn.dashboard-links(href='/dashboard/job/create') Post new job
                 if (current_user)
                     if (current_user.isAdmin == true)
                         li
-                            a(href='/dashboard/tag/create') Create new tag
+                            a.btn.dashboard-links(href='/dashboard/tag/create') Create new tag
 
                     //original featured job lists
                 //if (jobs)
@@ -64,28 +64,28 @@ block content
                             .carousel-inner.img-responsive(role='listbox')
                                 .carousel-item.row.no-gutters.mx-auto.active
                                     //.d-inline-flex.float-left
-                                    a.textOverImage.carousel-in-image(href="/dashboard/job/"+jobs[0]._id style = "background-image:url(https://source.unsplash.com/random?sig=123/500x500)"
+                                    a.textOverImage.carousel-in-image.blue(href="/dashboard/job/"+jobs[0]._id
                                         data-title = `${jobs[0].title}` data-text = `${jobs[0].title}`+`${jobs[0].description}`)
                                         .carousel-caption #{jobs[0].title}
                                     //.d-inline-flex.float-left
-                                    a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[1]._id style = "background-image:url(https://source.unsplash.com/random?sig=1/500x500)"
+                                    a.textOverImage.carousel-in-image.green(href="/dashboard/job/" + jobs[1]._id
                                         data-text = `${jobs[1].description}`)
                                         .carousel-caption #{jobs[1].title}
                                     //.d-inline-flex.float-left
-                                    a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[2]._id style = "background-image:url(https://source.unsplash.com/random?sig=12/500x500)"
+                                    a.textOverImage.carousel-in-image.blue(href="/dashboard/job/" + jobs[2]._id
                                         data-text = `${jobs[2].description}`)
                                         .carousel-caption #{jobs[2].title}
                                 .carousel-item.row.no-gutters.mx-auto
                                     //.d-inline-flex.float-left
-                                    a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[3]._id style = "background-image:url(https://source.unsplash.com/random?sig=3/500x500)"
+                                    a.textOverImage.carousel-in-image.green(href="/dashboard/job/" + jobs[3]._id
                                         data-text = `${jobs[3].description}`)
                                         .carousel-caption #{jobs[3].title}
                                     //.d-inline-flex.float-left
-                                    a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[4]._id style = "background-image:url(https://source.unsplash.com/random?sig=8/500x500)"
+                                    a.textOverImage.carousel-in-image.blue(href="/dashboard/job/" + jobs[4]._id
                                         data-text =`${jobs[4].description}`)
                                         .carousel-caption #{jobs[4].title}
                                     //.d-inline-flex.float-left
-                                    a.textOverImage.carousel-in-image(href="/dashboard/job/" + jobs[5]._id style = "background-image:url(https://source.unsplash.com/random?sig=13/500x500)"
+                                    a.textOverImage.carousel-in-image.green(href="/dashboard/job/" + jobs[5]._id
                                         data-text = `${jobs[5].description}`)
                                         .carousel-caption #{jobs[5].title}
                             a.carousel-control-prev.float-left(href='#recipeCarousel' role='button' data-slide='prev')
