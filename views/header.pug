@@ -34,10 +34,13 @@ html
         if(current_user)
           li
             .side-nav-head(href='#') Signed In As
-            if (current_user.url != user.url)
-              a.side-nav-head(href=current_user.url, style= 'font-size: xx-large; padding-bottom: 20px;') #{current_user.first_name}
+            if (user)
+              if (current_user.url != user.url)
+                a.side-nav-head(href=current_user.url, style= 'font-size: xx-large; padding-bottom: 20px;') #{current_user.first_name}
+              else
+                a.side-nav-head(href="#", style= 'font-size: xx-large; padding-bottom: 20px;') #{current_user.first_name}
             else
-              a.side-nav-head(href="#", style= 'font-size: xx-large; padding-bottom: 20px;') #{current_user.first_name}
+              a.side-nav-head(href=current_user.url, style= 'font-size: xx-large; padding-bottom: 20px;') #{current_user.first_name}
           hr
         li
           if (!jobs && !searchJobs)
