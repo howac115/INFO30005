@@ -32,17 +32,18 @@ block content
                             label.h4.check_tag_font(for=tag._id) &nbsp;#{tag.name}&nbsp;
             div.form-group
                 label.h5.sub_title Do you wish to hide sensitive information when people click into your page?
-                div(style='padding-right:15px;').d-inline-block.radio_style
-                    input(type='radio', name='infoDisplayConsent', value=0)
+                div(style='padding-right:20px;').d-inline-block
+                    input(type='radio', name='infoDisplayConsent', value=0).radio_style
                     |  Yes
-                    input(type='radio', name='infoDisplayConsent', value=1)
+                div(style='padding-right:20px;').d-inline-block
+                    input(type='radio', name='infoDisplayConsent', value=1).radio_style
                     |  No
             div.form-group.mb-5
                 label.h5.sub_title Do you consent to receive email for notifications in followed tags?
-                div(style='padding-right:15px;').d-inline-block
+                div(style='padding-right:20px;').d-inline-block
                     input(type='radio', name='emailConsent', value=1).radio_style
                     |  Yes
-                div(style='padding-right:15px;').d-inline-block
+                div(style='padding-right:20px;').d-inline-block
                     input(type='radio', name='emailConsent', value=0).radio_style
                     |  No
             div.form-group
