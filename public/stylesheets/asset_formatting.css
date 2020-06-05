@@ -205,62 +205,6 @@ label{
     /*letter-spacing: 1px;*/
 }
 
-/*!**SAMPLEEEEEEE*!*/
-/*.btn-1 {*/
-/*    background-color: #007800;*/
-/*    font-weight: 100;*/
-/*    width: 100px;*/
-/*    height: 50px;*/
-/*}*/
-/*.btn-1 svg {*/
-/*    height: 45px !important;*/
-/*    left: 0 !important;*/
-/*    position: absolute !important;*/
-/*    top: 0 !important;*/
-/*    width: 100% !important;*/
-/*}*/
-/*.btn-1 rect {*/
-/*    fill: none !important;*/
-/*    stroke: #40735B !important;*/
-/*    stroke-width: 2 !important;*/
-/*    stroke-dasharray: 422, 0 !important;*/
-/*    transition: all 0.35s linear !important;*/
-/*}*/
-/*.btn-1:hover {*/
-/*    background-color: rgba(0, 128, 0, 0);*/
-/*    font-weight: 900;*/
-/*    letter-spacing: 1px;*/
-/*}*/
-/*.btn-1:hover rect {*/
-/*    stroke-width: 5;*/
-/*    stroke-dasharray: 15, 310;*/
-/*    stroke-dashoffset: 48;*/
-/*    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);*/
-/*}*/
-
-/***********/
-/*default button*/
-/*.btn {*/
-/*  color: #40735B !important;*/
-/*  cursor: pointer!important;*/
-
-/*  font-size:16px!important;*/
-/*  font-weight: 400!important;*/
-/*  line-height: 45px!important;*/
-/*  margin: 0 0 2em!important;*/
-/*  max-width: 160px!important;*/
-/*  position: relative!important;*/
-/*  text-decoration: none!important;*/
-/*  text-transform: uppercase!important;*/
-/*  width: 100%!important;*/
-
-/*    @media(min-width: 600px) {*/
-
-/*        margin: 0 1em 2em !important;;*/
-
-/*    }*/
-/*    &:hover { text-decoration: none !important;; }*/
-/*}*/
 
 
 /*-------------------------default hyperlink formatting override------------------------------*/
@@ -325,4 +269,44 @@ a.chip-text:focus {
     background-color: #A1C2CC;
     letter-spacing: 3px;
     color: #ffffff !important;
+}
+
+
+
+/*---------- input formatting -------------*/
+.input_format{
+    font-size: medium !important;
+    padding-left: 1em!important;
+    height:auto !important;
+    resize: none;
+    color: rgba(118, 166, 148, 1) !important;
+    margin-top: -0.8em !important;
+    padding-top: 0.5em; !important;
+    border-color: rgba(64, 115, 91, 0.2)!important;
+    border-width: 0.1em !important;
+    border-radius: 0.3em !important;
+}
+
+.input_format:focus {
+    outline-color: #ECB086!important;
+    color: #2f5141 !important;
+}
+textarea{
+
+}
+$('textarea').autoResize();
+
+/*----------radio formatting------*/
+.radio_style{
+    color: #40735B !important;
+    background: #40735B !important;
+    cursor: pointer !important;
+    position: relative !important;
+}
+
+input[type="radio"]{
+    color: #40735B !important;
+    background-color: #40735B !important;
+    cursor: pointer !important;
+    position: relative !important;
 }
