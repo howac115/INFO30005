@@ -6,20 +6,20 @@ block content
     h1 Post Job
     form(method='POST' action='')
         div.form-group
-            label(for='title') Title:
-            input#title.form-control(type='text', placeholder='Title of the job' name='title' required='true' value=(undefined===job ? '' : job.title) )
+            label(for='title') Title
+            input#title.form-control.input_format(type='text', placeholder='Title of the job' name='title' required='true' value=(undefined===job ? '' : job.title) )
         div.form-group
-            label(for='description') Summary:
+            label(for='description') Summary
             div.form-group
               p.full
-                textarea.w-100(type='textarea', placeholder='Brief description' name='description' value=(undefined===job ? '' : job.description) required='true')
+                textarea.input_format.w-100(type='textarea', placeholder='Brief description' name='description' value=(undefined===job ? '' : job.description) required='true')
         div.form-group
             label Tag:
             div
               for tag in tags
-                div(style='display: inline; padding-right:10px;')
-                  input.checkbox-input(type='checkbox', name='tag', id=tag._id, value=tag._id, checked=tag.checked )
-                  label(for=tag._id) #{tag.name}
+                  div(style='display: inline; padding-right:10px;').d-inline-block.check_tag
+                      input.checkbox-input(type='checkbox', name='tag', id=tag._id, value=tag._id, checked=tag.checked )
+                      label.h4.check_tag_font(for=tag._id) &nbsp;#{tag.name}&nbsp;
         div.form-group
         button.btn.btn-primary(type='submit') Submit
 

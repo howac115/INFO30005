@@ -8,7 +8,7 @@ block content
     left-align
         center
             if (current_user)
-                h2.lead.mt-3.mb-3 Welcome #{current_user.first_name}!
+                h2.lead.mt-3.mb-3(style=':focus{color: gba(180, 217, 206, 1)}') Welcome #{current_user.first_name}!
             else
                 h2.lead.mb-3 Welcome!
                 a.btn.log-in(href='/home/login') log in

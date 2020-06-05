@@ -7,10 +7,10 @@ block content
     form(method='POST' action='')
         div.form-group
             label(for='title') Title:
-            input#title.form-control(type='text', value = ''+job.title, placeholder='Title of the job', name='title', required='true')
+            input#title.form-control.input_format(type='text', value = ''+job.title, placeholder='Title of the job', name='title', required='true')
         div.form-group
             label(for='description') Summary:
-            input#summary.form-control(type='textarea', value = ''+job.description, placeholder='Brief description', name='description')
+            input#summary.form-control.input_format(type='textarea', value = ''+job.description, placeholder='Brief description', name='description')
         div.form-group
             label Tag:
             div

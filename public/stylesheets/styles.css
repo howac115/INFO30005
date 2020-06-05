@@ -13,6 +13,7 @@
 .blue1 { color: rgba(227, 255, 246, 1); }
 .blue2 { color: rgba(161, 194, 204, 1); }
 .blue3 { color: rgba(75, 134, 153, 1); }
+.blue4 { color: rgba(55, 58, 71, 1);}
 .pink1 { color: rgba(253, 209, 206, 1); }
 .pink2 { color: rgba(207, 178, 185, 1); }
 
@@ -20,7 +21,7 @@
 /* overwriting bootstrap presets, and is also dynamic */
 h1 {
   font-size: 2vmax ;
-  font-family: 'Biryani',sans-serif ;
+  font-family: 'Biryani',sans-serif;
   font-weight: bolder ;
   color: #40735B ;
 }
@@ -33,7 +34,7 @@ h1 {
 
 h2 {
   font-size: 4vmax !important;
-  font-family: 'Biryani',sans-serif ;
+  font-family: 'Biryani',sans-serif;
   /*font-weight: bolder !important;*/
   color: #40735B ;
   text-shadow: 5px 0px 0px #A1C2CC;
@@ -348,3 +349,12 @@ input[type=text] {
   }
 }
 
+/*-------------- other font styling ----------*/
+
+.sub_title{
+  color: #40735B;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 1em;
+  width: 100%;
+}

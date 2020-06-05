@@ -1,6 +1,7 @@
 extends header
 
 block content
+<<<<<<< HEAD
     title Update Profile
     left-box-align(style= "padding-bottom: 10%;")
         h1=title
@@ -48,3 +49,52 @@ block content
                     |  No
             div.form-group
             button.btn.btn-primary(type='submit') Submit
+=======
+    title Update Profile
+    left-box-align(style= "padding-bottom: 10%;")
+        h1=title
+        form(method='POST' action='')
+            div.form-group
+                label(for='summary') Personal Summary
+                input#email.form-control.input_format(type='text', name='summary', value = ''+user.summary, placeholder='Briefly Tell Us About Yourself')
+            div.form-group
+                label(for='email') Email
+                input#email.form-control.input_format(type='email', name='email', value = ''+user.email, placeholder='Enter Email')
+            div.form-group
+                label(for='phone_num') Phone Number
+                input#email.form-control.input_format(type='number', name='phone_num', value = ''+user.phone_num, placeholder='Enter Phone Number')
+            div.form-group
+                label(for='profile_img') Profile Image URL
+                input#email.form-control.input_format(type='text', name='profile_img', value = ''+user.profile_img, placeholder='Enter Profile Image URL')
+            div.form-group
+                label(for='date_of_birth') Date of birth:
+                if (user.date_of_birth)
+                    input#date_of_birth.form-control.input_format(type='date', name='date_of_birth', value=user.date_of_birth.getFullYear()+'-'+(user.date_of_birth.getMonth()+1)+'-'+user.date_of_birth.getDate())
+                else
+                    input#date_of_birth.form-control.input_format(type='date', name='date_of_birth')
+            div.form-group
+                label Tag:
+                div
+                  for tag in tags
+                    div(style='display: inline; padding-right:10px;').d-inline-block.check_tag
+                      input.checkbox-input(type='checkbox', name='tag', id=tag._id, value=tag._id, checked=tag.checked )
+                      label.h4.check_tag_font(for=tag._id) &nbsp;#{tag.name}&nbsp;
+            div.form-group
+              label.h5.sub_title Do you wish to hide sensitive information when people click into your page?
+              div(style='padding-right:15px;').d-inline-block.radio_style
+                input(type='radio', name='infoDisplayConsent', value=0)
+                |  Yes
+              div(style='padding-right:15px;').d-inline-block.radio_style
+                input(type='radio', name='infoDisplayConsent', value=1)
+                |  No
+            div.form-group.mb-5
+              label.h5.sub_title Do you consent to receive email for notifications in followed tags?
+              div(style='padding-right:15px;').d-inline-block
+                input(type='radio', name='emailConsent', value=1).radio_style
+                |  Yes
+              div(style='padding-right:15px;').d-inline-block
+                input(type='radio', name='emailConsent', value=0).radio_style
+                |  No
+            div.form-group
+            button.btn.btn-primary(type='submit') Submit
+>>>>>>> theresa
