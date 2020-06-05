@@ -10,7 +10,9 @@ var user_controller = require('../controllers/userController');
 
 // GET request to Dashboard page. Protected from when logged out.
 router.get('/', search_controller.index);
-//router.get('/', ensureAuthenticated, search_controller.index);
+// GET request to view About Us Page.
+router.get('/about_us', (req, res) => res.render('about_us'));
+
 
 /// JOB ROUTES ///
 
