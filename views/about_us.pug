@@ -1,15 +1,43 @@
 extends header
 
 block content
-    h2 What is Incubeta?
-        p.d-inline-block With the problem that more graduates find it hard to secure a job after graduation due to the lack of working experience, we decided to develop a task outsrouceing website specifically targeted at tertiary students.
-            |InCuBeta, a proposed job listing platform can
-            |not only providing the space for students and members of industry to network with each other, but for students to gain experience and confidence in their desired field alongside soft skill development. This platform, if implemented, will bridge education and industry,
-            |along with benefiting various groups within society to achieve a smoother and more comprehensive labour market and societal dynamic
-    h2 Incubeta the name
-        p.d-inline-block InCuBeta is a combination of the word “incubate” and the Greek symbol “β”. “Incubate” describes a bird sitting on eggs in order to keep them warm and bring them to hatching, symbolising that the website aims to nurture tertiary students’ talents and acts as a stepping stone for them to find their dream careers. As for the symbol “β” is often seen during scientific experiments as well as a representation of the trial period of projects. Describing the website’s aim for students to experiment with different tasks and roles in a so-called beta stage of their development to improve upon their employability.
-    h2 What you could do in Incubeta
-        p.d-inline-block We encourage all users to sign up and start to post tasks and of course take tasks. The tag system is tied closely with the job postings for users to get a better understanding of the skill requirement. Users can also follow certain tags to receive the latest email update
-        |when jobs of this category is posted. A personal profile is established for user to display one's particular skills and interests. Users can also communicate with one another via emails through the message box on the profile page.
-        |More functions awaited exploration and please sign up to find out more!
-    h4.d-inline-block Thanks for visiting Incubeta and we are here to help kick start your incubation journey.
+    left-box-align(style='min-height: 160% !important;')
+        h2.sub_title What is Incubeta?
+        .d-inline-block
+            p With the problem that more graduates find it hard to secure a job after graduation due to the lack of working experience,
+                |we decided to develop a task outsrouceing website specifically targeted at tertiary students.
+            p InCuBeta, a proposed job listing platform can
+                |not only providing the space for students and members of industry to network with each other, but for students to
+                |gain experience and confidence in their desired field alongside soft skill development.
+            p This platform,
+                |if implemented, will bridge education and industry,
+                | along with benefiting various groups within society to achieve a smoother and more comprehensive
+                |labour market and societal dynamic
+        h2.sub_title Incubeta the name
+        .d-inline-block
+            p.d-inline-block InCuBeta is a combination of the word “incubate” and the Greek symbol “β”.
+                |“Incubate” describes a bird sitting on eggs in order to keep them warm and bring them to hatching,
+                |symbolising that the website aims to nurture tertiary students’ talents and acts as a stepping stone for them
+                |to find their dream careers.
+            p As for the symbol “β” is often seen during scientific experiments as well as
+                |a representation of the trial period of projects. Describing the website’s aim for students to experiment with
+                |different tasks and roles in a so-called beta stage of their development to improve upon their employability.
+        h2.sub_title What you could do in Incubeta
+        .d-inline-block
+            p We encourage all users to sign up and start to post tasks and of course take tasks.
+                | The tag system is tied closely with the job postings for users to get a better understanding of
+                |the skill requirement. Users can also follow certain tags to receive the latest email update
+                | when jobs of this category is posted. A personal profile is established for user to display
+                |one's particular skills and interests. Users can also communicate with one another via emails
+                |through the message box on the profile page.
+            p(style='color: rgba(75, 134, 153, 1); font-weight: normal; font-style: italic; font-size: 1em;')
+                |More functions awaited exploration and please sign up to find out more!
+        .container-fluid.text-center
+            h4.d-inline-block(style='padding-top: 10%; padding-bottom: 10%; line-height: 2em;').pr-3
+                |Thank you for visiting Incubeta
+                br
+                |and we are here to help kick start
+                br
+                |your incubation journey.
+
+        a.btn.btn-primary.sticky-button.mx-auto(href='/dashboard', style="width: 40%; top: 60vh !important; text-align: center;") back to dashboard

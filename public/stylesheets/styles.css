@@ -352,9 +352,34 @@ input[type=text] {
 /*-------------- other font styling ----------*/
 
 .sub_title{
-  color: #40735B;
-  font-weight: bold;
-  font-size: 1em;
+  color: #40735B!important;
+  font-weight: bold!important;
+  font-size: 1em !important;
   margin-top: 1em;
   width: 100%;
+  text-shadow: none!important;
+}
+
+p{
+  font-weight: lighter;
+  font-size: 0.8em;
+
+}
+
+@media (max-width: 1200px){
+  p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 992px){
+  p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 768px){
+  p {
+    font-size: 1em;
+  }
 }
