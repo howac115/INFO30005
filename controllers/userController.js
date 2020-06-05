@@ -135,7 +135,7 @@ exports.user_update_post = function (req, res, next) {
     summary: req.body.summary,
     date_of_birth: req.body.date_of_birth,
     tag: req.body.tag,
-    followed_tag: req.user.followed_tag,
+    followed_tag: req.body.followed_tag,
     infoDisplayConsent: req.body.infoDisplayConsent,
     emailConsent: req.body.emailConsent,
     _id: req.params.id,
