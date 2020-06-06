@@ -19,12 +19,20 @@ block content
       dd #{user.summary}
     else
       dd This user has not updated his summary
-    if (user.infoDisplayConsent == true || current_user.id == user.id)
+    if (user.infoDisplayConsent == true && current_user.id === user.id)
       h4 E-mail Address
       dd #{user.email}
       h4 Phone Number
       if (user.phone_num)
         dd #{user.phone_num}
+      else
+        dd This user has not updated his phone number
+    else if (user.infoDisplayConsent == false || current_user.id === user.id)
+      h4 E-mail Address
+      dd E-mail Address has been hided
+      h4 phone Number
+      if (user.phone_num)
+        dd phone Number has been hided
       else
         dd This user has not updated his phone number
     else
