@@ -7,7 +7,9 @@ describe('integration tests', function () {
         it('welcome page', async function () {
             this.timeout(30000);
             const res = await supertest(app).get('/');
+            // checking if 'OK' for index page
             expect(res.statusCode).to.equal(200);
+            // checking if page type is text/html
             expect(res.type).to.equal('text/html');
         })
     })
@@ -15,7 +17,9 @@ describe('integration tests', function () {
         it('dashboard page', async function () {
             this.timeout(30000);
             const res = await supertest(app).get('/dashboard');
+            // checking if 'OK' for dashboard page
             expect(res.statusCode).to.equal(200);
+            // checking if page type is text/html
             expect(res.type).to.equal('text/html');
         })
     })
@@ -30,8 +34,12 @@ describe('integration tests', function () {
             }
             this.timeout(30000);
             const res = await supertest(app).post('/home/register').send(newUser);
+            // checking if 'OK' for register page
             expect(res.statusCode).to.equal(200);
+            // checking if page type is text/html
             expect(res.type).to.equal('text/html');
+            // checking if page contains form element
+            expect(res.text).to.include("<input class=");
         })
     })
 })
