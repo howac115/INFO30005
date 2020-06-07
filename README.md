@@ -1,30 +1,54 @@
 
-# INFO30005
+# INFO30005 Incubeta 
 
 ## ***Overview***
 
 InCuBeta is focused on 3 main functions of job listing, user profile creation, and a tagging function. With this, an additional authentication function is also enabled to create a personal experience for the interactions and functions available via InCuBeta. Each main function is separated and interacts with the server to create their own subsets of data/object storage, where they are sometimes linked together in providing their functionality.
 
-## Index Page
-
-Index page acts welcome page. Users can click on the animation of logo to get redirected to the dashboard page.
-
-## **Dashboard**
 
 
-Overlooking all the controllers is the dashboard, where rendered after the user’s successful login, provides routing to the three controllers (jobController, userController, tagController) of the main functions of InCuBeta. Shown above, for both the job route and tag route via the two controllers, functions of viewing/ posting/ updating/ deleting are supported. Where as mentioned before, routing to the userController, users can also review peer profiles or to make changes of their own details.
+## *3 Core Functionality*
 
-  
 
-Under the job routes, users can get/post requests to create/update/delete/view jobs.
+There are three core functionalities to our website “Incubeta”, including job-listing, user profile, and the tagging system.
 
-Under the user routes, users can get/post requests to update their own profile and get requests to browse other people’s files.
+*****Common files that all 3 functionality uses:*****
+***View***: Dashboard.pug. Header.pug, Error.pug, Index.pug, About_us.pug
 
-Under the tag routes, users(only admins) can get/post requests to create/update/delete/view tags.
+***Route:*** index.js https://incubeta.herokuapp.com/
+ dashboard.js https://incubeta.herokuapp.com/dashboard
+ 
+***Controller***: jobController.js, tagController.js, searchController.js
 
-  
+## ***User:***
 
-6 featured jobs will be generally each time when the user refreshes the dashboard page and will be present to users in the form of a carousel. The tags subscribed by user will also be shown.
+Users can register at the website. Once the information is authenticated, user details will be displayed on the user profile, including their associated tags. Users can make changes and update his own profile while able to only browse other users’. Users will also be informed about websites updates on job-posting under subscribed tags and also message other users via email notifications. Certain functinoality can only be accessed once log in. 
+
+***User Views:*** user_detail.pug, user_update.pug, home.pug, login.pug, register.pug
+ ***User routes:*** home.js
+ ***User Controllers***: authController.js, emailController.js, userController.js
+
+## ***Job***:
+
+ Each user is welcomed to post job-listings through the dashboard. All the jobs are stored in the database along with its description and the tags associated with it so that a list of jobs can be viewed by users. Jobs can be further updated by the original job-lister or even be deleted by the user. Only admins can modify/delete all users’ jobs as a form to moderate the website. Featured job listings will be presented via dashboard with changes upon each refresh.
+
+***Job Views:*** job_create.pug, job_delete.pug, job_detail.pug, job_list.pug, job_update.pug
+ ***Job routes:*** dashboard.js
+ ***Job Controllers***: jobController.js, searchController.js, emailController.js
+
+## ***Tag***
+
+：Each job posted can choose to add as many tag associations to give users a better understanding of the task. Tags can only be newly initiated or deleted by admin, while the majority of users can select from the large given list of tags. All the job under existing tags can be accessed from the dashboard. If none of the current existing tags fits the job description, there is also the option of “others” where users can choose to contact the admin for further tag suggestions. Subscribed tags will be exhibited on dashboard, meaning users will get email notifications each time a job is associated with a subscribed tag being posted.
+
+***Tag Views:*** tag_create.pug, tag_delete.pug, tag_detail.pug, tag_list.pug, tag_update.pug
+ ***Tag routes:*** dashboard.js
+ ***Tag Controllers***: tagController.js
+
+## 
+
+# Controllers
+
+***
 
 ## **Authentication (authController) ../config/auth.js**
 
@@ -34,15 +58,19 @@ The authentication function of InCubeta is established through the login and reg
 
 - Home page that allows users to register and login account:
 	**`controllers/authController.js/exports.index`**
-
+ https://incubeta.herokuapp.com/home
+ 
 - Request to have user’s information registered in MongoDb database:
 	**`controllers/authController.js/exports.register`**
+https://incubeta.herokuapp.com/home/register
 
 - Request to authenticate user’s email with password:
     **`controllers/authController.js/exports.login`**
+https://incubeta.herokuapp.com/home/login
 
 - Request to logout current account, redirects to login page:
     **`controllers/authController.js/exports.logout`**
+    https://incubeta.herokuapp.com/home/logout
     
 
 ## **User, profile (userController) ../controllers/userController.js**
@@ -62,7 +90,7 @@ After registering at the website, each user will generate a profile including al
 | profile_img|String type, updated through user controller, url address of the image|
 | phone_num| String type, updated through user controller, phone number of user|
 |date_of_birth| Date type, updated through user update page, can be updated as user’s birthday, displayed as age|
-|tag| Array type, linked to the skillset tag or tag of interest that user associates themselves with.|
+|tags| Array type, linked to the skillset tag or tag of interest that user associates themselves with.|
 |followed_tag| Array type, link to users’ subscribed tag, displayed at user’s dashboard. ( will also generate email notification is jobs are posted under subscribed tag.)|
 |popularity| Number type, recording each user’s popularity through the number of times the user-detail page is visited.|
 |infoDisplayConsent |Boolean type, consent of displaying personal contact details on user profile.|
@@ -77,9 +105,14 @@ After registering at the website, each user will generate a profile including al
 
 - Request to view a user’s profile including all the jobs posted by the particular user:
   **`controllers/userController.js/exports.user_detail`**
+https://incubeta.herokuapp.com/dashboard/user/:id
+(Log in the view this page as it is protected. Follow the following directions to access the user page. After logging in, press the icon on the top left corner, then on your user name)
 
 - Request to update a user’s profile information:
 **`controllers/userController.js/exports.user_update`**
+https://incubeta.herokuapp.com/dashboard/user/:id/update
+(Log in the view this page as it is protected. Follow the following directions to access the user profile update. After logging in, press the icon on the top left corner, on your user name, then onto the "user update" button located at the buttom of the page)
+
 
 ## **Job listing (../controllers/jobController.js)**
 
@@ -106,21 +139,25 @@ Note that admins have the rights to update job listings (admins may update job�
 
 **Job functions:**
 
- 
-- Request to view all existing jobs:
+ - Request to view all existing jobs:
 **`controllers/jobController.js/exports.job_list`**
+https://incubeta.herokuapp.com/dashboard/jobs
 
 - Request to create a new job
 **`controllers/jobController.js/exports.job_create`**
+https://incubeta.herokuapp.com/dashboard/job/create
 
 - Request to view a specific job listing
 **`controllers/jobController.js/exports.job_detail`**
+https://incubeta.herokuapp.com/dashboard/job/:id
 
 - Request to delete one job
 **`controllers/jobController.js/exports.job_delete`**
+https://incubeta.herokuapp.com/dashboard/job/:id/delete
 
 - Request to update one job
 **`controllers/jobController.js/exports.job_update`**
+https://incubeta.herokuapp.com/dashboard/job/:id/update
 
 ## **Tagging (../controllers/tagController.js)**
 
@@ -154,19 +191,23 @@ Note if there are existing jobs under a particular tag, then deleting this tag w
 
 - Request to view all the existing tags
 **`controllers/tagController.js/exports.tag_list`**
+https://incubeta.herokuapp.com/dashboard/tags
 
 - Request to create a new tag
 **`controllers/tagController.js/exports.tag_create`**
+https://incubeta.herokuapp.com/dashboard/tag/create
 
 - Request to view all the jobs associated with a particular tag
 **`controllers/tagController.js/exports.tag_detail`**
+https://incubeta.herokuapp.com/dashboard/tag/:id
 
 - Request to delete a specific tag
 **`controllers/tagController.js/exports.tag_delete`**
+https://incubeta.herokuapp.com/dashboard/tag/:id/delete
 
 - Request to update a specific tag
 **`controllers/tagController.js/exports.tag_update`**
-
+https://incubeta.herokuapp.com/dashboard/tag/:id/update
 
 ## **Search (../controllers/searchController.js)**
 
@@ -179,7 +220,55 @@ Besides, the searchController can generate featured jobs recommendations for use
 Request to search for job keywords & generate featured jobs in dashboard page
 
 *controllers/searchController.js/exports.index*
+https://incubeta.herokuapp.com/dashboard/jobs
 
 ## **Email subscription(../controllers/emailController.js)**
 
 The emailController enables the website to inform users about the newest updates via emails. Once new jobs are listed under the subscribed tags (given the user have subscribed to some tags), notification emails will be sent to the users. Besides, if a user decided not to reveal his personal contact details for privacy reasons, other users can also reach out to him via email.
+
+## *Route*
+
+## Index Page
+
+Index page acts welcome page. Users can click on the animation of logo to get redirected to the dashboard page.
+
+## **Dashboard**
+
+
+Overlooking all the controllers is the dashboard, where rendered after the user’s successful login, provides routing to the three controllers (jobController, userController, tagController) of the main functions of InCuBeta. Shown above, for both the job route and tag route via the two controllers, functions of viewing/ posting/ updating/ deleting are supported. Where as mentioned before, routing to the userController, users can also review peer profiles or to make changes of their own details.
+
+  
+
+Under the job routes, users can get/post requests to create/update/delete/view jobs.
+
+Under the user routes, users can get/post requests to update their own profile and get requests to browse other people’s files.
+
+Under the tag routes, users(only admins) can get/post requests to create/update/delete/view tags.
+
+  
+6 featured jobs will be generally each time when the user refreshes the dashboard page and will be present to users in the form of a carousel. The tags subscribed by user will also be shown.
+
+## Home
+The home page is served as a register/login page for users if they want to use certain functions. 
+
+## *Test Account details:*
+
+(A real gmail account for email notification purpose,Email notifications will be sent if you follow tags and new jobs if said tags are updated. If a user messages you under your profile to further connect, an email will be sent too.)
+
+*password is the name for Gmail login and incubeta login
+
+Name: H1 Please (regular user)
+
+Email: [incubetatest@gmail.com](mailto:incubetaTest@gmail.com)
+
+Password: h1h1h1h1
+
+  
+
+Test account (authorized to CRUD actions)
+
+Email: theresalee0311@gmail.com
+
+Password: 1234 (set before applying password length constrictions) 
+
+
